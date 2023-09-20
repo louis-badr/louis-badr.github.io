@@ -1,11 +1,11 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Portfolio - Louis BADR",
+    "short_name": "Portfolio - Louis BADR",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Creative technologist portfolio - between engineering, research and design.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
