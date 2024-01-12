@@ -1,0 +1,188 @@
+[
+    {
+        "filename": "haptid-worn-1.JPG",
+        "caption": "Me wearing the HapTID device 1/2",
+        "tag": "HapTID",
+        "year": "2023"
+    },
+    {
+        "filename": "haptid-worn-2.JPG",
+        "caption": "Me wearing the HapTID device 2/2",
+        "tag": "HapTID",
+        "year": "2023"
+    },    
+    {
+        "filename": "haptid-fnirs.JPG",
+        "caption":
+            "Introduction to fNIRS with a first HapTID prototype during our visit at the Regional Hospital Center in Orléans",
+        "tag": "HapTID",
+        "year": "2023"
+    },
+    {
+        "filename": "haptid-enclosure.JPG",
+        "caption": "The device enclosure and the jack connector of an actuator",
+        "tag": "HapTID",
+        "year": "2023"
+    },
+
+    {
+        "filename": "foundry-recycling.webp",
+        "caption": "Metal pouring - nordic gold recycling test",
+        "tag": "Foundry",
+        "year": "2023"
+    },
+    {
+        "filename": "foundry-wax.JPG",
+        "caption":
+            "Two parts 3D printed in castable wax and mounted on a wax shaft ready for molding",
+        "tag": "Foundry",
+        "year": "2023"
+    },
+    {
+        "filename": "foundry-lion-ring.webp",
+        "caption":
+            "First vacuum casting trial with aluminium (and a little post-processing)",
+        "tag": "Foundry",
+        "year": "2023"
+    },
+    {
+        "filename": "foundry-gold.webp",
+        "caption": "Nordic gold statuette fresh from the mould",
+        "tag": "Foundry",
+        "year": "2023"
+    },
+
+    {
+        "filename": "augmentip-working.webp",
+        "caption": "First working AugmenTip prototype",
+        "tag": "AugmenTip",
+        "year": "2023"
+    },
+    {
+        "filename": "augmentip-assembly.webp",
+        "caption": "Timelapse of the assembly",
+        "tag": "AugmenTip",
+        "year": "2023"
+    },
+    {
+        "filename": "blender-first-steps.webp",
+        "caption": "First steps in Blender!",
+        "tag": "AugmenTip",
+        "year": "2023"
+    },
+    {
+        "filename": "augmentip-pcb-milling.webp",
+        "caption": "CNC milling an ESP32 shield",
+        "tag": "AugmenTip",
+        "year": "2023"
+    },
+    {
+        "filename": "augmentip-pcb-1.JPG",
+        "caption": "CNC milled ESP32 shield - top side",
+        "tag": "AugmenTip",
+        "year": "2023"
+    },
+    {
+        "filename": "augmentip-pcb-2.JPG",
+        "caption": "CNC milled ESP32 shield - bottom side",
+        "tag": "AugmenTip",
+        "year": "2023"
+    },
+
+    {
+        "filename": "smartlock-in-use-V2.webp",
+        "caption": "Smart Lock V2 first installed unit!",
+        "tag": "Smart Lock V2",
+        "year": "2022"
+    },
+    {
+        "filename": "smartlock-wirewrapping.JPG",
+        "caption": "Test with wire wrapping to make the enclosure low profile",
+        "tag": "Smart Lock V2",
+        "year": "2022"
+    },
+
+    {
+        "filename": "tshirt-flocking.webp",
+        "caption": "T-shirt flocking with vinyl plotter and press",
+        "tag": "Random",
+        "year": "2021"
+    },
+
+    {
+        "filename": "decide-shipping.JPG",
+        "caption": "DECIDE parcels ready to be shipped",
+        "tag": "DECIDE",
+        "year": "2021"
+    },
+    {
+        "filename": "decide-proto.webp",
+        "caption": "First DECIDE prototype using tape and plastic sheets",
+        "tag": "DECIDE",
+        "year": "2021"
+    },
+    {
+        "filename": "decide-stamp.webp",
+        "caption": "Testing custom stamps for the packaging",
+        "tag": "DECIDE",
+        "year": "2021"
+    },
+
+    {
+        "filename": "touchwheel-in-use.JPG",
+        "caption":
+            "Touch wheel for creative software and media control I designed for the 'How to Make Almost Anything' course",
+        "tag": "Touch wheel",
+        "year": "2021"
+    },
+    {
+        "filename": "touchwheel-exploded.webp",
+        "caption":
+            "Exploded view of the touch wheel - (1, 2 and 6) 3D printed parts (3) sensor circuit board (4) Muca breakout board (5) Adafruit Circuit Playground",
+        "tag": "Touch wheel",
+        "year": "2021"
+    },
+    {
+        "filename": "touchwheel-pcb-1.JPG",
+        "caption": "Capacitive sensor top side milled at home with a cheap CNC machine",
+        "tag": "Touch wheel",
+        "year": "2021"
+    },
+    {
+        "filename": "touchwheel-pcb-2.JPG",
+        "caption": "Capacitive sensor bottom side milled at home with a cheap CNC machine",
+        "tag": "Touch wheel",
+        "year": "2021"
+    },
+
+    {
+        "filename": "bootcamp-antenna.webp",
+        "caption":
+            "Our handcrafted antenna to take selfies from space - taken during the DVIC Bootcamp",
+        "tag": "Bootcamp",
+        "year": "2021"
+    },
+    {
+        "filename": "bootcamp-result.PNG",
+        "caption":
+            "Our best picture with our handmade antenna! - a good view on France, Spain and North Africa",
+        "tag": "Bootcamp",
+        "year": "2021"
+    },
+
+    {
+        "filename": "smartlock-in-use.webp",
+        "caption":
+            "First functional prototype of Smart Lock - in collaboration with Maxime Broussart",
+        "tag": "Smart Lock V1",
+        "year": "2021"
+    },
+
+    {
+        "filename": "kylo-ren.webp",
+        "caption":
+            "Drawing of the model I designed for the 'Machine Design and Rapid Prototyping' course on the theme of Star Wars",
+        "tag": "Random",
+        "year": "2019"
+    }
+]

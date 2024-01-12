@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>gallery • louis badr</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <canvas id="bgCanvas"></canvas>
+        <div class="gallery__page">
+            <h1>gallery</h1>
+            <nav class="navbar gallery">
+                <ul>
+                    <li>
+                        <h1>gallery</h1>
+                    </li>
+                    <li>
+                        <a href="/projects/">
+                            <button class="navbar__button">
+                                <span class="material-icons navbar__button--icon">arrow_forward</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="image-gallery"></div>
+            <a href="/projects/">
+                <button class="nav-button right">
+                    <span class="material-icons nav-button--icon">arrow_right</span>
+                </button>
+            </a>
+        </div>  
+        <div id="gallery-popup__overlay">
+            <div id="gallery-popup__container">
+                <div id="gallery-popup__image-container">
+                    <img id="gallery-popup__image">
+                </div>
+                <div id="gallery-popup__info">
+                    <p id="gallery-popup__caption"></p>
+                    <b id="gallery-popup__tag-year"></b>
+                </div>
+            </div>
+        </div>
+        <script src="/js/background.js"></script>
+        <script src="/js/gallery-data-test.json"></script>
+        <script src="/js/gallery.js"></script>
+    </body>
+</html>

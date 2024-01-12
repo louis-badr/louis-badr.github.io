@@ -1,59 +1,81 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="Portfolio - Louis BADR" content="Creative technologist portfolio - between engineering, research and design.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>Portfolio - Louis BADR</title>
-  <link rel="manifest" href="manifest.json">
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "668246435";
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
-</head>
-<body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
-        }
-      });
-    });
-  </script>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>portfolio • louis badr</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <canvas id="bgCanvas"></canvas>
+        <div class="home__page">
+            <nav class="navbar home">
+                <ul>
+                    <li>
+                        <a href="/projects/">
+                            <button class="navbar__button left">
+                                <span class="material-icons navbar__button--icon">arrow_back</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/aboutme/">
+                            <button class="navbar__button">
+                                <span class="material-icons navbar__button--icon">arrow_upward</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="/projects/">
+                <button class="nav-button left">
+                    <span class="material-icons nav-button--icon">arrow_left</span>
+                </button>
+            </a>
+            <a href="/aboutme/">
+                <button class="nav-button up">
+                    <span class="material-icons nav-button--icon">arrow_drop_up</span>
+                </button>
+            </a>
+            <table class="cartouche">
+                <tr>
+                    <td colspan="4">
+                        <div class="cartouche__tip">TITLE</div>
+                        <b>Portfolio</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div class="cartouche__tip">DESCRIPTION</div>
+                        Creative technologist based in Paris - between engineering, research and design
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <div class="cartouche__tip">LOGO</div>
+                        <img class="cartouche__logo" src="/images/dvic_logo.png" alt="DVIC Logo" />
+                    </td>
+                    <td colspan="2">
+                        <div class="cartouche__tip">CREATED BY</div>
+                        Louis BADR
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cartouche__tip">DATE OF ISSUE</div>
+                        <p id="dateCell"></p>
+                    </td>
+                    <td>
+                        <div class="cartouche__tip">REV</div>
+                        work in progress
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script src="/js/script.js"></script>
+        <script src="/js/background.js"></script>
+    </body>
 </html>

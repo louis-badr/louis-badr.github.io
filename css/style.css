@@ -1,0 +1,550 @@
+/********************************************
+    GLOBAL
+********************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+
+    --color-dark: #04071B;
+    --color-light: #F4EFDC;
+    --color-accent: #2E45ED;
+    --color-accent-light: #B8BFEF;
+
+}
+
+body {
+    overflow: hidden;
+    background: var(--color-dark);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: var(--color-light);
+}
+
+canvas {
+    position: absolute;
+    display: block;
+    z-index: -1;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-light);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/********************************************
+    COMPONENTS
+********************************************/
+
+.card {
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid var(--color-accent);
+    border-radius: 20px;
+}
+
+.link-chip {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    margin: 5px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    font-size: 16px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: max-content;
+    max-width: 450px;
+    border-radius: 20px;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-accent);
+    color: var(--color-light);
+    text-align: center;
+    padding: 6px 14px;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip:active .tooltiptext {
+    visibility: visible;
+}
+
+/********************************************
+    NAVIGATION
+********************************************/
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-dark);
+    border: 3px solid var(--color-accent);
+    margin: 20px;
+    cursor: pointer;
+}
+
+.nav-button--icon {
+    color: var(--color-light);
+    font-size: 36px;
+}
+
+.nav-button.left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.nav-button.up {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-button.right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.nav-button.down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-button:hover {
+    background-color: var(--color-accent);
+}
+
+.navbar {
+    display: none;
+    left: 0;
+    position: fixed;
+    width: inherit;
+    height: 60px;
+    background-color: var(--color-dark);
+}
+
+.navbar.home {
+    top: 0;
+}
+
+.navbar.aboutme {
+    bottom: 0;
+}
+
+.navbar.projects {
+    top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.navbar__button--icon {
+    color: var(--color-light);
+    font-size: 36px;
+}
+
+.navbar__button--icon:hover {
+    color: var(--color-accent);
+}
+
+.navbar.home ul li:first-child {
+    float: left;
+}
+
+.navbar.projects ul li:first-child {
+    float: left;
+}
+
+.navbar.projects ul li:last-child {
+    float: right;
+}
+
+.navbar ul {
+    text-align: center;
+}
+.navbar ul li {
+    display: inline-block;
+    text-align: center;
+}
+
+/********************************************
+    HOME PAGE
+********************************************/
+
+.home__page {
+    width: calc(100vw - 27px);
+}
+
+.cartouche {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    font-size: clamp(18px, 2vw, 20px);
+}
+
+.cartouche__tip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: clamp(10px, 1vw, 12px);
+    padding: 2px;
+    border-collapse: collapse;
+}
+
+.cartouche__logo {
+    width: clamp(150px, 20vw, 250px);
+}
+
+.cartouche td {
+    position: relative;
+    text-align: center;
+    border: 2px solid var(--color-light);
+    border-right: none;
+    border-bottom: none;
+    padding: 20px clamp(0px, 1vw, 10px);
+}
+
+/********************************************
+    ABOUT ME PAGE
+********************************************/
+
+.aboutme__page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: calc(100vw - 27px);
+}
+
+.aboutme__body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: inherit;
+}
+
+.aboutme__bio {
+    width: clamp(450px, 40vw, 700px);
+    padding: 20px;
+}
+
+.aboutme__skills-tools {
+    width: clamp(400px, 40vw, 700px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+}
+
+.aboutme__chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+.aboutme__chip {
+    margin: 5px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-accent);
+    color: var(--color-light);
+}
+
+.aboutme__links {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+/********************************************
+    PROJECTS PAGE
+********************************************/
+
+.projects__page {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100vh - 22px);
+}
+
+.projects__body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.projects__projects-list {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.projects__body::-webkit-scrollbar {
+    position: absolute;
+    left: 0;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: clamp(400px, 75vw, 1200px);
+}
+
+.project-card.reversed {
+    flex-direction: row-reverse;
+}
+
+.project-card__description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.project-card__description > p {
+    overflow-y: scroll;
+}
+
+.project-card__image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.project-card__image.mobile {
+    display: none;
+}
+
+.project-card__image img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/********************************************
+    GALLERY PAGE
+********************************************/
+
+.gallery__page {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 27px;
+    width: calc(100vw - 27px);
+    height: calc(100vh - 22px);
+}
+
+#image-gallery {
+    margin: 10px;
+    padding-right: 20px;
+    width: 88%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    columns: 3;
+}
+
+#image-gallery > div {
+    padding: 5px;
+    width: 100%;
+}
+
+#image-gallery > div > img {
+    border: 2px solid transparent;
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+#image-gallery > div > img:hover {
+    border-color: var(--color-accent);
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#gallery-popup__overlay {
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+#gallery-popup__container {
+    position: relative;
+}
+
+#gallery-popup__image {
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+#gallery-popup__info {
+    position: absolute;
+    max-width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 8px 16px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: start;
+    line-height: 1.5;
+    color: var(--color-light);
+    font-size: 20px;
+}
+
+#gallery-popup__tag-year {
+    color: var(--color-accent);
+}
+
+
+/********************************************
+    SMALL SCREENS
+********************************************/
+
+@media only screen and (max-width: 768px) {
+    .nav-button {
+        display: none;
+    }
+    .navbar {
+        display: block;
+    }
+
+    .project-card {
+        height: auto;
+    }
+    
+    .project-card.reversed {
+        flex-direction: row;
+    }
+
+    .project-card__image.mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-card__image img {
+        max-height: 300px;
+        max-width: 100%;
+    }
+
+    .project-card__image {
+        display: none;
+    }
+
+    .aboutme__body {
+        flex: 1;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scrollbar-color: var(--color-accent);
+        align-items: start;
+        margin-bottom: 70px;
+        padding-bottom: 100px;
+    }
+    .aboutme__bio {
+        width: 75%;
+    }
+    .aboutme__skills-tools {
+        align-items: start;
+    }
+    .aboutme__chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+    #image-gallery {
+        margin: 10px;
+        padding-right: 20px;
+        width: 90%;
+        columns: 2;
+    }
+
+    .tooltip .tooltiptext {
+        left: 105%;
+    }
+}
+
+/********************************************
+    LARGE SCREENS
+********************************************/
+
+@media only screen and (min-width: 1200px) {
+    #image-gallery {
+        margin: 10px;
+        padding-right: 20px;
+        width: 92%;
+        columns: 4;
+    }
+}
