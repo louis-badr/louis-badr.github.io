@@ -11,8 +11,6 @@
     --color-dark: #04071B;
     --color-light: #F4EFDC;
     --color-accent: #2E45ED;
-    --color-accent-light: #B8BFEF;
-
 }
 
 body {
@@ -27,6 +25,12 @@ canvas {
     position: absolute;
     display: block;
     z-index: -1;
+}
+
+h1 {
+    font-size: clamp(30px, 3vw, 50px);
+    color: var(--color-accent);
+    margin: 5px 20px;
 }
 
 ::-webkit-scrollbar {
@@ -62,7 +66,7 @@ canvas {
     column-gap: 5px;
     align-items: center;
     margin: 5px;
-    padding: 6px 14px;
+    padding: 3px 9px;
     border-radius: 20px;
     border: none;
     background-color: var(--color-light);
