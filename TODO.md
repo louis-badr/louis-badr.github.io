@@ -33,3 +33,4 @@
 
 ### Global
 - [ ] Add page transitions
+- [ ] Add loading animations
