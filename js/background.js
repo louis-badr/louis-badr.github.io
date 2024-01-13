@@ -1,9 +1,8 @@
 // define colors
 const colorDark = "#04071B";
 const colorLight = "#F4EFDC";
-const colorLighter = "#f4efdc40";
 const colorAccent = "#2E45ED";
-const colorAccentLighter = "#2e45ed40";
+const colorAccentLighter = "#2E45ED50";
 
 const canvas = document.getElementById("bgCanvas");
 const context = canvas.getContext("2d");
@@ -49,6 +48,7 @@ function drawBg() {
 }
 
 function drawBottomRightBg() {
+    context.beginPath();
     // Horizontal line
     context.moveTo(0, canvas.height -20);
     context.lineTo(canvas.width - 20, canvas.height -20);
@@ -72,6 +72,7 @@ function drawBottomRightBg() {
     context.lineWidth = 2;
     context.stroke();
 
+    context.beginPath();
     // Grid crosses
     for (let i = 1; i <= marksNumber; i++) {
         for (let j = 1; j <= marksNumber; j++) {
@@ -88,6 +89,7 @@ function drawBottomRightBg() {
 }
 
 function drawBottomLeftBg() {
+    context.beginPath();
     // Horizontal line
     context.moveTo(20, canvas.height -20);
     context.lineTo(canvas.width, canvas.height -20);
@@ -111,6 +113,7 @@ function drawBottomLeftBg() {
     context.lineWidth = 2;
     context.stroke();
 
+    context.beginPath();
     // Grid crosses
     for (let i = 1; i <= marksNumber; i++) {
         for (let j = 1; j <= marksNumber; j++) {
@@ -127,6 +130,7 @@ function drawBottomLeftBg() {
 }
 
 function drawRightBg() {
+    context.beginPath();
     // Vertical line
     context.moveTo(canvas.width - 20, 0);
     context.lineTo(canvas.width - 20, canvas.height);
@@ -140,6 +144,8 @@ function drawRightBg() {
     context.strokeStyle = colorLight;
     context.lineWidth = 2;
     context.stroke();
+
+    context.beginPath();
     // Grid crosses
     for (let i = 1; i <= marksNumber; i++) {
         for (let j = 1; j <= marksNumber; j++) {
@@ -156,6 +162,7 @@ function drawRightBg() {
 }
 
 function drawBottomBg() {
+    context.beginPath();
     // Horizontal line
     context.moveTo(0, canvas.height -20);
     context.lineTo(canvas.width, canvas.height -20);
@@ -169,6 +176,8 @@ function drawBottomBg() {
     context.strokeStyle = colorLight;
     context.lineWidth = 2;
     context.stroke();
+
+    context.beginPath();
     // Grid crosses
     for (let i = 1; i <= marksNumber; i++) {
         for (let j = 1; j <= marksNumber; j++) {
