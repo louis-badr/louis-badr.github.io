@@ -118,41 +118,41 @@ h1 {
     height: 50px;
     background-color: var(--color-dark);
     border: 3px solid var(--color-accent);
-    margin: 20px;
     cursor: pointer;
+    position: absolute;
 }
 
-.nav-button--icon {
+.nav-button > span {
     color: var(--color-light);
     font-size: 36px;
 }
 
 .nav-button.left {
-    position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+    margin-left: 20px;
 }
 
 .nav-button.up {
-    position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 20px;
 }
 
 .nav-button.right {
-    position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+    margin-right: 20px;
 }
 
 .nav-button.down {
-    position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 20px;
 }
 
 .nav-button:hover {
@@ -229,14 +229,15 @@ h1 {
 ********************************************/
 
 .home__page {
-    width: calc(100vw - 27px);
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    position: relative;
 }
 
 .cartouche {
     position: absolute;
     bottom: 0;
     right: 0;
-    margin: 20px;
     font-size: clamp(18px, 2vw, 20px);
 }
 
@@ -270,7 +271,8 @@ h1 {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: calc(100vw - 27px);
+    width: calc(100vw - 20px);
+    position: relative;
 }
 
 .aboutme__body {
@@ -324,7 +326,8 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: calc(100vh - 22px);
+    height: calc(100vh - 20px);
+    position: relative;
 }
 
 .projects__body {
@@ -397,9 +400,10 @@ h1 {
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 27px;
-    width: calc(100vw - 27px);
-    height: calc(100vh - 22px);
+    left: 20px;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    position: relative;
 }
 
 #image-gallery {
