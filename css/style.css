@@ -163,13 +163,13 @@ h1 {
     display: none;
     left: 0;
     position: relative;
-    width: calc(100% - 2px);
     height: 70px;
     background-color: var(--color-dark);
 }
 
 .navbar.home {
     top: 0;
+    width: calc(100% - 2px);
 }
 
 .navbar.home > a:first-of-type {
@@ -190,15 +190,29 @@ h1 {
 
 .navbar.aboutme {
     bottom: 0;
+    width: calc(100% - 2px);
+}
+
+.navbar.aboutme > a:first-of-type {
+    /* place in the center left of the navbar */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .navbar.projects {
     top: 0;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
 
-
+.navbar.gallery {
+    top: 0;
+    left: 2px;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .navbar__button {
     display: flex;
@@ -281,7 +295,7 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: inherit;
+    width: calc(100% - 5px);
 }
 
 .aboutme__bio {
@@ -407,7 +421,6 @@ h1 {
 }
 
 #image-gallery {
-    margin: 10px;
     padding-right: 20px;
     width: 88%;
     overflow-y: scroll;
@@ -488,6 +501,17 @@ h1 {
         display: block;
     }
 
+    .navbar.projects {
+        display: flex;
+    }
+
+    .navbar.gallery {
+        display: flex;
+    }
+
+    .projects__page > h1 {
+        display: none;
+    }
     .project-card {
         height: auto;
     }
@@ -518,22 +542,28 @@ h1 {
         overflow-y: scroll;
         scrollbar-color: var(--color-accent);
         align-items: start;
-        margin-bottom: 70px;
         padding-bottom: 100px;
     }
+
     .aboutme__bio {
         width: 75%;
     }
+
     .aboutme__skills-tools {
         align-items: start;
     }
+
     .aboutme__chip-row {
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
     }
+
+    .gallery__page > h1 {
+        display: none;
+    }
+
     #image-gallery {
-        margin: 10px;
         padding-right: 20px;
         width: 90%;
         columns: 2;
@@ -550,7 +580,6 @@ h1 {
 
 @media only screen and (min-width: 1200px) {
     #image-gallery {
-        margin: 10px;
         padding-right: 20px;
         width: 92%;
         columns: 4;
