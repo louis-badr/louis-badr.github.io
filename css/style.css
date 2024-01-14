@@ -116,7 +116,7 @@ h1 {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    background-color: var(--color-dark);
+    background-color: transparent;
     border: 3px solid var(--color-accent);
     cursor: pointer;
     position: absolute;
@@ -162,14 +162,30 @@ h1 {
 .navbar {
     display: none;
     left: 0;
-    position: fixed;
-    width: inherit;
-    height: 60px;
+    position: relative;
+    width: calc(100% - 2px);
+    height: 70px;
     background-color: var(--color-dark);
 }
 
 .navbar.home {
     top: 0;
+}
+
+.navbar.home > a:first-of-type {
+    /* place in the center left of the navbar */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.navbar.home > a:last-of-type {
+    /* place in the center of the navbar */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .navbar.aboutme {
@@ -182,6 +198,8 @@ h1 {
     justify-content: space-between;
 }
 
+
+
 .navbar__button {
     display: flex;
     align-items: center;
@@ -189,39 +207,19 @@ h1 {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    margin: 10px;
     cursor: pointer;
     background-color: transparent;
     border: none;
+    margin: 10px;
 }
 
-.navbar__button--icon {
+.navbar__button > span {
     color: var(--color-light);
-    font-size: 36px;
+    font-size: 40px;
 }
 
-.navbar__button--icon:hover {
+.navbar__button > span:hover {
     color: var(--color-accent);
-}
-
-.navbar.home ul li:first-child {
-    float: left;
-}
-
-.navbar.projects ul li:first-child {
-    float: left;
-}
-
-.navbar.projects ul li:last-child {
-    float: right;
-}
-
-.navbar ul {
-    text-align: center;
-}
-.navbar ul li {
-    display: inline-block;
-    text-align: center;
 }
 
 /********************************************
@@ -239,6 +237,9 @@ h1 {
     bottom: 0;
     right: 0;
     font-size: clamp(18px, 2vw, 20px);
+    margin-left: 20px;
+    border: 2px solid var(--color-light);
+    border-collapse: collapse;
 }
 
 .cartouche__tip {
@@ -247,7 +248,6 @@ h1 {
     left: 0;
     font-size: clamp(10px, 1vw, 12px);
     padding: 2px;
-    border-collapse: collapse;
 }
 
 .cartouche__logo {
@@ -257,10 +257,10 @@ h1 {
 .cartouche td {
     position: relative;
     text-align: center;
-    border: 2px solid var(--color-light);
     border-right: none;
     border-bottom: none;
     padding: 20px clamp(0px, 1vw, 10px);
+    border: 2px solid var(--color-light);
 }
 
 /********************************************
