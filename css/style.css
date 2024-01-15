@@ -241,18 +241,20 @@ h1 {
 ********************************************/
 
 .home__page {
+    position: relative;
     width: calc(100vw - 20px);
     height: calc(100vh - 20px);
-    position: relative;
 }
 
 .cartouche {
     position: absolute;
     bottom: 0;
     right: 0;
-    font-size: clamp(18px, 2vw, 20px);
     margin-left: 20px;
+    font-size: clamp(18px, 2vw, 20px);
     border: 2px solid var(--color-light);
+    border-right: none;
+    border-bottom: none;
     border-collapse: collapse;
 }
 
@@ -260,8 +262,8 @@ h1 {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: clamp(10px, 1vw, 12px);
     padding: 2px;
+    font-size: clamp(10px, 1vw, 12px);
 }
 
 .cartouche__logo {
@@ -271,10 +273,10 @@ h1 {
 .cartouche td {
     position: relative;
     text-align: center;
+    border: 2px solid var(--color-light);
     border-right: none;
     border-bottom: none;
     padding: 20px clamp(0px, 1vw, 10px);
-    border: 2px solid var(--color-light);
 }
 
 /********************************************
