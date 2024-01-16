@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             function openPopup(item) {
                 popupOverlay.style.display = "flex";
-                popupImage.src = "/images/gallery/" + item.filename;
+                popupImage.src = "/assets/gallery/" + item.filename;
                 popupCaption.textContent = item.caption;
                 popupTagAndYear.textContent = item.tag + " • " + item.year;                                                                    
             }                                                                                   
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             data.forEach(item => {
                 const imgElement = document.createElement('img');
-                imgElement.src = "/images/gallery/" + item.filename;
+                imgElement.src = "/assets/gallery/" + item.filename;
                 imgElement.alt = item.caption;
                 const galleryItem = document.createElement('div');
                 galleryItem.appendChild(imgElement);
