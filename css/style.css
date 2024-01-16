@@ -13,11 +13,26 @@
     --color-accent: #2E45ED;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('/assets/fonts/roboto-regular-webfont.woff2') format('woff2'),
+        url('/assets/fonts/roboto-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('/assets/fonts/roboto-bold-webfont.woff2') format('woff2'),
+        url('/assets/fonts/roboto-bold-webfont.woff') format('woff');
+}
+
 body {
-    overflow: hidden;
+    font-family: 'Roboto';
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 1.2rem;
     background: var(--color-dark);
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
     color: var(--color-light);
 }
 
@@ -25,6 +40,11 @@ canvas {
     position: absolute;
     display: block;
     z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
@@ -276,7 +296,7 @@ h1 {
     border: 2px solid var(--color-light);
     border-right: none;
     border-bottom: none;
-    padding: 20px clamp(0px, 1vw, 10px);
+    padding: 20px;
 }
 
 /********************************************
@@ -415,7 +435,6 @@ h1 {
 .gallery__page {
     display: flex;
     flex-direction: column;
-    position: absolute;
     left: 20px;
     width: calc(100vw - 20px);
     height: calc(100vh - 20px);
@@ -449,6 +468,7 @@ h1 {
 
 #gallery-popup__overlay {
     display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;

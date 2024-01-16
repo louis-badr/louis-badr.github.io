@@ -25,9 +25,8 @@
 - [x] Add the current pictures
 
 ### Final bug fixes
-
-- [ ] 
-
+- [x] Host the font locally
+- [ ] Host the icons locally ?
 
 # TODO V1.1.X 
 

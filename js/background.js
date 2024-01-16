@@ -28,7 +28,6 @@ function resizeCanvas() {
 function drawBg() {
     // Get the pathname of the current URL
     currentPath = window.location.pathname;
-    console.log(currentPath);
     switch (currentPath) {
         case "/":
             drawBottomRightBg();
