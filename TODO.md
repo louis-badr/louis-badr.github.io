@@ -26,7 +26,8 @@
 
 ### Final bug fixes
 - [x] Host the font locally
-- [ ] Host the icons locally ?
+- [x] Host the icons locally
+- [ ] Improve performance for the gallery page
 
 # TODO V1.1.X 
 
