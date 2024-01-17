@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             function openPopup(item) {
                 popupOverlay.style.display = "flex";
                 popupImage.src = "/assets/gallery/" + item.filename;
+                popupImage.alt = item.caption;
                 popupCaption.textContent = item.caption;
                 popupTagAndYear.textContent = item.tag + " • " + item.year;                                                                    
             }                                                                                   
@@ -21,8 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             data.forEach(item => {
                 const imgElement = document.createElement('img');
-                imgElement.src = "/assets/gallery/" + item.filename;
+                imgElement.src = "/assets/gallery/thumbnail/" + item.filename;
                 imgElement.alt = item.caption;
+                imgElement.loading = "lazy";
                 const galleryItem = document.createElement('div');
                 galleryItem.appendChild(imgElement);
                 galleryItem.addEventListener('click', () => openPopup(item));

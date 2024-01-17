@@ -28,6 +28,8 @@
 - [x] Host the font locally
 - [x] Host the icons locally
 - [ ] Improve performance for the gallery page
+    - [ ] Load blurred images first
+    - [ ] Only show the first frame for animated webp
 
 # TODO V1.1.X 
 
