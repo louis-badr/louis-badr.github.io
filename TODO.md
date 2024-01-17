@@ -29,7 +29,8 @@
 - [x] Host the icons locally
 - [ ] Improve performance for the gallery page
     - [ ] Load blurred images first
-    - [ ] Only show the first frame for animated webp
+    - [x] Only show the first frame for animated webp
+        - [x] Show a play button for animated webp
 
 # TODO V1.1.X 
 

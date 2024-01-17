@@ -27,6 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 imgElement.loading = "lazy";
                 const galleryItem = document.createElement('div');
                 galleryItem.appendChild(imgElement);
+
+                if (item.animated) {
+                    const iconElement = document.createElement('span');
+                    iconElement.innerHTML = 'play_arrow';
+                    iconElement.classList.add('material-icons');
+                    galleryItem.appendChild(iconElement);
+                }
+
                 galleryItem.addEventListener('click', () => openPopup(item));
                 gallery.appendChild(galleryItem);
             });

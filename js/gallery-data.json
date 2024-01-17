@@ -27,6 +27,7 @@
 
     {
         "filename": "foundry-recycling.webp",
+        "animated": true,
         "caption": "Metal pouring - nordic gold recycling test",
         "tag": "Foundry",
         "year": "2023"
@@ -40,6 +41,7 @@
     },
     {
         "filename": "foundry-lion-ring.webp",
+        "animated": true,
         "caption":
             "First vacuum casting trial with aluminium (and a little post-processing)",
         "tag": "Foundry",
@@ -54,24 +56,28 @@
 
     {
         "filename": "augmentip-working.webp",
+        "animated": true,
         "caption": "First working AugmenTip prototype",
         "tag": "AugmenTip",
         "year": "2023"
     },
     {
         "filename": "augmentip-assembly.webp",
+        "animated": true,
         "caption": "Timelapse of the assembly",
         "tag": "AugmenTip",
         "year": "2023"
     },
     {
         "filename": "blender-first-steps.webp",
+        "animated": true,
         "caption": "First steps in Blender!",
         "tag": "AugmenTip",
         "year": "2023"
     },
     {
         "filename": "augmentip-pcb-milling.webp",
+        "animated": true,
         "caption": "CNC milling an ESP32 shield",
         "tag": "AugmenTip",
         "year": "2023"
@@ -91,6 +97,7 @@
 
     {
         "filename": "smartlock-in-use-V2.webp",
+        "animated": true,
         "caption": "Smart Lock V2 first installed unit!",
         "tag": "Smart Lock V2",
         "year": "2022"
@@ -172,6 +179,7 @@
 
     {
         "filename": "smartlock-in-use.webp",
+        "animated": true,
         "caption":
             "First functional prototype of Smart Lock - in collaboration with Maxime Broussart",
         "tag": "Smart Lock V1",
