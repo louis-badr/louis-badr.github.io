@@ -479,6 +479,7 @@ h1 {
 #image-gallery > div {
     padding: 5px;
     width: 100%;
+    position: relative;
 }
 
 #image-gallery > div > img {
@@ -491,6 +492,15 @@ h1 {
     border-color: var(--color-accent);
     opacity: 0.7;
     cursor: pointer;
+}
+
+#image-gallery > div > span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-light);
+    font-size: 60px;
 }
 
 #gallery-popup__overlay {
