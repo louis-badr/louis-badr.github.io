@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             const gallery = document.getElementById('image-gallery');
             const popupOverlay = document.getElementById('gallery-popup__overlay');
+            const popupContainer = document.getElementById('gallery-popup__container');
             const popupImage = document.getElementById('gallery-popup__image');
             const popupCaption = document.getElementById('gallery-popup__caption');
             const popupTagAndYear = document.getElementById('gallery-popup__tag-year');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 popupOverlay.style.display = "flex";
                 popupImage.src = "/assets/gallery/" + item.filename;
                 popupImage.alt = item.caption;
+                popupContainer.style.backgroundImage = "url('/assets/gallery/small/" + item.filename + "')";
                 popupCaption.textContent = item.caption;
                 popupTagAndYear.textContent = item.tag + " • " + item.year;                                                                    
             }                                                                                   
@@ -26,14 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 imgElement.alt = item.caption;
                 imgElement.loading = "lazy";
                 const galleryItem = document.createElement('div');
+                galleryItem.style.backgroundImage = "url('/assets/gallery/small/" + item.filename + "')";
                 galleryItem.appendChild(imgElement);
-
-                if (item.animated) {
-                    const iconElement = document.createElement('span');
-                    iconElement.innerHTML = 'play_arrow';
-                    iconElement.classList.add('material-icons');
-                    galleryItem.appendChild(iconElement);
-                }
+                
+                imgElement.addEventListener('load', () => {
+                    if (item.animated) {
+                        const iconElement = document.createElement('span');
+                        iconElement.innerHTML = 'play_arrow';
+                        iconElement.classList.add('material-icons');
+                        galleryItem.appendChild(iconElement);
+                    }
+                });
 
                 galleryItem.addEventListener('click', () => openPopup(item));
                 gallery.appendChild(galleryItem);
