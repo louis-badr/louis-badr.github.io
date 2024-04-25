@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set input and output directories
-input_folder="$(pwd)"
+input_folder="thumbnail"
 output_folder="small"
 
 # Create output folder if it doesn't exist
@@ -17,7 +17,7 @@ for file in "$input_folder"/*.{jpg,png,webp,JPG,PNG,WEBP}; do
         filename_without_extension="${filename%.*}"
 
         # Set output file path
-        output_file="$output_folder/${filename_without_extension}_resized.${extension_lowercase}"
+        output_file="$output_folder/${filename_without_extension}.${extension_lowercase}"
 
         # Resize the image using ffmpeg
         ffmpeg -i "$file" -vf scale=20:-1 "$output_file"
