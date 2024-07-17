@@ -1,0 +1,28 @@
+@tailwind base;
+
+* {
+    --color-dark: #04071B;
+    --color-light: #F4EFDC;
+    --color-accent: #2E45ED;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--color-light);
+    border-radius: 14px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+@tailwind components;
+@tailwind utilities;

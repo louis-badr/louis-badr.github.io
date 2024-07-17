@@ -1,159 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>about me • louis badr</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-        <link rel="stylesheet" href="/css/style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About me • Louis Badr</title>
+        <meta name="author" content="Louis Badr" />
+        <meta
+            name="description"
+            content="Creative technologist portfolio of Louis Badr - between engineering, research and design"
+        />
+        <meta
+            name="keywords"
+            content="portfolio, engineer, engineering, researcher, research, designer, design, louis, badr, bader, creative, technologist, technology, paris, france, esilv, devinci, dvic, ift, innovation, human, computer, interaction, haptics, haptic, neuroscience"
+        />
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <link rel="stylesheet" href="/css/style.css" />
     </head>
-    <body>
-        <canvas id="bgCanvas"></canvas>
-        <div class="aboutme__page">
-            <h1>about me</h1>
-            <div class="aboutme__body">
-                <div class="aboutme__bio">
-                    <div class="card">
-                        <p>Hi! My name is Louis, I am a 24 years old creative technologist and maker based in Paris.</p>
-                        <br>
-                        <p>I am coming to the end of my studies at the Leonardo da Vinci Engineering School (ESILV) where I am pursuing a Master's degree at the DeVinci Innovation Center / Institute for Future Technologies. The program is focused on innovation, research and manufacturing on the format and in collaboration with the MIT MediaLab.</p>
+    <body class="text-light">
+        <canvas
+            id="bgCanvas"
+            class="absolute inset-0 -z-10 h-full w-full"
+        ></canvas>
+        <!-- <div
+            class="absolute inset-0 -z-20 h-full w-full bg-[#030f33] bg-[linear-gradient(to_right,#F4EFDC50_1px,transparent_1px),linear-gradient(to_bottom,#F4EFDC50_1px,transparent_1px)] bg-[size:100px_100px]"
+        ></div> -->
+        <div class="absolute bottom-0 left-0 right-0 top-0 -z-20 bg-[#030f33]">
+            <div id="gradientContainer" class="h-full w-full"></div>
+        </div>
+
+        <div
+            class="absolute left-0 top-0 flex h-full w-[calc(100%-21px)] flex-col justify-between"
+        >
+            <div
+                class="flex w-full flex-row items-center justify-start px-2 pb-3 pt-1"
+            >
+                <h1 class="text-3xl font-bold text-accent">about me</h1>
+            </div>
+            <div class="w-full overflow-y-scroll">
+                <div class="w-full md:w-1/2 xl:w-1/3">
+                    <div
+                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
+                    >
+                        <p>
+                            Hi! My name is Louis, I am a creative technology
+                            engineer and maker based in Paris.
+                        </p>
                     </div>
-                    <div class="card">
-                        <p>I do a bit of everything from CAD, programming, electronics, to fabrication for use in research or artistic projects.</p>
-                        <p>I am currently working on and interested in the fields of HCI, haptics and neuroscience. :)</p>
+                    <div
+                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
+                    >
+                        <p>
+                            I have recently graduated from the Leonardo da Vinci
+                            Engineering School (ESILV) where I obtained a
+                            Master's degree at the DeVinci Innovation Center /
+                            Institute for Future Technologies. The program is
+                            focused on innovation, research and manufacturing on
+                            the format and in collaboration with the MIT
+                            MediaLab.
+                        </p>
                     </div>
-                    <div class="card">
+                    <div
+                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
+                    >
+                        <p>
+                            I do a bit of everything from CAD, programming,
+                            electronics, to fabrication for use in research or
+                            artistic projects. I am currently working on and
+                            interested in the fields of HCI and haptics. :)
+                        </p>
+                    </div>
+                    <div
+                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
+                    >
                         <p>You can contact me at: contact@louis-badr.fr</p>
                     </div>
-                    <ul class="aboutme__links">
-                        <li>
-                            <a href="https://github.com/louis-badr" target="_blank" rel="noopener noreferrer">
-                                <button class="link-chip">
-                                    <span class="material-icons">link</span>
-                                    Github
-                                </button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/louis-badr" target="_blank" rel="noopener noreferrer">
-                                <button class="link-chip">
-                                    <span class="material-icons">link</span>
-                                    LinkedIn
-                                </button>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="aboutme__skills-tools">
-                    <h2>my skills & tools</h2>
-                    <p>(hover or tap a chip for more info)</p>
-                    <br>
-                    <h4>3D/CAD/CAM</h4>
-                    <div class="aboutme__chip-row">
-                        <div class="aboutme__chip tooltip">
-                            Fusion 360
-                            <span class="tooltiptext">For 3D modeling, simulation, rendering, CAM and generative design</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            Blender
-                            <span class="tooltiptext">For creative projects</span>
-                        </div>
-                    </div>
-                    <h4>MANUFACTURING</h4>
-                    <div class="aboutme__chip-row">
-                        <div class="aboutme__chip tooltip">
-                            3D Printing
-                            <span class="tooltiptext">FDM & Resin, slicing software, maintenance and post-processing</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            CNC Machining
-                            <span class="tooltiptext">Milling, turning, laser cutting, engraving, ...</span>
-                        </div>
-                    </div>
-                    <h4>SOFTWARE DEV</h4>
-                    <div class="aboutme__chip-row">
-                        <div class="aboutme__chip tooltip">
-                            Python
-                            <span class="tooltiptext">For its versatility</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            C/C++
-                            <span class="tooltiptext">Mostly for embedded systems</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            C#/Unity
-                            <span class="tooltiptext">To build 3D experiences</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            HTML/CSS/JS
-                            <span class="tooltiptext">To build GUIs and websites ( like this one! )</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            Linux
-                            <span class="tooltiptext">For RPis and as a daily driver</span>
-                        </div>
-                        <div class="aboutme__chip">
-                            Git
-                        </div>
-                    </div>
-                    <h4>ELECTRONICS</h4>
-                    <div class="aboutme__chip-row">
-                        <div class="aboutme__chip tooltip">
-                            Arduino
-                            <span class="tooltiptext">And other microcontrollers / boards - ESP, Teensy, RPi, ...</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            Raspberry Pi
-                            <span class="tooltiptext">When I need an OS</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            Easy EDA
-                            <span class="tooltiptext">To design custom circuit boards</span>
-                        </div>
-                        <div class="aboutme__chip tooltip">
-                            Electronics assembly
-                            <span class="tooltiptext">THT & SMT soldering, crimping, ...</span>
-                        </div>
-                    </div>
-                    <h4>GRAPHIC DESIGN</h4>
-                    <div class="aboutme__chip-row">
-                        <div class="aboutme__chip">
-                            Figma
-                        </div>
-                        <div class="aboutme__chip">
-                            Adobe Photoshop
-                        </div>
-                        <div class="aboutme__chip">
-                            Adobe Illustrator
-                        </div>
-                    </div>
-                    <h4>OFFICE SOFTWARE</h4>
-                    <div class="aboutme__chip-row">
-                        <div class="aboutme__chip">
-                            Microsoft Office
-                        </div>
-                        <div class="aboutme__chip">
-                            LaTeX
-                        </div>
-                        <div class="aboutme__chip">
-                            Zotero
-                        </div>
+                    <div class="mx-5 flex flex-row space-x-2">
+                        <a
+                            href="https://github.com/louis-badr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex w-min flex-row items-center rounded-full bg-light px-2 font-semibold text-black mix-blend-lighten"
+                        >
+                            GitHub
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 -960 960 960"
+                                fill="#000000"
+                                class="h-6 w-6"
+                            >
+                                <path
+                                    d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"
+                                />
+                            </svg>
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/louis-badr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex w-min flex-row items-center rounded-full bg-light px-2 font-semibold text-black mix-blend-lighten"
+                        >
+                            LinkedIn
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 -960 960 960"
+                                fill="#000000"
+                                class="h-6 w-6"
+                            >
+                                <path
+                                    d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"
+                                />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
-            <nav class="navbar aboutme">
-                <a href="/" alt="home">
-                    <button class="navbar__button">
-                        <span class="material-icons">arrow_downward</span>
-                    </button>
-                </a>  
-            </nav>
-            <a href="/" alt="home">
-                <button class="nav-button down">
-                    <span class="material-icons">arrow_drop_down</span>
-                </button>
-            </a>
+            <!-- NAVBAR -->
+            <div
+                class="flex w-full flex-row items-center justify-center px-2 pb-3 pt-1"
+            >
+                <a href="/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960"
+                        fill="#F4EFDC"
+                        class="h-14 w-14"
+                    >
+                        <path
+                            d="M464-376 306-533q-2-2-3.5-4.76-1.5-2.77-1.5-5.92 0-6.32 4.13-10.82 4.12-4.5 10.87-4.5h328q6.75 0 10.88 4.64 4.12 4.63 4.12 10.81 0 1.55-5 10.55L496-376q-3 3-7.06 5t-8.94 2q-4.87 0-8.94-2-4.06-2-7.06-5Z"
+                        />
+                    </svg>
+                </a>
+            </div>
         </div>
-        <script src="/js/background.js"></script>
     </body>
+    <script src="/js/date.js"></script>
+    <script src="/js/background.js"></script>
 </html>

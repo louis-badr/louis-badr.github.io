@@ -1,136 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>projects • louis badr</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-        <link rel="stylesheet" href="/css/style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projects • Louis Badr</title>
+        <meta name="author" content="Louis Badr" />
+        <meta
+            name="description"
+            content="Creative technologist portfolio of Louis Badr - between engineering, research and design"
+        />
+        <meta
+            name="keywords"
+            content="portfolio, engineer, engineering, researcher, research, designer, design, louis, badr, bader, creative, technologist, technology, paris, france, esilv, devinci, dvic, ift, innovation, human, computer, interaction, haptics, haptic, neuroscience"
+        />
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <link rel="stylesheet" href="/css/style.css" />
     </head>
-    <body>
-        <canvas id="bgCanvas"></canvas>
-        <div class="projects__page">
-            <h1>recent projects</h1>
-            <nav class="navbar projects">
-                <a href="/gallery/" alt="gallery">
-                    <button class="navbar__button">
-                        <span class="material-icons">arrow_back</span>
-                    </button>
-                </a>
-                <h1>recent projects</h1>
-                <a href="/" alt="home">
-                    <button class="navbar__button">
-                        <span class="material-icons">arrow_forward</span>
-                    </button>
-                </a>
-            </nav>
-            <div class="projects__body">
-                <a href="/gallery/" alt="gallery">
-                    <button class="nav-button left">
-                        <span class="material-icons">arrow_left</span>
-                    </button>
-                </a>
-                <div class="projects__projects-list">
-                    <div class="project-card card">
-                        <div class="project-card__description">
-                            <h2>HapTID</h2>
-                            <h3>Haptic Technology for Improved Dexterity</h3>
-                            <a href="https://github.com/louis-badr/HapTID" target="_blank" rel="noopener noreferrer">
-                                <button class="link-chip">
-                                    <span class="material-icons">link</span>
-                                    Github
-                                </button>
-                            </a>
-                            <div class="project-card__image mobile">
-                                <img src="/assets/haptid.png" alt="HapTID Drawing" />
-                            </div>
-                            <p>Haptic technologies are increasingly used in rehabilitation settings. Stroke victims suffer from severe motor and sensory deficits that handicap their daily lives. HapTID's first purpose is to study and improve dexterity in healthy subjects. It will then be used as a toolkit by researchers and medical professionals to extend the study to post-stroke neuro-rehabilitation. I was able to carry out the literature review, design and fabrication of the system and a study at the Integrative Neuroscience & Cognition Center under the supervision of Lucile Dupin and in collaboration with the Paris Institute of Psychiatry and Neuroscience.</p>
-                        </div>
-                        <div class="project-card__image">
-                            <img src="/assets/haptid.png" alt="HapTID Drawing" />
-                        </div>
-                    </div>
-                    <div class="project-card reversed card">
-                        <div class="project-card__description">
-                            <h2>AugmenTip</h2>
-                            <h3>Fingertip haptic feedback on a budget</h3>
-                            <a href="https://cables.gl/view/YxIQUk" target="_blank" rel="noopener noreferrer">
-                                <button class="link-chip">
-                                    <span class="material-icons">link</span>
-                                    Cables.gl
-                                </button>
-                            </a>
-                            <div class="project-card__image mobile">
-                                <img src="/assets/augmentip.png" alt="AugmenTip Drawing" />
-                            </div>
-                            <p>Hands are our main means of physical interaction with our environment, hence the desire to reproduce these sensations artificially and to do without traditional peripherals such as controllers for virtual experiences. In recent years, a number of DIY and open-source projects have emerged that have made haptics more attractive and accessible. One of the best-known projects is LucidGloves, an exoskeleton for the hand that provides kinaesthetic grasping sensations. AugmenTip aims to add cutaneous feedback (contact, pressure and vibration) to all five fingertips within the same DIY and open source framework. This project was carried out at the DeVinci Innovation Center as part of the Creative Technology Engineering master's program.</p>
-                        </div>
-                        <div class="project-card__image">
-                            <img src="/assets/augmentip.png" alt="AugmenTip Drawing" />
-                        </div>
-                    </div>
-                    <div class="project-card card">
-                        <div class="project-card__description">
-                            <h2>Smart Lock</h2>
-                            <h3>Smarter lab equipment access control</h3>
-                            <a href="https://github.com/louis-badr/SmartLock" target="_blank" rel="noopener noreferrer">
-                                <button class="link-chip">
-                                    <span class="material-icons">link</span>
-                                    Github
-                                </button>
-                            </a>
-                            <div class="project-card__image mobile">
-                                <img src="/assets/smartlock.png" alt="Smart Lock Drawing" />
-                            </div>
-                            <p>Smart Lock is a device I designed to regulate access to equipment for the DeVinci Innovation Center labs and student clubs. The cabinets contain consumables that need to be restocked regularly, as well as equipment that is sometimes sensitive, expensive or hazardous. With the multiplication of projects, it has become necessary to be able to know who has accessed a cabinet, to restrict access to certain cabinets but also to simplify the ordering process for consumables. Smart Lock attaches to a cabinet and features a touch screen, RFID reader and electric lock to enable students and staff to use the equipment autonomously with their university badges. This project, which is now used on a daily basis, helped me get started in electronics and improve my product design skills.</p>
-                        </div>
-                        <div class="project-card__image">
-                            <img src="/assets/smartlock.png" alt="Smart Lock Drawing" />
-                        </div>
-                    </div>
-                    <div class="project-card reversed card">
-                        <div class="project-card__description">
-                            <h2>DECIDE</h2>
-                            <h3>Kickstarter product design project</h3>
-                            <a href="https://www.kickstarter.com/projects/decide/quickstarter-decide" target="_blank" rel="noopener noreferrer">
-                                <button class="link-chip">
-                                    <span class="material-icons">link</span>
-                                    Kickstarter
-                                </button>
-                            </a>
-                            <div class="project-card__image mobile">
-                                <img src="/assets/decide.png" alt="DECIDE Drawing" />
-                            </div>
-                            <p>In the first year of the Creative Technology master's program, students have to create a product from scratch, guided by an industrial designer, and launch a Kickstarter campaign. The aim of this 'Quickstarter' format is to use a single material, a single manufacturing process and a single factory to create a project in just a few months and raise at least €1,000. With Thomas Juldo and Tristan Journel we created and launched DECIDE, a 12-sided origami-inspired dice, covered with whiteboard material to make decision making fun, stimulate creativity and create original games.</p>
-                        </div>
-                        <div class="project-card__image">
-                            <img src="/assets/decide.png" alt="DECIDE Drawing" />
-                        </div>
-                    </div>
-                    <div class="project-card card">
-                        <div class="project-card__description">
-                            <h2>DVIC Signet Ring</h2>
-                            <h3>Making a graduation ring from scratch for the DVIC students</h3>
-                            <div class="project-card__image mobile">
-                                <img src="https://placehold.jp/1000x1000.png" alt="DVIC Signet Ring Drawing" />
-                            </div>
-                            <p>To celebrate the graduation of the Creative Technology program, I was given the challenge of creating a signet ring to give to the students, reflecting their projects and their pride in belonging to this community. For the first edition, I designed the ring and introduced a manufacturing process based on resin-wax 3D printing and vacuum metal casting to create aesthetic and durable silver rings. The design evokes the themes of the three DVIC groups and projects: technology, nature and humans.</p>
-                        </div>
-                        <div class="project-card__image">
-                            <img src="https://placehold.jp/1000x1000.png" alt="DVIC Signet Ring Drawing" />
-                        </div>
-                    </div>
-                </div>
-                <a href="/" alt="home">
-                    <button class="nav-button right">
-                        <span class="material-icons">arrow_right</span>
-                    </button>
-                </a>
-            </div>
+    <body class="text-light">
+        <canvas
+            id="bgCanvas"
+            class="absolute inset-0 -z-10 h-full w-full"
+        ></canvas>
+        <!-- <div
+            class="absolute inset-0 -z-20 h-full w-full bg-[#030f33] bg-[linear-gradient(to_right,#F4EFDC50_1px,transparent_1px),linear-gradient(to_bottom,#F4EFDC50_1px,transparent_1px)] bg-[size:100px_100px]"
+        ></div> -->
+        <div class="absolute bottom-0 left-0 right-0 top-0 -z-20 bg-[#030f33]">
+            <div id="gradientContainer" class="h-full w-full"></div>
         </div>
 
-
-
-        <script src="/js/background.js"></script>
+        <div
+            class="absolute left-0 top-0 flex h-[calc(100%-21px)] w-full flex-col"
+        >
+            <!-- NAVBAR -->
+            <div
+                class="flex w-full flex-row items-center justify-between px-2 pb-3 pt-1"
+            >
+                <a href="/gallery/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960"
+                        fill="#F4EFDC"
+                        class="h-14 w-14"
+                    >
+                        <path
+                            d="M534-306 376-464q-3-3-5-7.06-2-4.07-2-8.94 0-4.88 2-8.94t5-7.06l158-158q2-2 4.76-3.5 2.77-1.5 5.92-1.5 6.32 0 10.82 4.12 4.5 4.13 4.5 10.88v328q0 6.75-4.64 10.87-4.63 4.13-10.81 4.13-1.55 0-10.55-5Z"
+                        />
+                    </svg>
+                </a>
+                <h1 class="text-3xl font-bold text-accent">projects</h1>
+                <a href="/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960"
+                        fill="#F4EFDC"
+                        class="h-14 w-14"
+                    >
+                        <path
+                            d="M415.32-301q-6.32 0-10.82-4.13-4.5-4.12-4.5-10.87v-328q0-6.75 4.64-10.88 4.63-4.12 10.81-4.12 1.55 0 10.55 5l158 158q3 3 5 7.06t2 8.94q0 4.87-2 8.94-2 4.06-5 7.06L426-306q-2 2-4.76 3.5-2.77 1.5-5.92 1.5Z"
+                        />
+                    </svg>
+                </a>
+            </div>
+            <div
+                id="projects-list"
+                class="flex h-full w-full snap-y flex-col items-center overflow-y-scroll"
+            ></div>
+        </div>
     </body>
+    <script src="/js/date.js"></script>
+    <script src="/js/background.js"></script>
+    <script src="/js/projects.js"></script>
 </html>

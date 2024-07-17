@@ -1,3 +1,1 @@
-# Portfolio vanilla - Louis BADR
-
-only HTML/CSS/JS 
+# Portfolio (HTML/Tailwind/JS) - Louis BADR
