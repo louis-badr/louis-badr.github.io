@@ -1,76 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>portfolio • louis badr</title>
-        <meta name="author" content="Louis Badr">
-        <meta name="description" content="Creative technologist portfolio of Louis Badr - between engineering, research and design">
-        <meta name="keywords" content="portfolio, engineer, engineering, researcher, research, designer, design, louis, badr, bader, creative, technologist, technology, paris, france, esilv, devinci, dvic, innovation, human, computer, interaction, haptics, haptic, neuroscience">
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-        <link rel="stylesheet" href="/css/style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio • Louis Badr</title>
+        <meta name="author" content="Louis Badr" />
+        <meta
+            name="description"
+            content="Creative technologist portfolio of Louis Badr - between engineering, research and design"
+        />
+        <meta
+            name="keywords"
+            content="portfolio, engineer, engineering, researcher, research, designer, design, louis, badr, bader, creative, technologist, technology, paris, france, esilv, devinci, dvic, ift, innovation, human, computer, interaction, haptics, haptic, neuroscience"
+        />
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <link rel="stylesheet" href="/css/style.css" />
     </head>
-    <body>
-        <canvas id="bgCanvas"></canvas>
-        <div class="home__page">
-            <nav class="navbar home">
-                <a href="/projects/" alt="projects">
-                    <button class="navbar__button">
-                        <span class="material-icons">arrow_back</span>
-                    </button>
+    <body class="text-light">
+        <canvas
+            id="bgCanvas"
+            class="absolute inset-0 -z-10 h-full w-full"
+        ></canvas>
+        <!-- <div
+            class="absolute inset-0 -z-20 h-full w-full bg-[#030f33] bg-[linear-gradient(to_right,#F4EFDC50_1px,transparent_1px),linear-gradient(to_bottom,#F4EFDC50_1px,transparent_1px)] bg-[size:100px_100px]"
+        ></div> -->
+        <div class="absolute bottom-0 left-0 right-0 top-0 -z-20 bg-[#030f33]">
+            <div id="gradientContainer" class="h-full w-full"></div>
+        </div>
+
+        <div
+            class="absolute left-0 top-0 flex h-[calc(100%-20px)] w-[calc(100%-20px)] flex-col"
+        >
+            <!-- NAVBAR -->
+            <div
+                class="flex w-full flex-row items-center justify-between px-2 pb-3 pt-1"
+            >
+                <a href="/projects/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960"
+                        fill="#F4EFDC"
+                        class="h-14 w-14"
+                    >
+                        <path
+                            d="M534-306 376-464q-3-3-5-7.06-2-4.07-2-8.94 0-4.88 2-8.94t5-7.06l158-158q2-2 4.76-3.5 2.77-1.5 5.92-1.5 6.32 0 10.82 4.12 4.5 4.13 4.5 10.88v328q0 6.75-4.64 10.87-4.63 4.13-10.81 4.13-1.55 0-10.55-5Z"
+                        />
+                    </svg>
                 </a>
-                <a href="/aboutme/" alt="about me">
-                    <button class="navbar__button">
-                        <span class="material-icons">arrow_upward</span>
-                    </button>
+                <a href="/aboutme/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960"
+                        fill="#F4EFDC"
+                        class="h-14 w-14"
+                    >
+                        <path
+                            d="M316-400q-6.75 0-10.87-4.64-4.13-4.63-4.13-10.81 0-1.55 5-10.55l158-157q3-3 7.06-5 4.07-2 8.94-2 4.88 0 8.94 2t7.06 5l158 157q2 2 3.5 4.76 1.5 2.77 1.5 5.92 0 6.32-4.12 10.82-4.13 4.5-10.88 4.5H316Z"
+                        />
+                    </svg>
                 </a>
-            </nav>
-            <a href="/projects/" alt="projects">
-                <button class="nav-button left">
-                    <span class="material-icons">arrow_left</span>
-                </button>
-            </a>
-            <a href="/aboutme/" alt="about me">
-                <button class="nav-button up">
-                    <span class="material-icons">arrow_drop_up</span>
-                </button>
-            </a>
-            <table class="cartouche">
-                <tr>
+                <a>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960"
+                        fill="#F4EFDC"
+                        class="invisible h-14 w-14"
+                    >
+                        <path
+                            d="M316-400q-6.75 0-10.87-4.64-4.13-4.63-4.13-10.81 0-1.55 5-10.55l158-157q3-3 7.06-5 4.07-2 8.94-2 4.88 0 8.94 2t7.06 5l158 157q2 2 3.5 4.76 1.5 2.77 1.5 5.92 0 6.32-4.12 10.82-4.13 4.5-10.88 4.5H316Z"
+                        />
+                    </svg>
+                </a>
+            </div>
+            <canvas id="arrowCanvas" class="h-full w-full"></canvas>
+            <table
+                class="absolute bottom-0 right-0 ml-[20px] border-collapse border-2 border-b-0 border-r-0 border-light"
+            >
+                <tr class="border-2 border-r-0 border-light">
                     <td colspan="4">
-                        <div class="cartouche__tip">TITLE</div>
-                        <strong>PORTFOLIO</strong>
+                        <p class="px-1">TITLE</p>
+                        <p class="p-4 text-center font-bold">PORTFOLIO</p>
                     </td>
                 </tr>
-                <tr>
+                <tr class="border-2 border-r-0 border-light">
                     <td colspan="4">
-                        <div class="cartouche__tip">DESCRIPTION</div>
-                        Creative technologist based in Paris - between engineering, research and design
+                        <p class="px-1">DESCRIPTION</p>
+                        <p class="p-4 text-center">
+                            Creative technologist based in Paris - between
+                            engineering, research and design
+                        </p>
                     </td>
                 </tr>
-                <tr>
-                    <td rowspan="2">
-                        <div class="cartouche__tip">LOGO</div>
-                        <img class="cartouche__logo" src="/assets/dvic_logo.png" alt="DVIC Logo" />
+                <tr class="border-2 border-b-0 border-r-0 border-light">
+                    <td
+                        rowspan="2"
+                        class="relative border-2 border-b-0 border-light p-0"
+                    >
+                        <p class="absolute left-0 top-0 px-1">LOGO</p>
+                        <div class="flex h-full items-center justify-center">
+                            <svg viewBox="0 0 32 33" width="72px">
+                                <path
+                                    d="M10.0811 8.4182L5.83462 0.190918H2.99992L9.67261 13.1182C10.5858 12.4441 10.9873 10.1747 10.0811 8.4182Z"
+                                    fill="#2E45ED"
+                                ></path>
+                                <path
+                                    d="M15.718 2.23543L13.1494 7.23357C13.1494 7.23357 10.7002 3.40679 11.9444 1.22143C12.9961 -0.412105 14.5318 0.34164 14.7541 0.518363C14.9764 0.694577 15.652 1.06534 15.718 2.23543Z"
+                                    fill="#2E45ED"
+                                ></path>
+                                <path
+                                    d="M4.56792 32.1182H0.919922V16.5902H4.56792V32.1182Z"
+                                    fill="#2E45ED"
+                                ></path>
+                                <path
+                                    d="M18.2125 19.4222H12.3325V22.7822H17.9245V25.5662H12.3325V32.1182H8.68448V16.5902H18.2125V19.4222Z"
+                                    fill="#2E45ED"
+                                ></path>
+                                <path
+                                    d="M31.774 19.4222H27.67V32.1182H23.998V19.4222H19.894V16.5902H31.774V19.4222Z"
+                                    fill="#2E45ED"
+                                ></path>
+                            </svg>
+                        </div>
                     </td>
-                    <td colspan="2">
-                        <div class="cartouche__tip">CREATED BY</div>
-                        Louis BADR
+                    <td colspan="2" class="border-2 border-r-0 border-light">
+                        <p class="px-1">CREATED BY</p>
+                        <p class="p-2 text-center">Louis BADR</p>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="cartouche__tip">DATE OF ISSUE</div>
-                        <p id="dateCell"></p>
+                <tr class="border-2 border-b-0 border-r-0 border-light">
+                    <td class="border-2 border-b-0 border-light">
+                        <p class="px-1">DATE OF ISSUE</p>
+                        <p class="p-2 text-center" id="dateCell"></p>
                     </td>
-                    <td>
-                        <div class="cartouche__tip">REV</div>
-                        work in progress
+                    <td class="border-2 border-b-0 border-r-0 border-light">
+                        <p class="px-1">REV</p>
+                        <p class="p-2 text-center">1.0.0</p>
                     </td>
                 </tr>
             </table>
         </div>
-        <script src="/js/background.js"></script>
-        <script src="/js/date.js"></script>
     </body>
+    <script src="/js/date.js"></script>
+    <script src="/js/background.js"></script>
 </html>
