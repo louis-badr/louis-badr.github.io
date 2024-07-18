@@ -6,12 +6,25 @@ const colorAccentLighter = "#2E45ED75";
 
 let marksSpacing;
 const marksNumber = 5;
-let startX, startY, isDrawing = false;
+var mousePos = { x: 0, y: 0 };
+let startX, startY;
+let isDrawing = false;
 
 const currentPath = window.location.pathname;
 const canvas = document.getElementById("bgCanvas");
 const context = canvas.getContext("2d");
 const container = document.getElementById("gradientContainer");
+const arrowCanvasContainer = document.getElementById("arrowCanvasContainer");
+const arrowCanvas = document.getElementById("arrowCanvas");
+const arrowContext = arrowCanvas.getContext("2d");
+
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+    };
+}
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;   
@@ -26,8 +39,9 @@ function resizeCanvas() {
 }
 
 function resizeArrowCanvas() {
-    arrowCanvas.width = window.innerWidth;
-    arrowCanvas.height = window.innerHeight;
+    arrowCanvas.width = arrowCanvasContainer.clientWidth;
+    arrowCanvas.height = arrowCanvasContainer.clientHeight;
+    arrowContext.clearRect(0, 0, arrowCanvas.width, arrowCanvas.height);
 }
 
 function drawBg() {
@@ -192,31 +206,65 @@ function drawBottom2Bg() {
     context.stroke();
 }
 
-function drawArrow(ctx, x1, y1, x2, y2) {
-    const headlen = 10; // length of head in pixels
-    const angle = Math.atan2(y2 - y1, x2 - x1);
+function drawArrow(ctx, x1, y1, x2, y2, arrowWidth = 2, color = colorLight) {
+    // Calculate the length of the arrow
+    var length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    
+    if (length > 100) {
+        //variables to be used when creating the arrow
+        var headlen = 10;
+        var angle = Math.atan2(y2-y1,x2-x1);
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color; // Set the fill color to match the stroke color
+        //starting path of the arrow from the start square to the end square
+        //and drawing the stroke
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.lineWidth = arrowWidth;
+        ctx.stroke();
+        //starting a new path from the head of the arrow to one of the sides of
+        //the point
+        ctx.beginPath();
+        ctx.moveTo(x2, y2);
+        ctx.lineTo(x2-headlen*Math.cos(angle-Math.PI/7), y2-headlen*Math.sin(angle-Math.PI/7));
+        //path from the side point of the arrow, to the other side point
+        ctx.lineTo(x2-headlen*Math.cos(angle+Math.PI/7), y2-headlen*Math.sin(angle+Math.PI/7));
+        //path from the side point back to the tip of the arrow, and then
+        //again to the opposite side point
+        ctx.lineTo(x2, y2);
+        ctx.lineTo(x2-headlen*Math.cos(angle-Math.PI/7), y2-headlen*Math.sin(angle-Math.PI/7));
+        //draws the paths created above
+        ctx.fill(); // Fill the arrow head with color
+        ctx.stroke();
 
-    // Draw line
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.stroke();
+        // Draw the second arrow head at the other end of the arrow
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x1+headlen*Math.cos(angle-Math.PI/7), y1+headlen*Math.sin(angle-Math.PI/7));
+        ctx.lineTo(x1+headlen*Math.cos(angle+Math.PI/7), y1+headlen*Math.sin(angle+Math.PI/7));
+        ctx.lineTo(x1, y1);
+        ctx.lineTo(x1+headlen*Math.cos(angle-Math.PI/7), y1+headlen*Math.sin(angle-Math.PI/7));
+        ctx.fill(); // Fill the second arrow head with color
+        ctx.stroke();
 
-    // Draw first arrow head
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x1 - headlen * Math.cos(angle - Math.PI / 6), y1 - headlen * Math.sin(angle - Math.PI / 6));
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x1 - headlen * Math.cos(angle + Math.PI / 6), y1 - headlen * Math.sin(angle + Math.PI / 6));
-    ctx.stroke();
+        // Hide the part of the arrow below the text
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        const circleRadius = 20;
+        const circleX = (x1 + x2) / 2;
+        const circleY = (y1 + y2) / 2;
+        ctx.arc(circleX, circleY, circleRadius, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.globalCompositeOperation = "source-over";
 
-    // Draw second arrow head
-    ctx.beginPath();
-    ctx.moveTo(x2, y2);
-    ctx.lineTo(x2 - headlen * Math.cos(angle - Math.PI + Math.PI / 6), y2 - headlen * Math.sin(angle - Math.PI + Math.PI / 6));
-    ctx.moveTo(x2, y2);
-    ctx.lineTo(x2 - headlen * Math.cos(angle - Math.PI - Math.PI / 6), y2 - headlen * Math.sin(angle - Math.PI - Math.PI / 6));
-    ctx.stroke();
+        // Draw the length text in the middle of the arrow
+        ctx.font = "16px Arial";
+        ctx.fillStyle = color;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle"; // Align the text vertically in the middle
+        ctx.fillText(length.toFixed(0), (x1 + x2) / 2, (y1 + y2) / 2);
+    }
 }
 
 // Inital call
@@ -228,22 +276,23 @@ switch (currentPath) {
     case "/":
     case "/index.html":
         container.style.background = `radial-gradient(circle 800px at 0% 0%, ${colorAccentLighter}, transparent)`;
-        const arrowCanvas = document.getElementById("arrowCanvas");
-        const arrowContext = arrowCanvas.getContext("2d");
         // Initial call
         resizeArrowCanvas();
         // Resize canvas on window resize
         window.addEventListener("resize", resizeArrowCanvas);
         arrowCanvas.addEventListener("mousedown", function (e) {
+            resizeArrowCanvas(arrowCanvasContainer);
             arrowContext.clearRect(0, 0, arrowCanvas.width, arrowCanvas.height);
             isDrawing = true;
-            startX = e.clientX;
-            startY = e.clientY;
+            mousePos = getMousePos(arrowCanvas, e);
+            startX = mousePos.x;
+            startY = mousePos.y;
         });
         arrowCanvas.addEventListener("mousemove", function (e) {
             if (isDrawing) {
                 arrowContext.clearRect(0, 0, arrowCanvas.width, arrowCanvas.height);
-                drawArrow(arrowContext, startX, startY, e.clientX, e.clientY);
+                mousePos = getMousePos(arrowCanvas, e);
+                drawArrow(arrowContext, startX, startY, mousePos.x, mousePos.y);
             }
         });
         arrowCanvas.addEventListener("mouseup", function (e) {
