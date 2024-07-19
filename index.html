@@ -72,22 +72,30 @@
                     </svg>
                 </a>
             </div>
-            <div id="arrowCanvasContainer" class="h-full w-full">
-                <canvas id="arrowCanvas" class="h-full w-full"></canvas>
+            <div
+                id="arrowCanvasContainer"
+                class="h-full w-full overflow-hidden"
+            >
+                <canvas
+                    id="arrowCanvas"
+                    class="h-full w-full overflow-hidden"
+                ></canvas>
             </div>
             <table
                 class="absolute bottom-0 right-0 ml-[20px] border-collapse border-2 border-b-0 border-r-0 border-light"
             >
                 <tr class="border-2 border-r-0 border-light">
                     <td colspan="4">
-                        <p class="px-1">TITLE</p>
-                        <p class="p-4 text-center font-bold">PORTFOLIO</p>
+                        <p class="px-1 font-light">TITLE</p>
+                        <p class="p-4 text-center text-lg font-bold">
+                            PORTFOLIO
+                        </p>
                     </td>
                 </tr>
                 <tr class="border-2 border-r-0 border-light">
                     <td colspan="4">
-                        <p class="px-1">DESCRIPTION</p>
-                        <p class="p-4 text-center">
+                        <p class="px-1 font-light">DESCRIPTION</p>
+                        <p class="p-4 text-center text-lg">
                             Creative technologist based in Paris - between
                             engineering, research and design
                         </p>
@@ -98,7 +106,9 @@
                         rowspan="2"
                         class="relative border-2 border-b-0 border-light p-0"
                     >
-                        <p class="absolute left-0 top-0 px-1">LOGO</p>
+                        <p class="absolute left-0 top-0 px-1 font-light">
+                            LOGO
+                        </p>
                         <div class="flex h-full items-center justify-center">
                             <svg viewBox="0 0 32 33" width="72px">
                                 <path
@@ -125,18 +135,18 @@
                         </div>
                     </td>
                     <td colspan="2" class="border-2 border-r-0 border-light">
-                        <p class="px-1">CREATED BY</p>
-                        <p class="p-2 text-center">Louis BADR</p>
+                        <p class="px-1 font-light">CREATED BY</p>
+                        <p class="p-2 text-center text-lg">Louis BADR</p>
                     </td>
                 </tr>
                 <tr class="border-2 border-b-0 border-r-0 border-light">
                     <td class="border-2 border-b-0 border-light">
-                        <p class="px-1">DATE OF ISSUE</p>
-                        <p class="p-2 text-center" id="dateCell"></p>
+                        <p class="px-1 font-light">DATE OF ISSUE</p>
+                        <p class="p-2 text-center text-lg" id="dateCell"></p>
                     </td>
                     <td class="border-2 border-b-0 border-r-0 border-light">
-                        <p class="px-1">REV</p>
-                        <p class="p-2 text-center">1.0.0</p>
+                        <p class="px-1 font-light">REV</p>
+                        <p class="p-2 text-center text-lg">1.0.0</p>
                     </td>
                 </tr>
             </table>
