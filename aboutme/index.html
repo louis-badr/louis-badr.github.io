@@ -31,93 +31,177 @@
         <div
             class="absolute left-0 top-0 flex h-full w-[calc(100%-21px)] flex-col justify-between"
         >
+            <!-- NAVBAR -->
             <div
                 class="flex w-full flex-row items-center justify-start px-2 pb-3 pt-1"
             >
-                <h1 class="text-3xl font-bold text-accent">about me</h1>
+                <h1>about me</h1>
             </div>
-            <div class="w-full overflow-y-scroll">
-                <div class="w-full md:w-1/2 xl:w-1/3">
-                    <div
-                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
-                    >
+            <div
+                class="flex w-full flex-col overflow-x-hidden overflow-y-scroll md:flex-row md:items-center md:justify-between"
+            >
+                <div class="mx-4 w-5/6 space-y-4 md:flex-1">
+                    <div class="card">
                         <p>
                             Hi! My name is Louis, I am a creative technology
                             engineer and maker based in Paris.
                         </p>
                     </div>
-                    <div
-                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
-                    >
+                    <div class="card">
                         <p>
-                            I have recently graduated from the Leonardo da Vinci
-                            Engineering School (ESILV) where I obtained a
-                            Master's degree at the DeVinci Innovation Center /
-                            Institute for Future Technologies. The program is
-                            focused on innovation, research and manufacturing on
-                            the format and in collaboration with the MIT
-                            MediaLab.
+                            I recently graduated from the Leonardo da Vinci
+                            Engineering School (ESILV) in Paris - La Défense,
+                            where I obtained a Master's degree from the DeVinci
+                            Innovation Center / Institute for Future
+                            Technologies. The program focused on innovation,
+                            research, and manufacturing, on the format and in
+                            collaboration with the MIT Media Lab.
                         </p>
                     </div>
-                    <div
-                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
-                    >
+                    <div class="card">
                         <p>
                             I do a bit of everything from CAD, programming,
-                            electronics, to fabrication for use in research or
-                            artistic projects. I am currently working on and
-                            interested in the fields of HCI and haptics. :)
+                            electronics, to fabrication for use in engineering,
+                            research and artistic projects. I am currently
+                            working on and interested in the fields of HCI and
+                            haptics. :)
                         </p>
                     </div>
-                    <div
-                        class="mx-4 mb-4 rounded-2xl border-[3px] border-accent px-3 py-2"
-                    >
+                    <div class="card">
                         <p>You can contact me at: contact@louis-badr.fr</p>
                     </div>
-                    <div class="mx-5 flex flex-row space-x-2">
+                    <div class="chip-row">
                         <a
                             href="https://github.com/louis-badr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex w-min flex-row items-center rounded-full bg-light px-2 font-semibold text-black mix-blend-lighten"
+                            class="link-chip"
                         >
-                            GitHub
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 -960 960 960"
                                 fill="#000000"
-                                class="h-6 w-6"
+                                class="link-chip__icon"
                             >
                                 <path
                                     d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"
                                 />
                             </svg>
+                            GitHub
                         </a>
                         <a
                             href="https://www.linkedin.com/in/louis-badr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex w-min flex-row items-center rounded-full bg-light px-2 font-semibold text-black mix-blend-lighten"
+                            class="link-chip"
                         >
-                            LinkedIn
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 -960 960 960"
                                 fill="#000000"
-                                class="h-6 w-6"
+                                class="link-chip__icon"
                             >
                                 <path
                                     d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"
                                 />
                             </svg>
+                            LinkedIn
                         </a>
+                    </div>
+                </div>
+                <div
+                    class="m-4 flex flex-col items-end justify-center space-y-2 md:flex-1"
+                >
+                    <h2>my skills & tools</h2>
+                    <!-- <h3>(hover or tap a chip for more info)</h3> -->
+                    <h3>3D/CAM/CAD</h3>
+                    <div class="chip-row skills-row-chip">
+                        <div class="tooltip-chip">
+                            <div class="tooltip">
+                                For 3D modelling, simulation, rendering, CAM,
+                                generative design, etc.
+                            </div>
+                            <div class="chip">Fusion 360</div>
+                        </div>
+                        <div class="tooltip-chip">
+                            <div class="tooltip">For what CAD can't do</div>
+                            <div class="chip">Blender</div>
+                        </div>
+                    </div>
+                    <h3>MANUFACTURING</h3>
+                    <div class="chip-row skills-row-chip">
+                        <div class="tooltip-chip">
+                            <div class="tooltip">
+                                FDM & Resin, slicing software, maintenance and
+                                post-processing
+                            </div>
+                            <div class="chip">3D Printing</div>
+                        </div>
+                        <div class="tooltip-chip">
+                            <div class="tooltip">
+                                Milling, turning, laser cutting, engraving, etc.
+                            </div>
+                            <div class="chip">CNC Machining</div>
+                        </div>
+                    </div>
+                    <h3>SOFTWARE DEV</h3>
+                    <div class="chip-row skills-row-chip">
+                        <div class="tooltip-chip">
+                            <div class="tooltip">For its versatility</div>
+                            <div class="chip">Python</div>
+                        </div>
+                        <div class="tooltip-chip">
+                            <div class="tooltip">For microcontrollers</div>
+                            <div class="chip">C/C++</div>
+                        </div>
+                        <div class="tooltip-chip">
+                            <div class="tooltip">
+                                To build UIs and websites (like this one)
+                            </div>
+                            <div class="chip">HTML/CSS/JS</div>
+                        </div>
+                        <div class="chip">Linux</div>
+                        <div class="chip">Git</div>
+                    </div>
+                    <h3>ELECTRONICS</h3>
+                    <div class="chip-row skills-row-chip">
+                        <div class="tooltip-chip">
+                            <div class="tooltip">
+                                And other microcontrollers/boards - ESP, Teensy,
+                                RPi, etc.
+                            </div>
+                            <div class="chip">Arduino</div>
+                        </div>
+                        <div class="chip">Raspberry Pi</div>
+                        <div class="tooltip-chip">
+                            <div class="tooltip">
+                                To design custom circuit boards
+                            </div>
+                            <div class="chip">EasyEDA</div>
+                        </div>
+                        <div class="tooltip-chip">
+                            <div class="tooltip">
+                                THT & SMT soldering, crimping, etc.
+                            </div>
+                            <div class="chip">Electronics assembly</div>
+                        </div>
+                    </div>
+                    <h3>GRAPHIC DESIGN</h3>
+                    <div class="chip-row skills-row-chip">
+                        <div class="chip">Figma</div>
+                        <div class="chip">Adobe Illustrator</div>
+                        <div class="chip">Adobe Photoshop</div>
+                    </div>
+                    <h3>OFFICE SOFTWARE</h3>
+                    <div class="chip-row skills-row-chip">
+                        <div class="chip">Microsoft Office</div>
+                        <div class="chip">LaTeX</div>
+                        <div class="chip">Zotero</div>
                     </div>
                 </div>
             </div>
             <!-- NAVBAR -->
-            <div
-                class="flex w-full flex-row items-center justify-center px-2 pb-3 pt-1"
-            >
+            <div class="flex w-full flex-row items-center justify-center">
                 <a href="/">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -133,6 +217,5 @@
             </div>
         </div>
     </body>
-    <script src="/js/date.js"></script>
     <script src="/js/background.js"></script>
 </html>

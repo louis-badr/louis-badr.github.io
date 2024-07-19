@@ -19,14 +19,6 @@
     },
     {
         "id": 2,
-        "title": "DVIC Signet Ring",
-        "subtitle": "Making a graduation ring from scratch for the DVIC students",
-        "year": "2024",
-        "image": "https://placehold.jp/1000x1000.png",
-        "description": "To celebrate the graduation of the Creative Technology program, I was given the challenge of creating a signet ring to give to the students, reflecting their projects and their pride in belonging to this community. For the first edition, I designed the ring and introduced a manufacturing process based on resin-wax 3D printing and vacuum metal casting to create aesthetic and durable silver rings. The design evokes the themes of the three DVIC groups and projects: technology, nature and humans."
-    },
-    {
-        "id": 3,
         "title": "AugmenTip",
         "subtitle": "Fingertip haptic feedback on a budget",
         "year": "2023",
@@ -40,7 +32,7 @@
         "description": "Hands are our main means of physical interaction with our environment, hence the desire to reproduce these sensations artificially and to do without traditional peripherals such as controllers for virtual experiences. In recent years, a number of DIY and open-source projects have emerged that have made haptics more attractive and accessible. One of the best-known projects is LucidGloves, an exoskeleton for the hand that provides kinaesthetic grasping sensations. AugmenTip aims to add cutaneous feedback (contact, pressure and vibration) to all five fingertips within the same DIY and open source framework. This project was carried out at the DeVinci Innovation Center as part of the Creative Technology Engineering master's program."
     },
     {
-        "id": 4,
+        "id": 3,
         "title": "Smart Lock",
         "subtitle": "Smarter lab equipment access control",
         "year": "2022",
@@ -54,7 +46,7 @@
         "description": "Smart Lock is a device I designed to regulate access to equipment for the DeVinci Innovation Center labs and student clubs. The cabinets contain consumables that need to be restocked regularly, as well as equipment that is sometimes sensitive, expensive or hazardous. With the multiplication of projects, it has become necessary to be able to know who has accessed a cabinet, to restrict access to certain cabinets but also to simplify the ordering process for consumables. Smart Lock attaches to a cabinet and features a touch screen, RFID reader and electric lock to enable students and staff to use the equipment autonomously with their university badges. This project, which is now used on a daily basis, helped me get started in electronics and improve my product design skills."
     },
     {
-        "id": 5,
+        "id": 4,
         "title": "DECIDE",
         "subtitle": "Kickstarter product design project",
         "year": "2022",
@@ -66,5 +58,13 @@
         ],
         "image": "/assets/decide.png",
         "description": "In the first year of the Creative Technology master's program, students have to create a product from scratch, guided by an industrial designer, and launch a Kickstarter campaign. The aim of this 'Quickstarter' format is to use a single material, a single manufacturing process and a single factory to create a project in just a few months and raise at least €1,000. With Thomas Juldo and Tristan Journel we created and launched DECIDE, a 12-sided origami-inspired dice, covered with whiteboard material to make decision making fun, stimulate creativity and create original games."
+    },
+    {
+        "id": 5,
+        "title": "DVIC Signet Ring",
+        "subtitle": "Making a graduation ring from scratch for the DVIC students",
+        "year": "2024",
+        "image": "/assets/signetring.png",
+        "description": "To celebrate the graduation of the Creative Technology program, I was given the challenge of creating a signet ring to give to the students, reflecting their projects and their pride in belonging to this community. For the first edition, I designed the ring and introduced a manufacturing process based on resin-wax 3D printing and vacuum metal casting to create aesthetic and durable silver rings. The design evokes the themes of the three DVIC groups and projects: technology, nature and humans."
     }
 ]

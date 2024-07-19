@@ -14,9 +14,6 @@ const currentPath = window.location.pathname;
 const canvas = document.getElementById("bgCanvas");
 const context = canvas.getContext("2d");
 const container = document.getElementById("gradientContainer");
-const arrowCanvasContainer = document.getElementById("arrowCanvasContainer");
-const arrowCanvas = document.getElementById("arrowCanvas");
-const arrowContext = arrowCanvas.getContext("2d");
 
 function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -38,7 +35,7 @@ function resizeCanvas() {
     drawBg();
 }
 
-function resizeArrowCanvas() {
+function resizeArrowCanvas(arrowCanvas, arrowCanvasContainer, arrowContext) {
     arrowCanvas.width = arrowCanvasContainer.clientWidth;
     arrowCanvas.height = arrowCanvasContainer.clientHeight;
     arrowContext.clearRect(0, 0, arrowCanvas.width, arrowCanvas.height);
@@ -275,13 +272,16 @@ window.addEventListener("resize", resizeCanvas);
 switch (currentPath) {
     case "/":
     case "/index.html":
+        const arrowCanvasContainer = document.getElementById("arrowCanvasContainer");
+        const arrowCanvas = document.getElementById("arrowCanvas");
+        const arrowContext = arrowCanvas.getContext("2d");
         container.style.background = `radial-gradient(circle 800px at 0% 0%, ${colorAccentLighter}, transparent)`;
         // Initial call
-        resizeArrowCanvas();
+        resizeArrowCanvas(arrowCanvas, arrowCanvasContainer, arrowContext);
         // Resize canvas on window resize
-        window.addEventListener("resize", resizeArrowCanvas);
+        window.addEventListener("resize", resizeArrowCanvas(arrowCanvas, arrowCanvasContainer, arrowContext));
         arrowCanvas.addEventListener("mousedown", function (e) {
-            resizeArrowCanvas(arrowCanvasContainer);
+            resizeArrowCanvas(arrowCanvasContainer, arrowCanvas, arrowContext);
             arrowContext.clearRect(0, 0, arrowCanvas.width, arrowCanvas.height);
             isDrawing = true;
             mousePos = getMousePos(arrowCanvas, e);
