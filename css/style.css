@@ -3003,6 +3003,10 @@ h3{
     flex-direction: row;
   }
 
+  .lg\:flex-row-reverse{
+    flex-direction: row-reverse;
+  }
+
   .lg\:items-center{
     align-items: center;
   }
