@@ -16,9 +16,10 @@ function createLinks(links) {
 }
 
 function createCard(data) {
+    const isEven = data.id % 2 === 0;
     return `
         <div
-            class="card mb-3 flex w-full md:w-5/6 lg:w-3/4 lg:flex-row lg:justify-between lg:items-center lg:h-[32rem]"
+            class="card mb-3 flex w-full md:w-5/6 lg:w-3/4 ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'} lg:items-center lg:h-[32rem]"
         >
             <div class="lg:flex-1 h-full">
                 <h3>${data.title}</h3>
