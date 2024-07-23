@@ -20,7 +20,6 @@ CREATIVE TECHNOLOGY ENGINEER
 contact\@louis-badr.fr |
 #link("louis-badr.fr")[louis-badr.fr]
 \
-\
 === EDUCATION
 #chiline()
 
@@ -134,20 +133,21 @@ contact\@louis-badr.fr |
 === SKILLS
 #chiline()
 
-#text(weight: "semibold")[French (native)]\
-#text(weight: "semibold")[English (fluent)] #h(1fr) TOEFL ITP: 657/677 C1 - First Certificate of Cambridge: 183/190 C1\
 
-#text(weight: "semibold")[3D/CAD/CAM] #h(1fr) Fusion 360 - Blender\
-#text(weight: "semibold")[Manufacturing] #h(1fr) 3D printing (FDM & Resin) - Laser Cutting - CNC Machining\
-#text(weight: "semibold")[Software Dev] #h(1fr) Python - Arduino - HTML/CSS/JS - Unity - Linux - Git\
-#text(weight: "semibold")[Electronics] #h(1fr) Prototyping - Arduino compatible MCUs - PCB design - Electronics assembly\
-#text(weight: "semibold")[Graphic Design] #h(1fr) Figma - Adobe Illustrator - Adobe Photoshop\
-#text(weight: "semibold")[Office Software] #h(1fr) Microsoft Office - LaTeX - Zotero\
+#grid(
+  columns: (3.1cm, 12cm),
+  rect[#text(weight: "semibold")[French (native)\ English (fluent)]],
+  rect[-\ TOEFL ITP: 657/677 C1 - First Certificate of Cambridge: 183/190 C1],
+  rect[],
+  rect[],
+  rect[#text(weight: "semibold")[3D/CAD/CAM\ Manufacturing\ Software Dev\ Electronics\ Graphic Design\ Office Software]],
+  rect[Fusion 360 - Blender\ 3D printing (FDM & Resin) - Laser Cutting - CNC Machining\ Python - Arduino - HTML/CSS/JS - Unity - Linux - Git\ Prototyping - Arduino compatible MCUs - PCB design - Electronics assembly\ Figma - Adobe Illustrator - Adobe Photoshop\ Microsoft Office - LaTeX - Zotero],
+)
 
 === INTERESTS
 #chiline()
 
 Scientific & Maker Culture\
-Arts - Product Design - Video Games\
+Arts - Video Games - Product Design\
 Aeronautics #text(light)[\- Student pilot (PPL) at the Aero Club of Angers Marcé
 ]\
