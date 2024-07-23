@@ -3010,10 +3010,6 @@ h3{
   .lg\:items-center{
     align-items: center;
   }
-
-  .lg\:justify-between{
-    justify-content: space-between;
-  }
 }
 
 @media (min-width: 1536px){
