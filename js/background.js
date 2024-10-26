@@ -275,7 +275,7 @@ switch (currentPath) {
         const arrowCanvasContainer = document.getElementById("arrowCanvasContainer");
         const arrowCanvas = document.getElementById("arrowCanvas");
         const arrowContext = arrowCanvas.getContext("2d");
-        container.style.background = `radial-gradient(circle 800px at 0% 0%, ${colorAccentLighter}, transparent)`;
+        container.style.background = `radial-gradient(circle 800px at 0% 0%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
         // Initial call
         resizeArrowCanvas(arrowCanvas, arrowCanvasContainer, arrowContext);
         // Resize canvas on window resize
@@ -301,15 +301,15 @@ switch (currentPath) {
         break;
     case "/aboutme/":
     case "/aboutme/index.html":
-        container.style.background = `radial-gradient(circle 800px at 0% 100%, ${colorAccentLighter}, transparent)`;
+        container.style.background = `radial-gradient(circle 800px at 0% 100%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
         break;
     case "/projects/":
     case "/projects/index.html":
-        container.style.background = `radial-gradient(ellipse 100% 50% at 50% 0%, ${colorAccentLighter}, transparent)`;
+        container.style.background = `radial-gradient(ellipse 100% 50% at 50% 0%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
         break;
     case "/gallery/":
     case "/gallery/index.html":
-        container.style.background = `radial-gradient(circle 800px at 100% 0%, ${colorAccentLighter}, transparent)`;
+        container.style.background = `radial-gradient(circle 800px at 100% 0%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
         break;
     default:
         break;
@@ -322,19 +322,19 @@ document.addEventListener("mousemove", function (e) {
     switch (currentPath) {
         case "/":
         case "/index.html":
-            container.style.background = `radial-gradient(circle 800px at ${x}% ${y}%, ${colorAccentLighter}, transparent)`;
+            container.style.background = `radial-gradient(circle 800px at ${x}% ${y}%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
             break;
         case "/aboutme/":
         case "/aboutme/index.html":
-            container.style.background = `radial-gradient(circle 800px at ${x}% ${y + 100}%, ${colorAccentLighter}, transparent)`;
+            container.style.background = `radial-gradient(circle 800px at ${x}% ${y + 100}%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
             break;
         case "/projects/":
         case "/projects/index.html":
-            container.style.background = `radial-gradient(ellipse 100% 50% at ${x+50}% ${y}%, ${colorAccentLighter}, transparent)`;
+            container.style.background = `radial-gradient(ellipse 100% 50% at ${x+50}% ${y}%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
             break;
         case "/gallery/":
         case "/gallery/index.html":
-            container.style.background = `radial-gradient(circle 800px at ${x + 100}% ${y}%, ${colorAccentLighter}, transparent)`;
+            container.style.background = `radial-gradient(circle 800px at ${x + 100}% ${y}%, ${colorAccentLighter}, transparent), url(/assets/grain.svg)`;
             break;
         default:
             break;
