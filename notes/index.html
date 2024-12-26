@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Notes • Louis Badr</title>
+        <meta name="author" content="Louis Badr" />
+        <meta
+            name="description"
+            content="Creative technologist portfolio of Louis Badr - between engineering, research and design"
+        />
+        <meta
+            name="keywords"
+            content="portfolio, engineer, engineering, researcher, research, designer, design, louis, badr, bader, creative, technologist, technology, paris, france, esilv, devinci, dvic, ift, innovation, human, computer, interaction, haptics, haptic, neuroscience"
+        />
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <style>
+            .markdown * {
+                padding-bottom: 0.25em;
+            }
+
+            .markdown ol {
+                list-style-type: decimal;
+                padding-left: 2em;
+            }
+
+            .markdown ol > li::marker {
+                font-weight: bold;
+            }
+            .markdown ul {
+                list-style-type: disc;
+                padding-left: 2em;
+            }
+
+            .markdown img {
+                padding: 0.5em 0;
+            }
+
+            .markdown table,
+            th,
+            td {
+                border: 1px solid;
+                border-collapse: collapse;
+            }
+
+            .markdown table {
+                width: 100%;
+            }
+
+            .markdown th,
+            td {
+                padding: 0.25em 0.5em;
+            }
+
+            .markdown a {
+                text-decoration: #2e45ed90 wavy underline;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas
+            id="bgCanvas"
+            class="absolute inset-0 -z-10 h-full w-full"
+        ></canvas>
+        <div class="absolute bottom-0 left-0 right-0 top-0 -z-20 bg-[#030f33]">
+            <div id="gradientContainer" class="h-full w-full"></div>
+        </div>
+        <div
+            class="w-screen h-screen flex flex-row justify-center items-center"
+        >
+            <div class="h-full p-2 flex flex-row">
+                <div
+                    class="aspect-[4/5] bg-light rounded-l-3xl rounded-r-xl px-8 pt-10 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] [box-shadow:0px_0px_10px_#374151_inset]"
+                >
+                    <h1>NOTES</h1>
+                    <div id="notes-summary" class="markdown"></div>
+                </div>
+                <div
+                    class="aspect-[4/5] bg-light rounded-r-3xl rounded-l-xl px-8 pt-10 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] [box-shadow:0px_0px_10px_#374151_inset]"
+                >
+                    <div
+                        id="md-content"
+                        class="markdown h-full w-full text-black overflow-scroll"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="/js/background.js"></script>
+    <script src="/js/notes.js"></script>
+</html>
