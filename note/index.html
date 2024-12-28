@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Notes • Louis Badr</title>
+        <title>Prout • Louis Badr</title>
         <meta name="author" content="Louis Badr" />
         <meta
             name="description"
@@ -67,46 +67,25 @@
         <div class="absolute bottom-0 left-0 right-0 top-0 -z-20 bg-[#030f33]">
             <div id="gradientContainer" class="h-full w-full"></div>
         </div>
-
-        <div class="w-screen h-screen flex flew-row lg:p-[20px]">
-            <div
-                id="left-page"
-                class="min-h-[50vh] lg:aspect-ratio[4/5] lg:block w-full lg:w-1/2 h-full bg-light rounded-tl-3xl lg:rounded-bl-3xl lg:rounded-r-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] shadow-[inset_-10px_0px_50px_rgba(0,0,0,0.2)]"
-            >
-                <h1>NOTES</h1>
-                <div id="notes-list" class="markdown overflow-y-scroll"></div>
-            </div>
-            <div
-                id="right-page"
-                class="min-h-[50vh] lg:aspect-ratio[4/5] w-full lg:w-1/2 bg-light lg:block rounded-r-3xl lg:rounded-l-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] shadow-[inset_10px_0px_50px_rgba(0,0,0,0.2)]"
-            >
+        <div></div>
+        <div
+            class="w-screen h-screen flex flex-row justify-center items-center"
+        >
+            <div class="h-full p-2 flex flex-row">
                 <div
-                    id="md-content"
-                    class="markdown h-full w-full overflow-y-scroll select-none"
-                ></div>
-            </div>
-            <div
-                class="hidden lg:flex w-32 h-full flex-col justify-between items-end"
-            >
-                <div class="grow min-h-0 max-h-screen py-2">
-                    <img
-                        class="object-contain h-full w-full"
-                        src="/assets/muji_pen.png"
-                        alt=""
-                    />
+                    class="aspect-[4/5] bg-light rounded-l-3xl rounded-r-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] [box-shadow:0px_0px_10px_#374151_inset]"
+                >
+                    <h1>NOTES</h1>
+                    <div id="notes-summary" class="markdown"></div>
                 </div>
-                <a href="/">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 -960 960 960"
-                        fill="#F4EFDC"
-                        class="h-14 w-14"
-                    >
-                        <path
-                            d="M360-200v-80h264L160-744l56-56 464 464v-264h80v400H360Z"
-                        />
-                    </svg>
-                </a>
+                <div
+                    class="aspect-[4/5] bg-light rounded-r-3xl rounded-l-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] [box-shadow:0px_0px_10px_#374151_inset]"
+                >
+                    <div
+                        id="md-content"
+                        class="markdown h-full w-full text-black overflow-scroll"
+                    ></div>
+                </div>
             </div>
         </div>
     </body>

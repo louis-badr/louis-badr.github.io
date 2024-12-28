@@ -1,18 +1,35 @@
+const leftPage = document.getElementById("left-page");
+const rightPage = document.getElementById("right-page");
 const note = document.getElementById("md-content");
-// display title and subtitle of notes in notes-data.json
+const queryParams = new URLSearchParams(window.location.search);
+const hash = window.location.hash.substring(1);
+
 fetch("/js/notes-data.json")
     .then((response) => response.json())
     .then((data) => {
-        let notesSummary = document.getElementById("notes-summary");
+        let notesList = document.getElementById("notes-list");
         data.forEach((note) => {
-            notesSummary.innerHTML += `<p>••••••••••</p>`;
-            notesSummary.innerHTML += `<h2>${note.title}</h2>`;
-            notesSummary.innerHTML += `<p>${note.subtitle}</p>`;
+            notesList.innerHTML += `<p>••••••••••</p>`;
+            notesList.innerHTML += `<h2><a href="/notes#${note.filename}" style="text-decoration: none;">${note.title}</a></h2>`;            
+            notesList.innerHTML += `<p>${note.subtitle}</p>`;
         });
-        // display content of first note in md-content
-        fetch(data[0].path)
-            .then((response) => response.text())
-            .then((text) => {
-                note.innerHTML = marked.parse(text);
-            });
-    });
+        if (hash) {
+            // display right page and hide left page
+            rightPage.classList.remove("hidden");
+            leftPage.classList.add("hidden");
+            fetch(`/assets/notes/${hash}.md`)
+                .then((response) => response.text())
+                .then((text) => {
+                    note.innerHTML = marked.parse(text);
+                });
+        } else {
+            // display left page and hide right page
+            leftPage.classList.remove("hidden");
+            rightPage.classList.add("hidden");
+            fetch(`/assets/notes/${data[0].filename}.md`)
+                .then((response) => response.text())
+                .then((text) => {
+                    note.innerHTML = marked.parse(text);
+                });
+        }
+});

@@ -32,7 +32,7 @@ In this tutorial, we will:
 4. Cast the metal
 5. Post-process the metal parts
 
-## Materials used in this tutorial
+## Materials (used in this tutorial)
 
 -   A resin 3D printer and castable resin
 -   Wax lines
@@ -46,21 +46,24 @@ In this tutorial, we will:
 
 ## Creating a wax / resin master
 
-The first step is to create a positive of the part - later we will cast a ceramic mold around it then bake the mold to leave only the cavity in which we will cast the metal into.
+The first step is to create a positive of the part - later we will cast a ceramic mold around it then bake the mold to leave only the negative in which we will cast the metal into.
 The main requirement for this positive is that it must be made of a material that will burn during the firing of the mold while leaving as little residue as possible.
-Jewelers traditionally use microcrystalline wax for this purpose and shape it by carving or molding it.
+Jewelers traditionally use [different types of microcrystalline wax](https://www.waxcarvers.com/blog/post/what-wax-color-should-I-get/) for this purpose and shape it by carving or molding it.
 Recently, new resins for 3D printing have emerged, designed specifically for this kind of manufacturing process.
-Le gros avantage de l'impression 3D c'est d'abord la répétabilité
+Whereas sculpting makes a type of craftsmanship possible and molding makes it possible to batch produce parts (from a sculpture, an original, a 3D print or other), castable resin 3D printing makes it possible to go directly from a 3D model to a "wax" master.
+This makes it possible to produce parts that would otherwise be complex or impossible to manufacture in wax and saves considerable time especially for one-offs and small runs.
 
 Here's a table of some of the resins I came across during my research:
 
-| Product Name                                                                                        | Printer compatibility | Price      | Notes                                                                                              |
-| --------------------------------------------------------------------------------------------------- | --------------------- | ---------- | -------------------------------------------------------------------------------------------------- |
-| [Formlabs Castable Wax 40 Resin](https://formlabs.com/fr/boutique/materials/castable-wax-40-resin/) | Formlabs Form 2 & 3   | 298.20€/L  | Cher de zinzin et pas ouf                                                                          |
-| [Formlabs Castable Wax Resin](https://formlabs.com/fr/boutique/materials/castable-wax-resin/)       | Formlabs Form 3 & 4   | 358.80€/L  |                                                                                                    |
-| [BlueCast X-One V2](https://www.bluecast.info/x-one)                                                | DLP & LCD             | 285.60€/kg | Pas cher, compatible avec n'importe quelle imprimante, mais nécessite un post-traitement plus long |
-| [BlueCast X-Filgree V2](https://www.bluecast.info/x-fil)                                            | DLP & LCD             | 285.60€/kg |                                                                                                    |
-| [BlueCast X-NOVA](https://www.bluecast.info/x5)                                                     | DLP & LCD             | 239.98€/kg |                                                                                                    |
+| Product Name                                                                                        | Printer compatibility | Price      | Notes                                                                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------- | --------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [BlueCast X-One V2](https://www.bluecast.info/x-one)                                                | DLP & LCD             | 285.60€/kg | This is the resin I use in the rest of the tutorial, it's on the pricier side but it prints easily and gives excellent results.                                                                           |
+| [BlueCast X-Filgree V2](https://www.bluecast.info/x-fil)                                            | DLP & LCD             | 285.60€/kg | X-One V2 is supposed to be BlueCast's most versatile castable resin, and they have a whole range of resins on their website. This one is supposed to be more suitable for fine details incuding filigree. |
+| [BlueCast X-NOVA](https://www.bluecast.info/x-nova)                                                 | DLP & LCD             | 239.98€/kg | This version also looks interesting: it's a little more flexible to allow stones to be integrated into the 3D print so that they remain there after casting.                                              |
+| [Formlabs Castable Wax 40 Resin](https://formlabs.com/fr/boutique/materials/castable-wax-40-resin/) | Formlabs Form 2 & 3   | 298.20€/L  | Cher de zinzin et pas ouf                                                                                                                                                                                 |
+| [Formlabs Castable Wax Resin](https://formlabs.com/fr/boutique/materials/castable-wax-resin/)       | Formlabs Form 3 & 4   | 358.80€/L  |                                                                                                                                                                                                           |
+| [Siraya Tech Cast - Castable Resin Purple](https://siraya.tech/products/cast-castable-resin)        | DLP & LCD             | 75€/kg     |                                                                                                                                                                                                           |
+| [Siraya Tech Cast - Castable Resin True Blue](https://siraya.tech/products/cast-castable-resin)     | DLP & LCD             | 80€/kg     |                                                                                                                                                                                                           |
 
 ![Sprue tree](/assets/gallery/lost-resin-casting_sprue-tree.JPG)
 
