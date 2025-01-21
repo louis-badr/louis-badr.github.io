@@ -13,6 +13,7 @@ fetch("/js/notes-data.json")
             notesList.innerHTML += `<h2><a href="/notes#${note.filename}" style="text-decoration: none;">${note.title}</a></h2>`;            
             notesList.innerHTML += `<p>${note.subtitle}</p>`;
         });
+        console.log(hash);
         if (hash) {
             // display right page and hide left page
             rightPage.classList.remove("hidden");
