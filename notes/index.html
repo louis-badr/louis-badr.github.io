@@ -15,6 +15,7 @@
         />
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
         <link rel="stylesheet" href="/css/style.css" />
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <style>
             .markdown * {
@@ -68,17 +69,17 @@
             <div id="gradientContainer" class="h-full w-full"></div>
         </div>
 
-        <div class="w-screen h-screen flex flew-row lg:p-[20px]">
+        <div class="w-screen h-screen flex flew-row lg_tall:p-[20px]">
             <div
                 id="left-page"
-                class="min-h-[50vh] lg:aspect-ratio[4/5] lg:block w-full lg:w-1/2 h-full bg-light rounded-tl-3xl lg:rounded-bl-3xl lg:rounded-r-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] shadow-[inset_-10px_0px_50px_rgba(0,0,0,0.2)]"
+                class="min-h-[50vh] lg_tall:block w-full lg_tall:w-1/2 h-full bg-light rounded-tl-3xl lg_tall:rounded-bl-3xl lg_tall:rounded-r-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] shadow-[inset_-10px_0px_50px_rgba(0,0,0,0.2)]"
             >
                 <h1>NOTES</h1>
                 <div id="notes-list" class="markdown overflow-y-scroll"></div>
             </div>
             <div
                 id="right-page"
-                class="min-h-[50vh] lg:aspect-ratio[4/5] w-full lg:w-1/2 bg-light lg:block rounded-r-3xl lg:rounded-l-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] shadow-[inset_10px_0px_50px_rgba(0,0,0,0.2)]"
+                class="min-h-[50vh] w-full lg_tall:w-1/2 bg-light lg_tall:block rounded-r-3xl lg_tall:rounded-l-xl px-8 pt-8 pb-5 bg-[radial-gradient(#9ca3af_1px,transparent_1px)] [background-size:24px_24px] shadow-[inset_10px_0px_50px_rgba(0,0,0,0.2)]"
             >
                 <div
                     id="md-content"
@@ -86,7 +87,7 @@
                 ></div>
             </div>
             <div
-                class="hidden lg:flex w-32 h-full flex-col justify-between items-end"
+                class="hidden lg_tall:flex w-32 h-full flex-col justify-between items-end"
             >
                 <div class="grow min-h-0 max-h-screen py-2">
                     <img

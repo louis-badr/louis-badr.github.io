@@ -28,7 +28,7 @@ In this tutorial, we will:
 
 1. Create wax / resin masters
 2. Build a wax sprue tree
-3. Make a mold
+3. Make and bake a ceramic mold
 4. Cast the metal
 5. Post-process the metal parts
 
@@ -38,167 +38,153 @@ In this tutorial, we will:
 -   Wax lines
 -   Investment powder
 -   A (perforated) flask
+-   A vacuum casting machine - the [Kaya Cast](https://pepetools.com/products/tabletop-vacuum-investing-and-casting-machine-system-arbe-kayacast) one here
+-   A vacuum pump and chamber (or the Kaya Cast machine)
 -   A programmable kiln / furnace
 -   Metal melting equipment (furnace / torch, crucible, tongs, ...)
--   Safety equipment (gloves, apron, respirator, eye protection, ...)
+-   Safety equipment (gloves, apron, respirator, eye protection, a fire extinguisher, ...)
 -   A large bucket
 -   The metal of your liking
 
 ## Creating a wax / resin master
 
-The first step is to create a positive of the part - later we will cast a ceramic mold around it then bake the mold to leave only the negative in which we will cast the metal into.
+The first step is to create a positive of the part - later we will cast a ceramic mold around it then bake the mold to leave only the negative in which we will cast the metal.
 The main requirement for this positive is that it must be made of a material that will burn during the firing of the mold while leaving as little residue as possible.
 Jewelers traditionally use [different types of microcrystalline wax](https://www.waxcarvers.com/blog/post/what-wax-color-should-I-get/) for this purpose and shape it by carving or molding it.
 Recently, new resins for 3D printing have emerged, designed specifically for this kind of manufacturing process.
-Whereas sculpting makes a type of craftsmanship possible and molding makes it possible to batch produce parts (from a sculpture, an original, a 3D print or other), castable resin 3D printing makes it possible to go directly from a 3D model to a "wax" master.
-This makes it possible to produce parts that would otherwise be complex or impossible to manufacture in wax and saves considerable time especially for one-offs and small runs.
+Whereas sculpting makes a type of craftsmanship possible and molding makes it possible to batch produce parts (from a sculpted wax piece, an original, a 3D print or other), castable resin 3D printing makes it possible to go directly from a 3D model to a "wax" master.
+3D printing makes it possible to produce parts that would otherwise be complex or impossible to manufacture in wax and saves considerable time especially for one-offs and small runs.
 
 Here's a table of some of the resins I came across during my research:
 
-| Product Name                                                                                        | Printer compatibility | Price      | Notes                                                                                                                                                                                                     |
-| --------------------------------------------------------------------------------------------------- | --------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [BlueCast X-One V2](https://www.bluecast.info/x-one)                                                | DLP & LCD             | 285.60€/kg | This is the resin I use in the rest of the tutorial, it's on the pricier side but it prints easily and gives excellent results.                                                                           |
-| [BlueCast X-Filgree V2](https://www.bluecast.info/x-fil)                                            | DLP & LCD             | 285.60€/kg | X-One V2 is supposed to be BlueCast's most versatile castable resin, and they have a whole range of resins on their website. This one is supposed to be more suitable for fine details incuding filigree. |
-| [BlueCast X-NOVA](https://www.bluecast.info/x-nova)                                                 | DLP & LCD             | 239.98€/kg | This version also looks interesting: it's a little more flexible to allow stones to be integrated into the 3D print so that they remain there after casting.                                              |
-| [Formlabs Castable Wax 40 Resin](https://formlabs.com/fr/boutique/materials/castable-wax-40-resin/) | Formlabs Form 2 & 3   | 298.20€/L  | Cher de zinzin et pas ouf                                                                                                                                                                                 |
-| [Formlabs Castable Wax Resin](https://formlabs.com/fr/boutique/materials/castable-wax-resin/)       | Formlabs Form 3 & 4   | 358.80€/L  |                                                                                                                                                                                                           |
-| [Siraya Tech Cast - Castable Resin Purple](https://siraya.tech/products/cast-castable-resin)        | DLP & LCD             | 75€/kg     |                                                                                                                                                                                                           |
-| [Siraya Tech Cast - Castable Resin True Blue](https://siraya.tech/products/cast-castable-resin)     | DLP & LCD             | 80€/kg     |                                                                                                                                                                                                           |
+| Product Name                                                                                        | Printer compatibility | Price      | Notes                                                                                                                                                                                                                                      |
+| --------------------------------------------------------------------------------------------------- | --------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [BlueCast X-One V2](https://www.bluecast.info/x-one)                                                | DLP & LCD             | 285.60€/kg | This is the resin I use in the rest of the tutorial, it's on the pricier side but it prints easily and gives excellent results.                                                                                                            |
+| [BlueCast X-Filgree V2](https://www.bluecast.info/x-fil)                                            | DLP & LCD             | 285.60€/kg | X-One V2 is supposed to be BlueCast's most versatile castable resin, and they have a whole range of resins on their website. This one is supposed to be more suitable for fine details incuding filigree.                                  |
+| [BlueCast X-NOVA](https://www.bluecast.info/x-nova)                                                 | DLP & LCD             | 239.98€/kg | This version also looks interesting: it's a little more flexible to allow stones to be integrated into the 3D print.                                                                                                                       |
+| [Formlabs Castable Wax 40 Resin](https://formlabs.com/fr/boutique/materials/castable-wax-40-resin/) | Formlabs Form 2 & 3   | 298.20€/L  | Formlabs offers two castable resins, one blue with 20% wax and the other violet with 40%, which could allow more detail. I was able to test the blue one and would only recommend it if you only have a Formlabs printer at your disposal. |
+| [Formlabs Castable Wax Resin](https://formlabs.com/fr/boutique/materials/castable-wax-resin/)       | Formlabs Form 3 & 4   | 358.80€/L  |                                                                                                                                                                                                                                            |
+| [Siraya Tech Cast - Castable Resin Purple](https://siraya.tech/products/cast-castable-resin)        | DLP & LCD             | 75€/kg     | I haven't tested it, it's apparently not the easiest to print but its price could justify the trouble.                                                                                                                                     |
+| [Siraya Tech Cast - Castable Resin True Blue](https://siraya.tech/products/cast-castable-resin)     | DLP & LCD             | 80€/kg     |                                                                                                                                                                                                                                            |
+| [BURNAWAY Castable Resin](https://monocure3d.com.au/product/burnaway-castable-resin/)               | DLP & LCD             | 108.54€/kg |                                                                                                                                                                                                                                            |
 
-![Sprue tree](/assets/gallery/lost-resin-casting_sprue-tree.JPG)
+Profiles for different printers and instructions for printing and post-processing the X-One V2 are available on [BlueCast's website](https://www.bluecast.info/x-one).
 
-## Castable resin 3D printing
-
-We can make wax positives using different methods, such as sculpting or molding, but here we will focus on castable resins.
-
-These resins allow us to take full advantage of all the benefits of 3D resin printing: we can go from a 3D model to the part directly, with great precision, in quantity and customize them.
-
-No worries, these resins are designed for this type of manufacturing process, they are available under several brands and are compatible, for each, with certain types of 3D resin printers (SLA, DLP, LCD).
-
-For our purposes, we will utilize a Formlabs printer paired with Formlabs Castable Wax 40 resin. Formlabs provides comprehensive instructions for using this resin, along with helpful documents for designing and printing the parts. You can find these resources at the following link: [Formlabs Castable Wax 40 Resin Instructions](https://support.formlabs.com/s/article/Using-Castable-Wax-40-Resin).
-
-Once the printing is complete, we proceed by immersing the parts in isopropyl alcohol, following the guidelines provided by Formlabs. Unlike other resins, this particular one does not require exposure to UV light.
-
-[ photos des pièces ]
+In the rest of the tutorial, we'll create a sprue tree to be able to cast several parts in a single mold but it can be useful to integrate small sprues directly into the 3D models to ensure that all the details come out nicely without having to cut and weld small wax sticks.
+Especially for rings, the sprue tree will generally be welded on the less detailed side so it's important to ensure that the metal flows properly to the other side.
+I invite you to take a look at Formlabs' tutorial [1], which addresses this point, and BlueCast's datasheet (X-One V1) [2], which has several examples.
 
 ## Building the sprue tree
 
-The manufacturing process being lengthy, we will try to put as many parts as possible per mold.
-
-To do this, we can connect the different wax parts with sticks to form a tree.
-
-The flask which will accommodate the mold is shipped with a silicone cover. This cone-shaped cover enables us to create a funnel within the mold, facilitating the pouring of molten metal and providing support for our wax tree.
-
-We can place a stick in the hole and weld parts or other sticks by melting the wax, with a lighter or a soldering iron for example, you can use superglue or epoxy if needed.
-
-Be mindful of the dimensions of the flask when assembling the tree and do not place pieces too close to one another or too close to the walls of the flask.
+To cast more than one part at a time, we'll build a sprue tree to connect the mold opening, through which the metal will flow, to all the different parts.
+To do this, it's best to use wax lines, made for jewelry, of different diameters. I found mine on AliExpress, the wax is generally blue or green and I only needed two diameters here, 3 and 6mm.
+It's certainly possible to use other types of wax but impurities can be carried over to our parts.
+The flask comes with a silicone cap to seal the base in order to pour the plaster, and a hole at the end of a cone (which will create a funnel shape at the opening of the mold) to attach the sprue tree.
+I did use beeswax to connect the sprue tree base to the silicone cap, as I don't have wax lines the exact diameter of the cap hole and beeswax is easy to work with.
+Connect a thick wax line securely to the hole in the cap, and weld branches to it, to which we'll attach the parts.
+The branches point upwards because the mold is upside down, the angle is a also a bit arbitrary, ~45 degrees here.
+If this is something you'll have to do often, it may be worth investing in a hot thread pen to save you some time.
+**Be careful, not to bring the individual parts too close to each other or too close to the edge of the flask.**
+A wall that's too thin could burst and, at best, your pieces will be ruined.
 
 ## Making the mold
 
-Next, we can pour our mold and fire it.
+Now we can pour our plaster on top and put the whole thing in the kiln.
+Once again, there are several brands of investment plaster, the two I've come across the most are the different Prestige Optima ones and the BlueCast X-Vest.
+I think that as long as you use investment plaster suitable for your metal and not regular/casting plaster, the result will be good.
+Investement plaster is made to withstand wide temperature fluctuations without deforming or breaking, which is not the case with all plasters.
 
-We are not using refractory plaster but investment powder which is designed to withstand the high temperature fluctuations of metal casting. This type of powder will prevent the mold from cracking or warping and will give a better surface finish to the parts.
+You'll also need a flask, perforated or not.
+I'll be using the Kaya Cast machine in the rest of the tutorial with which you can do vacuum casting by putting a _perforated_ flask in the right-hand side of the machine, or table vacuum casting (less efficient and more dangerous) with a _solid_ flask and one of the adapter plates.
 
-Using BlueCast X-VEST investment powder, let's start step by step:
+I am using the BlueCast X-Vest investment powder here, let's start!
 
-1. Cover the sides of the perforated flask with painter's tape to make it plaster-tight - you can extend the tape higher than the edges to prevent any overflow during vacuum sealing.
+1. If your flask is perforated, cover the sides with (painter's) tape to make it plaster-tight - you can extend the tape higher than the edges to prevent overflow under vacuum.
 
-[ photo scotch ]
+2. Fit the silicone cap with the sprue tree onto the flask.
 
-2. Fit the silicone cap with the tree onto the flask.
+3. For mixing the investment powder with water, pick a container that fits into your vacuum chamber. For the BlueCast X-Vest and if you're mixing by hand, the ratio is 1kg of powder for 300cc of water. There should be enough mixture to reach the flat bar of the flask (1kg of powder for the small flask if I recall correctly). Mix vigorously, ensuring there are no lumps or clumps.
 
-3. To mix the investment powder with water, pick a container that fits into your vacuum chamber. For the BlueCast X-VEST, we need 320g of water for 1kg of powder. There should be enough mixture to reach the flat bar at the bottom of the flask. Mix vigorously, ensuring there are no lumps or clumps.
+We next remove as many bubbles as possible from the mixture by passing it under vacuum.
+If you're using the Kaya Cast machine, the left-hand side of the machine serves as a vacuum chamber and the whole thing is spring-mounted so you can shake the container to speed up the process.
+To start the vacuum, turn the machine on, put the bell jar on the platform and flip the switch to “Investment Table”.
+To release the air, flip the switch to “Vacuum Release”, turn the machine off only when you are done and with the air released.
 
-4. Place the container on the table of the Kaya Cast machine with the bell jar, turn the machine on and flip the switch to "Investment Table". Shake the table if necessary (it is mounted on springs).
+4. Remove as many bubbles as possible from the mixture, switching the pump on and off several times if necessary. Carefully pour the mixture into the flask to avoid damaging the tree, then vacuum the mixture a second time.
 
-[ photo sous vide ]
+5. The mold needs to stay at room temperature for at least 2 hours before firing it, 3 for short burnouts according to BlueCast, but the longer, the better.
 
-5. Carefully pour the mixture into the flask, aiming for the edges and avoiding direct contact with the tree to prevent any damage to it.
+The next step is to bake the mold according to a burnout cycle.
+Choosing the right cycle can be tricky, as resin and investment manufacturers generally provide their own instructions.
+The burnout cycle is used to dry the plaster, melt the wax, burn off any residues and then maintain the mold at a certain temperature for casting.
+**The most important thing is not to let the mold cool down, but to keep it warm after firing and until casting, so that there is no humidity in the mold and to prevent the metal from cooling down too quickly on contact with the mold.**
 
-[ photo coule le platre ]
+5. Place the mould in the kiln - with the opening facing downwards but not flat against the surface of the oven - and program the cycle.
 
-6. To remove the maximum amount of bubble, you can repeat the 4th step with the perforated flask this time.
+![X-Vest Recommended Burnout Cycles](/assets/notes/X-Vest_Recommended_Burnout_Cycles.webp)
 
-The mold needs to stay at room temperature for at least 2 hours before firing it - specified by the manufacturer but the longer, the better.
+BlueCast gives two burnout cycles for the X-Vest, a fast one and a longer but safer one.
+Note that the Carbolite kiln at the IFT can only go up by 8°C/min, so you may have to adjust the curve a bit.
 
-1. On place ensuite le moule - avec l’entrée vers le bas - à cuire dans le kiln en programmant la courbe indiquée par le fabriquant de la poudre.
+## Casting
 
-[ photo de la flasque dans le four ] [ image de la courbe tirée de la datasheet ]
+Our mold is ready and waiting in the kiln, we'll melt the metal and get ready to cast.
 
-# Casting
+<p style="color:#2e45ed; font-style: italic;">
+    To give some context, we can pour the metal directly into our mold but for small parts, the low hydrostatic pressure and surface tension of the molten metal mean that it won't properly fill the thinner parts of the mold.
+    So we have to exert pressure on the molten metal.
+    In entry-level machines, there are two methods of doing this: centrifugation and vacuum casting.
+    I'm not a big fan of spinning molten metal at high speed and vacuum casting machines are very efficient and machines like the Kaya Cast are reasonably priced.
+    The idea is to suck air through the pores of the plaster so that the metal follows and fills in all the details.
+<p>
 
-Notre moule est prêt, il ne manque qu'à verser le métal
+<img src="/assets/notes/vacuum_casting_diagram.png" alt="Vacuum Casting Diagram" style="display: block; margin: auto; width: 40%; height: auto;">
+<p style="text-align: center; font-weight: bold;">Vacuum Casting Diagram [3]</p>
 
-1. Vérifier le niveau d’huile de la machine - il doit être au trait et l’air ne doit pas être trouble. Il est possible de vidanger l’huile et de la remplacer par de l’huile faite pour pompes cf. manuel.
-2. Placer un grand seau rempli d’eau proche de la machine, il servira à plonger la flasque après la coulée du métal
-3. Placer la flasque dans la cuve de la machine de coulée sous vide.
+1. We can put our metal in the crucible and heat up the furnace.
 
-Le joint de la machine peut être changé pour accueillir différentes tailles de flasques perforées.
+Note that the casting temperature is higher than the melting temperature of the metal so that it is more fluid.
+For example, for the 925 silver I'm using here, the manufacturer indicates a melting range of 820 to 880°C and a casting temperature of 970 to 1040°C.
+You can add flux/borax to separate impurities from the metal if necessary.
 
-La machine dispose aussi d’une plaque trouée pour utiliser la machine comme vacuum casting table avec des flasques non perforées mais nous conseillons la première option pour des raisons de sécurité et de qualité des pièces.
+2. Check the machine's oil level - it should be at the line and not cloudy. The oil can be drained and replaced with pump oil (see manual [4]).
 
-[ photo des joints ] [ photo de la flasque dans la cuve avec les bons joints ]
+3. Fit the correct adapter plate and silicone gasket to the machine for the type of flask you are using.
 
-1. On lance la fonte du métal pour qu’il soit prêt à être coulé depuis un creuset
-2. Placer la manette sur “casting chamber” et allumer la pompe, vérifier que la pression de la chambre diminue légèrement.
-3. Dès que la pression se stabilise on peut couler le métal délicatement dans le moule
-4. On attend que le métal arrête de rayonner pour stopper la pompe - si on attend pas assez le métal pourrait ne pas remplir tous les détails des pièces - si on attend trop le plâtre sera plus difficile à retirer de la flasque.
-5. On peut retirer la flasque et la plonger dans l’eau jusqu’à refroidissement du métal
+<p style="color:#2e45ed; font-style: italic;">
+    Note that the silicone is used to seal the flask so that the vacuum is properly made, it wears out quickly but this is normal. Apparently there are graphite gaskets that last longer but I haven't tested them.
+<p>
 
-Le moule se défait dans le plâtre et nous laisse avec l’arbre qu’on a construit plus tôt cette fois en métal !
+4. Place a large bucket of water next to the machine to put the flask in after the casting process.
+
+5. After the furnace/metal has reached the casting temperature, turn on the Kaya Cast machine, bring the flask from the kiln to the machine and turn the switch to “Casting Chamber”. Wait a few seconds for the pressure to stabilize then pour the metal into the mold.
+
+6. Once the metal has solidified you can put the flask into the water. If you take the flask out of the machine too quickly, there's a risk that the metal won't solidify properly and if you wait too long, the plaster will be very hard to remove (thermal shock usually causes it to break by itself).
+
+7. Take a well-deserved break.
 
 ## Post-processing
 
-Il est généralement souhaitable de nettoyer les pièces et de leur donner un joli aspect, on va voir une manière de la faire ici.
+For mechanical parts, this is not necessarily desirable if dimensional accuracy is important, but here it's mainly for aesthetics!
 
-Attention, pour les pièces mécaniques c'est pas forcément souhaitable si la précision dimensionnelle et importante, ici c'est surtout pour de l'esthétique !
+You can start by sawing off the sprues and brushing the parts to remove large plaster pieces
+If large pieces of plaster are stucks to the parts, you can leave them in water for a while to soften them.
+You can then file the part's soldering point and move on to polishing.
+I used polishing paste with a brush attached to a dremel.
 
-On peu commencer par scier les pièces de l'arbre et les brosser pour enlever les gros résidus de plâtre.
-
-Il est possible de les plonger dans un bain d'alcool avec des ultrasons pour enlever l'oxydation et les derniers résidus de plâtre.
-
-On peut ensuite limer la partie en contact avec l'arbre et poncer la pièce avec un grain de plus en plus fin.
-
-On peut terminer par polir la pièce, nous utilisons ici de la pâte à polir avec une brosse attachée à un dremel.
-
-## Conclusion
-
-Le procédé est plus contraignant que les méthodes DIY classiques et nécessite deux machines supplémentaires mais permet d'obtenir des pièces de qualité, identiques, personnalisées et en quantité sans travail manuel chronophage et machines industrielles.
+Félicitations, you've made it to the end of the tutorial!   
 
 ## References
 
-## Instructions from BlueCast
+[1] [BlueCast X-One V1 Datasheet](https://cdn.shopify.com/s/files/1/1339/4265/files/Features-BC-X-one_eng.pdf)
 
-https://www.bluecast.info/x-one
+[2] [Introduction to Casting for 3D Printed Jewelry Patterns - Formlabs](https://formlabs-media.formlabs.com/filer_public/cb/16/cb16362f-506a-4b40-bee3-d67b33aefdf7/castable_wax_casting_guide.pdf)
 
-### BEFORE PRINT
+[3] Gainsbury, P. E. (1979). Jewellery investment casting machines. Gold Bulletin, 12(1), 2-8.
 
--   Due to the use of a low-temperature melting polymer, the resin solidifies below 18°C. Prior to use, it is necessary to heat the resin within the temperature range of 25 to 40°C. The optimal operating range is from 20 to 30°C. The resin will remain in liquid form at temperatures above 18°C.
--   Various methods can be used to heat the resin, such as microwave ovens (never exceeding 30 seconds), ultrasonic cleaners, hot air, baby bottle warmer, etc.
--   Before pouring the resin into the resin tank, shake the bottle for one minute.
--   For proper debubbling, allow the resin to rest in the resin tank for 5 minutes before starting the print. To expedite the process, the resin can be filtered to remove air bubbles or vacuumed from the opened bottle.
--   Due to the use of a low-temperature melting polymer, the minimum supports (the initial pattern supports) must be larger than usual. The ring sprue can be designed within the model and used as the main support.
--   Avoid using contact points under 0.4 mm and ensure proper support for the shank of the rings.
--   Failure to filter the resin after each print or neglecting to heat the resin before each print may result in printing failures. Do not store the resin in the tank. Please remove the resin from the printer tank, filter it, and store it in the original bottle. For maximum detail, consider using HD FEP or No-FEP - PFA.
+[4] [Kaya Cast Instruction Manual](https://pepetools.com/cdn/shop/files/kayacast_instructions.pdf)
 
-### POST-PRINTING CLEANUP
+Cool YouTube channels to follow:
 
--   Patterns printed with this resin are more fragile compared to other BlueCast resins, particularly delicate patterns like filigree and prongs. Handle them with care.
--   The resin contains a waxy polymer, making the patterns moderately softer.
--   Clean the prints using 91% to 99% ethyl alcohol.
--   When using an ultrasonic cleaner, run a 5-minute cycle with heat turned off (recommended procedure).
--   With a resin washer machine, run a cycle of approximately 5 to 10 minutes.
--   For simple immersion in an alcohol bath, wait approximately 10 minutes submerged.
--   When using IPA alcohol, reduce the washing time.
--   After washing, dry the patterns using compressed air. The resin color will transition from dark gray to light gray/white.
--   After the initial washing step, spraying brand new 91% to 99% ethyl alcohol or IPA onto the patterns and drying them again will improve the casting quality.
--   If compressed air is unavailable, a hairdryer can be used to dry the patterns.
--   Whitening of the resin will require longer times.
--   The duration of resin whitening is strongly influenced by the quality and exhaust of the alcohol used, as well as the washing procedure. Lower quality and more exhausted alcohol will require longer whitening times.
--   After the washing procedure, allow sufficient time for the alcohol to evaporate before investing. Post-curing can expedite alcohol evaporation, making the patterns more rigid and stiff.
-
-### ULTRA FAST BURNOUT ALLOWED
-
--   The ultra-fast burnout (2 hours at 700°C) has been validated for X-One and X-Filgree V2 only.
--   Allow the flask to rest for 3 hours, then proceed to 700°C (1290°F) and maintain that temperature for 60 to 90 minutes.
--   Reduce the temperature to your casting temperature and hold for 60 minutes before casting as usual.
+-   [Paul's Garage](https://www.youtube.com/@PaulsGarage)
+-   [Mitera Made Jewelry](https://www.youtube.com/@MiteraMade)

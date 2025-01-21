@@ -16,6 +16,9 @@ module.exports = {
         "accent": "#2E45ED",
         "light": "#F4EFDC",
       },
+      screens: {
+        lg_tall: { raw: '(min-height: 601px) and (min-width: 1024px)' }
+      },
     },
   },
   plugins: [],
