@@ -87,6 +87,8 @@ If this is something you'll have to do often, it may be worth investing in a hot
 **Be careful, not to bring the individual parts too close to each other or too close to the edge of the flask.**
 A wall that's too thin could burst and, at best, your pieces will be ruined.
 
+![Sprue Tree](/assets/notes/sprue_tree.jpg)
+
 ## Making the mold
 
 Now we can pour our plaster on top and put the whole thing in the kiln.
