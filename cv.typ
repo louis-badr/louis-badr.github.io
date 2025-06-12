@@ -159,7 +159,7 @@ contact\@louis-badr.fr |
   rect[#text(
       weight: "semibold",
     )[3D/CAD/CAM\ Manufacturing\ Software Dev\ Electronics\ Graphic Design\ Office Software]],
-  rect[Fusion 360 - Blender\ 3D printing (FDM & Resin) - Laser Cutting - CNC Machining\ Python - Arduino - HTML/CSS/JS - Unity - Linux - Git\ Prototyping - Arduino compatible MCUs - PCB design - Electronics assembly\ Figma - Adobe Illustrator - Adobe Photoshop\ Microsoft Office - LaTeX - Zotero],
+  rect[Fusion 360 - Onshape - Blender\ 3D printing (FDM & Resin) - Laser Cutting - CNC Machining\ Python - Arduino - HTML/CSS/JS - Unity - Linux - Git\ Prototyping - PCB design (Kicad) - Assembly (THT & SMT)\ Figma - Adobe Illustrator - Adobe Photoshop\ Microsoft Office - LaTeX - Zotero],
 )
 
 === INTERESTS
