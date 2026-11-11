@@ -1,0 +1,53 @@
+---
+// A page drawn on the sheet, next to the parts list and title block.
+// On wide screens the content scrolls in the space left of the title block;
+// on smaller ones the title block gives way to a row of section links
+// (two rows on narrow phones).
+import Base from "./Base.astro";
+import TitleBlock from "../components/TitleBlock.astro";
+import { sections, type SectionId } from "../lib/sections";
+
+interface Props {
+  title: string;
+  description?: string;
+  current: SectionId;
+}
+
+const { title, description, current } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <main class="scroll-left min-h-0 flex-1 overflow-y-auto px-5 pt-6 pb-10 sm:px-8 xl:mr-[42rem] xl:pr-6">
+    <slot />
+  </main>
+
+  <TitleBlock
+    current={current}
+    class="absolute right-0 bottom-0 hidden xl:flex"
+  />
+
+  <nav aria-label="Sections" class="xl:hidden">
+    <ol class="flex flex-wrap font-plan">
+      <li class="border-t border-r border-accent">
+        <a href="/" class="block px-3 py-2 text-sm text-accent">
+          Home
+        </a>
+      </li>
+      {sections.map((s, i) => (
+        <li class="border-t border-r border-accent">
+          <a
+            href={s.href}
+            class:list={[
+              "flex items-baseline gap-1.5 px-3 py-2 text-sm",
+              s.id === current && "text-accent",
+            ]}
+            aria-current={s.id === current ? "page" : undefined}
+          >
+            <span class="text-xs text-accent">{i + 1}</span>
+            {s.name}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+</Base>

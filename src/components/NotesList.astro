@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  current?: string;
+}
+
+const { current } = Astro.props;
+const notes = (await getCollection("notes", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<h1 class="mb-4">NOTES</h1>
+<ul class="min-h-0 flex-1 space-y-4 overflow-y-auto pr-1">
+  {notes.map(({ id, data }) => (
+    <li>
+      <p aria-hidden="true" class="tracking-[0.3em] text-darker/40">
+        ••••••••••
+      </p>
+      <h2 class="text-balance">
+        <a
+          href={`/notes/${id}/`}
+          class:list={["hover:text-accent", current === id && "text-accent"]}
+          aria-current={current === id ? "page" : undefined}
+        >
+          {data.title}
+        </a>
+      </h2>
+      <p>{data.subtitle}</p>
+      <p class="mt-1 text-sm text-darker/60">
+        {data.tags.join(" · ")} —{" "}
+        <time datetime={data.date.toISOString()}>
+          {data.date.toLocaleDateString("en-GB")}
+        </time>
+      </p>
+    </li>
+  ))}
+</ul>

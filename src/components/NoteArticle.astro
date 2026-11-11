@@ -1,0 +1,22 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+
+interface Props {
+  note: CollectionEntry<"notes">;
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<a
+  href="/notes/"
+  class="mb-4 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-2 md:hidden"
+>
+  ← All notes
+</a>
+<article class="note min-h-0 flex-1 overflow-y-auto pr-2">
+  <h1>{note.data.title}</h1>
+  <p class="text-lg font-semibold">{note.data.subtitle}</p>
+  <Content />
+</article>

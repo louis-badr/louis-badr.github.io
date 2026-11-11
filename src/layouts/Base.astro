@@ -1,0 +1,115 @@
+---
+// Every page is either drawn on the sheet (cream paper with blue lines and
+// rulers) or set on the desk (a cutting mat under the sheet, which has been
+// slid aside: only its edge is left, as a way back).
+import "../styles/global.css";
+import SheetEdge from "../components/SheetEdge.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  surface?: "sheet" | "desk";
+  /** Desk pages: draw the cutting mat over the whole window. Set to false
+   *  when the page lays out its own mat (the desk overview). */
+  mat?: boolean;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = "Creative technologist portfolio of Louis Badr - between engineering, research and design",
+  surface = "sheet",
+  mat = true,
+  canonical,
+} = Astro.props;
+
+const fullTitle =
+  title === "Portfolio" ? "Louis Badr • Portfolio" : `${title} • Louis Badr`;
+const canonicalURL = new URL(canonical ?? Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class:list={[
+    surface === "desk" && "desk",
+    surface === "desk" && !mat && "table",
+  ]}
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Louis Badr" />
+    <meta
+      name="theme-color"
+      content={surface === "desk" ? "#12183b" : "#f4efdc"}
+    />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Louis Badr" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary" />
+    <script is:inline define:vars={{ surface }}>
+      // Tell the page transition whether the sheet slides away or comes back
+      // (see the view transition rules in styles/global.css).
+      try {
+        const previous = sessionStorage.getItem("surface");
+        sessionStorage.setItem("surface", surface);
+        if (previous && previous !== surface) {
+          addEventListener("pagereveal", (e) =>
+            e.viewTransition?.types.add(
+              surface === "desk" ? "to-desk" : "to-sheet",
+            ),
+          );
+        }
+      } catch {}
+    </script>
+  </head>
+  <body class="h-dvh overflow-hidden">
+    {surface === "sheet" ? (
+      <div class="sheet paper fixed inset-0 [view-transition-name:sheet]">
+        <canvas
+          id="sheet-dots"
+          aria-hidden="true"
+          class="absolute inset-0 size-full"
+        />
+        <canvas
+          id="sheet-grid"
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-0 z-10 size-full"
+        />
+        <div class="absolute top-0 right-frame bottom-frame left-0 flex flex-col">
+          <slot />
+        </div>
+      </div>
+    ) : (
+      <>
+        {mat && (
+          <div aria-hidden="true" class="fixed inset-0 -z-10">
+            <canvas class="cutting-mat size-full" />
+            <div class="mat-texture absolute inset-0" />
+          </div>
+        )}
+        <SheetEdge />
+        <div class="fixed inset-0 left-edge flex flex-col">
+          <slot />
+        </div>
+      </>
+    )}
+
+    <script>
+      import { initSheetGrid } from "../scripts/blueprint";
+      import { initCuttingMat } from "../scripts/mat";
+      initSheetGrid();
+      initCuttingMat();
+    </script>
+  </body>
+</html>
