@@ -1,0 +1,20 @@
+---
+// The notes: the desk, with the camera on the notebook (components/DeskScene.astro).
+import Base from "../../layouts/Base.astro";
+import DeskScene from "../../components/DeskScene.astro";
+---
+
+<Base
+  title="Notes"
+  description="Notes and tutorials by Louis Badr on fabrication, haptics and electronics."
+  surface="desk"
+  mat={false}
+>
+  <DeskScene view="notebook" focus="list" />
+</Base>
+
+<script>
+  // Old URLs were /notes#<note-id>: send them to the note's own page.
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (/^[a-z0-9-]+$/.test(id)) location.replace(`/notes/${id}/`);
+</script>

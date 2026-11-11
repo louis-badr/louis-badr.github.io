@@ -1,0 +1,22 @@
+---
+// Plain underlined link. External links open in a new tab.
+interface Props {
+  href: string;
+  external?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  external = /^https?:/.test(href),
+  class: className,
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={["link", className]}
+  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+>
+  <slot />
+</a>

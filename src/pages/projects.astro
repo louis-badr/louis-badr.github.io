@@ -1,0 +1,67 @@
+---
+// Projects, one after the other on the sheet. Each project drawing is a
+// light line drawing on a transparent background: it is printed in the
+// accent blue by using it as a mask.
+import { getCollection, render } from "astro:content";
+import { getImage } from "astro:assets";
+import Sheet from "../layouts/Sheet.astro";
+import TextLink from "../components/TextLink.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const items = await Promise.all(
+  projects.map(async (p) => {
+    const drawing = await getImage({ src: p.data.image, width: 640 });
+    return { ...p, drawing, Content: (await render(p)).Content };
+  }),
+);
+---
+
+<Sheet
+  title="Projects"
+  description="Projects by Louis Badr: haptic devices, electronics, product design and metal casting."
+  current="projects"
+>
+  <h1 class="mb-6">Projects</h1>
+  <div class="flex flex-col">
+    {items.map(({ id, data, drawing, Content }) => (
+      <article
+        id={id}
+        class="grid gap-x-8 gap-y-3 border-t border-accent py-6 md:grid-cols-[1fr_18rem]"
+      >
+        <header class="flex items-baseline justify-between gap-4 md:col-span-2">
+          <h2>{data.title}</h2>
+          <span class="font-plan opacity-70">{data.year}</span>
+        </header>
+        <figure class="flex w-full max-w-72 flex-col items-center gap-3 justify-self-center md:col-start-2 md:row-start-2 md:self-start">
+          <div
+            role="img"
+            aria-label={`Drawing of ${data.title}`}
+            class="drawing max-h-80 w-full bg-accent"
+            style={`--src: url("${drawing.src}"); aspect-ratio: ${drawing.attributes.width} / ${drawing.attributes.height};`}
+          />
+        </figure>
+        <div class="min-w-0 md:col-start-1 md:row-start-2">
+          <p class="font-medium">{data.subtitle}</p>
+          {data.links.length > 0 && (
+            <p class="mt-1 flex flex-wrap gap-x-4">
+              {data.links.map((l) => (
+                <TextLink href={l.url}>{l.label}</TextLink>
+              ))}
+            </p>
+          )}
+          <div class="note mt-3">
+            <Content />
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</Sheet>
+
+<style>
+  .drawing {
+    mask: var(--src) center / contain no-repeat;
+  }
+</style>

@@ -1,0 +1,322 @@
+@import "tailwindcss";
+@import "@fontsource/barlow/300.css";
+@import "@fontsource/barlow/400.css";
+@import "@fontsource/barlow/400-italic.css";
+@import "@fontsource/barlow/500.css";
+@import "@fontsource/barlow/600.css";
+@import "@fontsource/barlow/700.css";
+
+/* Lettering of the drawing sheet: osifont, an ISO 3098 font as printed by
+   CAD software (github.com/hikikomori82/osifont, LGPL 3 with font exception).
+   It has a single weight. */
+@font-face {
+  font-family: "osifont";
+  src: url("../assets/fonts/osifont-lgpl3fe.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@theme {
+  /* Running text (Barlow, a DIN-style sans) and lettering on the sheet */
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-plan: "osifont", "Barlow", ui-sans-serif, sans-serif;
+  --color-darker: #04071b;
+  --color-accent: #2e45ed;
+  --color-light: #f4efdc;
+  --color-paper: #f4efdc;
+  --color-print: #f8f6ef;
+  --color-mat: #12183b;
+  --color-manila: #e2cb94;
+  /* Margin around the notebook on the desk */
+  --spacing-ruler: 20px;
+  /* Sheet frame (scripts/blueprint.ts): from the window edge to the inner
+     border, i.e. the outer margin plus the band of zone references */
+  --spacing-frame: 26px;
+  /* Width of the sheet edge left visible on the desk pages */
+  --spacing-edge: 40px;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --spacing-edge: 24px;
+    --spacing-frame: 19px;
+  }
+}
+
+/* Large screens that are also tall enough for the two-page notebook */
+@custom-variant lg-tall (@media (min-width: 1024px) and (min-height: 601px));
+
+/* Cross-document transitions: the sheet slides off to the left to uncover
+   the desk, and slides back when coming home. Browsers without support
+   simply navigate. */
+@view-transition {
+  navigation: auto;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    background-color: var(--color-paper);
+  }
+
+  html.desk {
+    color-scheme: dark;
+    background-color: var(--color-mat);
+  }
+
+  /* The table the mat lies on (desk overview) */
+  html.desk.table {
+    background-color: #1b1916;
+  }
+
+  body {
+    @apply text-darker font-sans antialiased;
+  }
+
+  h1 {
+    @apply text-accent text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+
+  :focus-visible {
+    @apply outline-accent outline-3 outline-offset-2;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Paper texture: only a very fine tooth, no large-scale pattern. */
+  .paper {
+    background-color: var(--color-paper);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .045 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Self-healing mat surface: a fine speckle over the printed grid. */
+  .mat-texture {
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 -.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Headings on the sheet are lettered like the rest of the drawing */
+  .sheet :is(h1, h2, h3) {
+    font-family: var(--font-plan);
+    font-weight: 400;
+  }
+
+  /* Scrollbar on the left side of a scrolling area */
+  .scroll-left {
+    direction: rtl;
+  }
+  .scroll-left > * {
+    direction: ltr;
+    /* Blocks with a max width would otherwise sit on the right */
+    margin-right: auto;
+  }
+
+  /* Back to the desk: a small magnifier button lying on the mat */
+  .lens-out {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    color: var(--color-light);
+    background: rgb(4 7 27 / 0.55);
+    box-shadow: inset 0 0 0 1px rgb(244 239 220 / 0.35);
+  }
+
+  .lens-out:hover,
+  .lens-out:focus-visible {
+    background: var(--color-accent);
+  }
+
+  .lens-out svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+  }
+
+  /* Plain text link, underlined in the accent colour */
+  .link {
+    @apply decoration-accent hover:text-accent underline decoration-2 underline-offset-3 transition-colors;
+  }
+}
+
+/* Long-form notes rendered from Markdown */
+.note {
+  @apply text-darker text-pretty;
+
+  & > * + * {
+    @apply mt-3;
+  }
+
+  & h1 {
+    @apply text-3xl text-balance;
+  }
+
+  & h2 {
+    @apply mt-8 text-2xl text-balance;
+  }
+
+  & h3 {
+    @apply mt-6;
+  }
+
+  & ol {
+    @apply list-decimal pl-8;
+  }
+
+  & ol > li::marker {
+    @apply font-bold;
+  }
+
+  & ul {
+    @apply list-disc pl-8;
+  }
+
+  & li + li {
+    @apply mt-1;
+  }
+
+  & a {
+    @apply decoration-accent hover:text-accent underline decoration-2 underline-offset-2;
+  }
+
+  & img {
+    @apply mx-auto my-4 h-auto max-w-full rounded-lg;
+  }
+
+  & table {
+    @apply block w-full border-collapse overflow-x-auto text-sm;
+  }
+
+  & th,
+  & td {
+    @apply border-darker/60 border px-2 py-1 align-top;
+  }
+
+  & th {
+    @apply bg-darker/5 text-left;
+  }
+
+  & .note-aside {
+    @apply border-accent text-accent border-l-3 pl-4 italic;
+  }
+
+  & .note-figure--narrow img {
+    @apply w-full max-w-sm;
+  }
+
+  & figcaption {
+    @apply text-center font-bold;
+  }
+}
+
+/* ---------- Page transitions ---------- */
+
+/* Sheet to sheet: the drawings cross-fade in place. */
+::view-transition-group(sheet) {
+  animation-duration: 0.3s;
+}
+
+/* Sheet to desk (type set in layouts/Base.astro): the sheet slides left
+   until only its edge is left, uncovering the desk that is already there. */
+html:active-view-transition-type(to-desk) {
+  &::view-transition-old(sheet) {
+    animation: sheet-out 0.7s cubic-bezier(0.5, 0, 0.2, 1) both;
+  }
+  &::view-transition-new(sheet-edge) {
+    animation: fade-in 0.15s 0.6s both;
+  }
+  &::view-transition-old(root),
+  &::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* Desk to sheet: the sheet slides back over the desk, which stays visible
+   until it is covered. */
+html:active-view-transition-type(to-sheet) {
+  &::view-transition-new(sheet) {
+    animation: sheet-out 0.7s cubic-bezier(0.5, 0, 0.2, 1) reverse both;
+  }
+  &::view-transition-old(sheet-edge) {
+    animation: fade-out 0.1s both;
+  }
+  &::view-transition-old(root) {
+    animation: none;
+  }
+  &::view-transition-new(root) {
+    animation: hidden 0.7s step-end both;
+  }
+}
+
+@keyframes sheet-out {
+  to {
+    transform: translateX(calc(-100% + var(--spacing-edge))) rotate(-1deg);
+    box-shadow: 0.5rem 0.5rem 2rem rgb(0 0 0 / 0.5);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes hidden {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

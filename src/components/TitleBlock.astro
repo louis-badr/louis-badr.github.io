@@ -1,0 +1,261 @@
+---
+// Bottom-right corner of the drawing: the parts list (the site menu) stacked
+// on a title block laid out like EasyEDA's: a logo column on the left, then
+// TITLE / REV, a description, DATE / SHEET and DRAWN BY, in labelled cells.
+// The right and bottom edges are the inner border of the sheet frame.
+import pkg from "../../package.json";
+import IftLogo from "../assets/logos/ift.svg";
+import MaxPlanckLogo from "../assets/logos/max-planck.svg";
+import UgaLogo from "../assets/logos/uga.svg";
+import { sections, type SectionId } from "../lib/sections";
+
+interface Props {
+  /** Section of the current page, highlighted in the parts list */
+  current?: SectionId;
+  class?: string;
+}
+
+const { current, class: className } = Astro.props;
+
+const logos = [
+  { Logo: IftLogo, name: "Institute for Future Technologies", key: "ift" },
+  {
+    Logo: MaxPlanckLogo,
+    name: "Max Planck Institute for Informatics",
+    key: "mpi",
+  },
+  { Logo: UgaLogo, name: "Université Grenoble Alpes", key: "uga" },
+];
+
+// The pages drawn on the sheet, numbered like the sheets of a project
+const sheets = ["/", "/projects/", "/publications/", "/contact/"];
+const sheetNumber = sheets.indexOf(Astro.url.pathname) + 1;
+
+const issued = new Date().toLocaleDateString("en-GB", {
+  timeZone: "Europe/Paris",
+});
+---
+
+<div
+  class:list={[
+    "corner flex w-full flex-col font-plan md:w-[38rem] xl:w-[42rem]",
+    className,
+  ]}
+>
+  <nav aria-label="Sections">
+    <ol class="flex flex-col-reverse">
+      <li class="row head" aria-hidden="true">
+        <span>ITEM</span>
+        <span class="text-left">DESCRIPTION</span>
+      </li>
+      {sections.map((s, i) => (
+        <li>
+          <a
+            href={s.href}
+            class="row part"
+            aria-current={current === s.id ? "page" : undefined}
+          >
+            <span>{i + 1}</span>
+            <span class="text-left">{s.name}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <div class="title-block">
+    <p class="cell area-title">
+      <span class="k">TITLE:</span> <span class="text-xl">Portfolio</span>
+    </p>
+    <p class="cell area-rev">
+      <span class="k">REV:</span> {pkg.version}
+    </p>
+    <ul class="cell area-logos logos text-accent">
+      {logos.map(({ Logo, name, key }) => (
+        <li class={`logo-${key}`}>
+          <Logo role="img" aria-label={name} />
+        </li>
+      ))}
+    </ul>
+    <p class="cell area-desc">
+      Creative technologist based in Paris - between engineering, research and
+      design
+    </p>
+    <p class="cell area-date">
+      <span class="k">DATE:</span> <time>{issued}</time>
+    </p>
+    <p class="cell area-sheet">
+      <span class="k">SHEET:</span>
+      {sheetNumber > 0 ? `${sheetNumber}/${sheets.length}` : ""}
+    </p>
+    <p class="cell area-drawn">
+      <span class="k">DRAWN BY:</span> Louis Badr
+    </p>
+  </div>
+</div>
+
+<style>
+  .corner {
+    /* Every line of the title block has the same weight */
+    --line: 1px solid var(--color-accent);
+  }
+
+  /* ---------- Parts list ---------- */
+
+  .row {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    height: 1.875rem;
+    border-top: var(--line);
+  }
+
+  li:last-child .row {
+    border-top: var(--line);
+  }
+
+  .row > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 0.6rem;
+    border-left: var(--line);
+  }
+
+  .row > span + span {
+    border-left: var(--line);
+  }
+
+  .row > span.text-left {
+    justify-content: flex-start;
+  }
+
+  .head > span {
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+  }
+
+  .part {
+    transition: background-color 0.15s;
+  }
+
+  .part:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  }
+
+  .part[aria-current="page"] {
+    color: var(--color-accent);
+  }
+
+  .part:focus-visible {
+    outline-offset: -3px;
+  }
+
+  /* ---------- Title block ---------- */
+
+  .title-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title rev"
+      "logos logos"
+      "desc desc"
+      "date sheet"
+      "drawn drawn";
+    border-top: var(--line);
+    border-left: var(--line);
+    font-size: var(--text-sm);
+    /* osifont's kerning swallows some dots */
+    font-kerning: none;
+  }
+
+  @media (min-width: 768px) {
+    .title-block {
+      grid-template-columns: 15rem 1fr 1fr;
+      grid-template-areas:
+        "title title rev"
+        "logos desc desc"
+        "logos date sheet"
+        "logos drawn drawn";
+    }
+  }
+
+  .cell {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.3rem 0.5rem;
+    border-right: var(--line);
+    border-bottom: var(--line);
+  }
+
+  /* The right and bottom lines are the sheet's border */
+  .area-rev,
+  .area-sheet,
+  .area-drawn,
+  .area-desc,
+  .area-logos {
+    border-right: 0;
+  }
+  .area-drawn {
+    border-bottom: 0;
+  }
+
+  .k {
+    flex: none;
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+  }
+
+  .area-title {
+    grid-area: title;
+    padding-block: 0.45rem;
+    border-bottom: var(--line);
+  }
+  .area-rev {
+    grid-area: rev;
+    border-bottom: var(--line);
+  }
+  .area-desc {
+    grid-area: desc;
+  }
+  .area-date {
+    grid-area: date;
+  }
+  .area-sheet {
+    grid-area: sheet;
+  }
+  .area-drawn {
+    grid-area: drawn;
+  }
+
+  /* Logos in a row, sitting on a common baseline: across the block on
+     phones, in their own cell on the left otherwise */
+  .area-logos {
+    grid-area: logos;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.6rem;
+  }
+
+  @media (min-width: 768px) {
+    .area-logos {
+      border-right: var(--line);
+      border-bottom: 0;
+    }
+  }
+
+  .logos :global(svg) {
+    display: block;
+    width: auto;
+    height: 2.6rem;
+  }
+  .logos .logo-mpi :global(svg) {
+    height: 2.8rem;
+  }
+  .logos .logo-uga :global(svg) {
+    height: 1.7rem;
+  }
+</style>

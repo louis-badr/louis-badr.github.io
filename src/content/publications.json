@@ -1,0 +1,60 @@
+[
+  {
+    "id": "retouche",
+    "title": "ReTouche: Embodied Representations for Self-Guided Piano Learning",
+    "authors": [
+      "P. P. Arslan",
+      "H. Noh",
+      "M. A. Tamashiro",
+      "L. Badr",
+      "B. Lebrun",
+      "P. Lindberg",
+      "H. Ishii",
+      "et al."
+    ],
+    "venue": "Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26)",
+    "year": 2026,
+    "type": "Full paper",
+    "doi": "10.1145/3772318.3791044"
+  },
+  {
+    "id": "haptixel",
+    "title": "Haptixel: Encoding Data through Cutaneous Force-based Encountered-Type Fingertip Haptics",
+    "authors": [
+      "E. Bouzbib",
+      "L. Badr",
+      "C. Pacchierotti",
+      "A. Lécuyer",
+      "A. Prouzeau"
+    ],
+    "venue": "Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26)",
+    "year": 2026,
+    "type": "Full paper",
+    "doi": "10.1145/3772318.3791027"
+  },
+  {
+    "id": "phantomhit",
+    "title": "PhantomHit: Vibrotactile Illusion Toolkit to create Virtual Impact Sensations on a Badminton Racket",
+    "authors": [
+      "L. Badr",
+      "V. Martinez-Missir",
+      "P. Strohmeier",
+      "P. Wolf",
+      "N. Sabnis"
+    ],
+    "venue": "Companion Proceedings of the Second Annual Conference on Sports and Human-Computer Interaction (SportsHCI '26)",
+    "year": 2026,
+    "type": "Demo",
+    "doi": "10.1145/3801727.3844934"
+  },
+  {
+    "id": "modalplayground",
+    "title": "ModalPlayground: Collaborative Spatial Design of Multi-modal Haptic Feedback",
+    "authors": ["L. Badr", "T. Juldo"],
+    "venue": "Adjunct Proceedings of the 38th Annual ACM Symposium on User Interface Software and Technology (UIST '25)",
+    "year": 2025,
+    "type": "Student Innovation Contest",
+    "award": "Most Useful Award",
+    "doi": "10.1145/3746058.3758977"
+  }
+]

@@ -1,0 +1,37 @@
+---
+// Who I am and how to reach me (formerly /aboutme/).
+import Sheet from "../layouts/Sheet.astro";
+import TextLink from "../components/TextLink.astro";
+---
+
+<Sheet
+  title="Contact"
+  description="Louis Badr, PhD student in human-computer interaction working on haptic and multisensory interfaces: how to reach him."
+  current="contact"
+>
+  <h1 class="mb-6">Contact</h1>
+  <div class="flex max-w-3xl flex-col gap-8">
+    <section class="flex flex-col gap-3 border-t border-accent pt-5">
+      <p class="max-w-prose">
+        PhD student in human-computer interaction at the Institute for Future
+        Technologies, the Sensorimotor Interaction Group (Max Planck Institute
+        for Informatics) and the Laboratoire d'Informatique de Grenoble
+        (Université Grenoble Alpes). I work on haptic and multisensory
+        interfaces, from wearable fingertip devices to interactive
+        installations, and build the prototypes myself.
+      </p>
+      <p class="flex flex-wrap gap-x-6 gap-y-1">
+        <TextLink href="https://github.com/louis-badr">GitHub</TextLink>
+        <TextLink href="https://www.linkedin.com/in/louis-badr">
+          LinkedIn
+        </TextLink>
+        <TextLink href="https://scholar.google.com/citations?user=MDSgAa4AAAAJ">
+          Google Scholar
+        </TextLink>
+        <a href="mailto:contact@louis-badr.fr" class="link">
+          contact@louis-badr.fr
+        </a>
+      </p>
+    </section>
+  </div>
+</Sheet>

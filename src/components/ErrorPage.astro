@@ -1,0 +1,88 @@
+---
+// Error page drawn like a part on a technical drawing: the message, with a
+// dimension line giving its width. The nominal width is the error code: the
+// text is exactly `code` px wide, or drawn to scale when the screen is smaller.
+// Visitors can still drag to measure, like on the home page.
+import Base from "../layouts/Base.astro";
+
+interface Props {
+  code: number;
+  message: string;
+}
+
+const { code, message } = Astro.props;
+---
+
+<Base title={message} description={`Error ${code}: ${message}.`}>
+  <h1 class="sr-only">{message}</h1>
+  <div class="relative min-h-0 flex-1">
+    <canvas
+      id="error-drawing"
+      data-code={code}
+      data-message={message}
+      class="size-full touch-none"
+      aria-hidden="true"
+    ></canvas>
+  </div>
+  <nav class="flex justify-center pb-4">
+    <a href="/" class="link">
+      Back to the drawing
+    </a>
+  </nav>
+</Base>
+
+<script>
+  import { drawDimension, initMeasure } from "../scripts/measure";
+
+  const FONT = "osifont, sans-serif";
+  const MARGIN = 32; // px kept free on each side on small screens
+  const GAP = 8; // between the text and the extension lines
+  const OFFSET = 40; // from the top of the text to the dimension line
+  const OVERSHOOT = 8; // extension lines go a bit past the dimension line
+
+  const canvas = document.getElementById("error-drawing");
+  if (canvas instanceof HTMLCanvasElement) {
+    const code = canvas.dataset.code!;
+    const message = canvas.dataset.message!;
+
+    await document.fonts.load(`100px ${FONT}`);
+
+    initMeasure(canvas, (ctx, w, h) => {
+      const width = Math.min(Number(code), w - 2 * MARGIN);
+
+      // Size the font so the ink of the text is exactly `width` wide.
+      ctx.font = `100px ${FONT}`;
+      const ref = ctx.measureText(message);
+      const size =
+        (100 * width) /
+        (ref.actualBoundingBoxLeft + ref.actualBoundingBoxRight);
+      ctx.font = `${size}px ${FONT}`;
+      const m = ctx.measureText(message);
+      const ink = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
+      const ascent = m.actualBoundingBoxAscent;
+
+      const left = w / 2 - ink / 2;
+      const right = w / 2 + ink / 2;
+      const baseline = h / 2 + ascent / 2;
+      const top = baseline - ascent;
+      const dimY = top - OFFSET;
+
+      ctx.fillStyle = "#04071b";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "alphabetic";
+      ctx.fillText(message, left + m.actualBoundingBoxLeft, baseline);
+
+      // Extension lines
+      ctx.strokeStyle = "#2e45ed";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (const x of [left, right]) {
+        ctx.moveTo(x, top - GAP);
+        ctx.lineTo(x, dimY - OVERSHOOT);
+      }
+      ctx.stroke();
+
+      drawDimension(ctx, left, dimY, right, dimY, code);
+    });
+  }
+</script>

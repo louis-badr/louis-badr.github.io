@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import TitleBlock from "../components/TitleBlock.astro";
+---
+
+<Base title="Portfolio">
+  <div class="relative min-h-0 flex-1">
+    <canvas
+      id="measure"
+      class="size-full touch-none"
+      aria-label="Drawing area: drag to measure a distance in pixels"
+    ></canvas>
+    <TitleBlock class="absolute right-0 bottom-0" />
+  </div>
+</Base>
+
+<script>
+  import { initMeasure } from "../scripts/measure";
+  const canvas = document.getElementById("measure");
+  if (canvas instanceof HTMLCanvasElement) initMeasure(canvas);
+</script>

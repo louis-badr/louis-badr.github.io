@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- A title block in the corner of a drawing sheet: the title cell and
+       the parts list above it, in the accent blue on cream paper. -->
+  <rect width="32" height="32" rx="6" fill="#f4efdc"/>
+  <path d="M10 27V9H27" fill="none" stroke="#2e45ed" stroke-width="2"/>
+  <path d="M10 15H27M10 21H27M17 21V27" stroke="#2e45ed" stroke-width="2"/>
+  <path d="M0 27.5H27.5V0" fill="none" stroke="#2e45ed" stroke-width="2"/>
+</svg>

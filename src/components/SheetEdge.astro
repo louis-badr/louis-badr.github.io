@@ -1,0 +1,96 @@
+---
+// On the desk pages, the drawing sheet has been slid off to the left: only
+// its right edge is left on screen, with the two borders of the frame and
+// the zone letters between them (see scripts/blueprint.ts). Clicking it
+// slides the sheet back (home page).
+const zones = ["A", "B", "C", "D"];
+---
+
+<a
+  href="/"
+  class="sheet-edge paper fixed -top-4 -bottom-4 left-0 z-20 w-edge font-plan [view-transition-name:sheet-edge]"
+  aria-label="Back to the drawing"
+>
+  <span class="border-line outer" aria-hidden="true"></span>
+  <span class="border-line inner" aria-hidden="true"></span>
+  {zones.map((z, i) => (
+    <span class="zone" style={`top: ${(i + 0.5) * 25}%`} aria-hidden="true">
+      {z}
+    </span>
+  ))}
+  {[1, 2, 3].map((i) => (
+    <span class="tick" style={`top: ${i * 25}%`} aria-hidden="true" />
+  ))}
+  <span class="label" aria-hidden="true">
+    Home
+  </span>
+</a>
+
+<style>
+  .sheet-edge {
+    /* Same proportions as the frame drawn on the sheet */
+    --outer: calc(var(--spacing-frame) * 0.3);
+    --band: calc(var(--spacing-frame) * 0.7);
+    rotate: -0.6deg;
+    box-shadow:
+      1px 0 1px rgb(0 0 0 / 0.35),
+      6px 4px 16px rgb(0 0 0 / 0.45);
+    transition: translate 0.25s ease;
+    color: var(--color-accent);
+  }
+
+  .border-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-accent);
+  }
+  .border-line.outer {
+    right: var(--outer);
+  }
+  .border-line.inner {
+    right: var(--spacing-frame);
+  }
+
+  .tick {
+    position: absolute;
+    right: var(--outer);
+    width: var(--band);
+    height: 1px;
+    background: var(--color-accent);
+  }
+
+  .zone {
+    position: absolute;
+    right: var(--outer);
+    width: var(--band);
+    translate: 0 -50%;
+    text-align: center;
+    font-size: calc(var(--band) * 0.62);
+    line-height: 1;
+  }
+
+  .label {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--spacing-frame) + 3px);
+    translate: 0 -50%;
+    writing-mode: vertical-rl;
+    rotate: 180deg;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .sheet-edge:hover,
+  .sheet-edge:focus-visible {
+    translate: 8px 0;
+  }
+
+  @media (max-width: 639px) {
+    .label {
+      display: none;
+    }
+  }
+</style>

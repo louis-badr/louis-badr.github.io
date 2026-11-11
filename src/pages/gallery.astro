@@ -1,0 +1,15 @@
+---
+// The gallery: the desk, with the camera on the pile of prints
+// (components/DeskScene.astro). The prints are looked at one by one.
+import Base from "../layouts/Base.astro";
+import DeskScene from "../components/DeskScene.astro";
+---
+
+<Base
+  title="Gallery"
+  description="Behind the scenes of Louis Badr's projects: prototypes, electronics, foundry and fabrication."
+  surface="desk"
+  mat={false}
+>
+  <DeskScene view="prints" />
+</Base>

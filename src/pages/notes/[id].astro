@@ -1,0 +1,22 @@
+---
+// One note, open on the notebook on the desk (components/DeskScene.astro).
+import { getCollection, type CollectionEntry } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import DeskScene from "../../components/DeskScene.astro";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes", ({ data }) => !data.draft);
+  return notes.map((note) => ({ params: { id: note.id }, props: { note } }));
+}
+
+const { note } = Astro.props as { note: CollectionEntry<"notes"> };
+---
+
+<Base
+  title={note.data.title}
+  description={note.data.subtitle}
+  surface="desk"
+  mat={false}
+>
+  <DeskScene view="notebook" note={note} focus="note" />
+</Base>

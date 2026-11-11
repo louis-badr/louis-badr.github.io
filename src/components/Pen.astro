@@ -1,0 +1,19 @@
+---
+// The pen (photo cut-out, 121 x 1217 px), drawn to fill its box.
+import { Image } from "astro:assets";
+import pen from "../assets/muji-pen.png";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<Image
+  src={pen}
+  alt=""
+  widths={[64, 128, 256]}
+  sizes="64px"
+  class:list={["pen block h-full w-full object-contain", className]}
+/>
