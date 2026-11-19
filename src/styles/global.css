@@ -25,7 +25,14 @@
   --color-light: #f4efdc;
   --color-paper: #f4efdc;
   --color-print: #f8f6ef;
-  --color-mat: #12183b;
+  /* The dark drawing sheet (navy) and the cutting mat on the desk (green
+     with yellow lines, the "forest-yellow" preset of the Cutting Mat app) */
+  --color-sheet: #12183b;
+  --color-mat: #123222;
+  --color-mat-ink: #f2c94c;
+  /* Lines of the drawing (frames, rules, borders): the accent by default,
+     a separate blue on the dark sheet */
+  --color-line: #2e45ed;
   --color-manila: #e2cb94;
   /* Margin around the notebook on the desk */
   --spacing-ruler: 20px;
@@ -53,10 +60,22 @@
   navigation: auto;
 }
 
+/* The drawing sheet is dark, like the Marp "sheet" theme
+   (~/Documents/Templates/marp-sheet): cream ink and blue lines on the mat
+   blue. The notebook and the labels on the desk keep their cream paper. */
 @layer base {
+  .sheet,
+  .sheet-edge {
+    --color-paper: var(--color-sheet);
+    --color-darker: #f4efdc;
+    --color-accent: #8c9bff;
+    --color-line: #6475ff;
+    color: var(--color-darker);
+  }
+
   html {
-    color-scheme: light;
-    background-color: var(--color-paper);
+    color-scheme: dark;
+    background-color: var(--color-sheet);
   }
 
   html.desk {

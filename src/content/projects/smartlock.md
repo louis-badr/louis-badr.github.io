@@ -2,7 +2,7 @@
 title: Smart Lock
 subtitle: Smarter lab equipment access control
 year: 2022
-order: 4
+order: 5
 image: ../../assets/projects/smartlock.png
 links:
   - label: GitHub

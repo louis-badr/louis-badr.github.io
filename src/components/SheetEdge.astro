@@ -11,8 +11,8 @@ const zones = ["A", "B", "C", "D"];
   class="sheet-edge paper fixed -top-4 -bottom-4 left-0 z-20 w-edge font-plan [view-transition-name:sheet-edge]"
   aria-label="Back to the drawing"
 >
-  <span class="border-line outer" aria-hidden="true"></span>
-  <span class="border-line inner" aria-hidden="true"></span>
+  <span class="edge-line outer" aria-hidden="true"></span>
+  <span class="edge-line inner" aria-hidden="true"></span>
   {zones.map((z, i) => (
     <span class="zone" style={`top: ${(i + 0.5) * 25}%`} aria-hidden="true">
       {z}
@@ -39,17 +39,17 @@ const zones = ["A", "B", "C", "D"];
     color: var(--color-accent);
   }
 
-  .border-line {
+  .edge-line {
     position: absolute;
     top: 0;
     bottom: 0;
     width: 1px;
-    background: var(--color-accent);
+    background: var(--color-line);
   }
-  .border-line.outer {
+  .edge-line.outer {
     right: var(--outer);
   }
-  .border-line.inner {
+  .edge-line.inner {
     right: var(--spacing-frame);
   }
 
@@ -58,7 +58,7 @@ const zones = ["A", "B", "C", "D"];
     right: var(--outer);
     width: var(--band);
     height: 1px;
-    background: var(--color-accent);
+    background: var(--color-line);
   }
 
   .zone {

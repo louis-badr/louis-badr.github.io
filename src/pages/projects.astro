@@ -1,10 +1,13 @@
 ---
 // Projects, one after the other on the sheet. Each project drawing is a
 // light line drawing on a transparent background: it is printed in the
-// accent blue by using it as a mask.
+// accent blue by using it as a mask. On wide screens it is drawn next to
+// the list, above the title block (components/ProjectDrawings.astro); on
+// smaller screens, in the list.
 import { getCollection, render } from "astro:content";
 import { getImage } from "astro:assets";
 import Sheet from "../layouts/Sheet.astro";
+import ProjectDrawings from "../components/ProjectDrawings.astro";
 import TextLink from "../components/TextLink.astro";
 
 const projects = (await getCollection("projects")).sort(
@@ -22,19 +25,21 @@ const items = await Promise.all(
   title="Projects"
   description="Projects by Louis Badr: haptic devices, electronics, product design and metal casting."
   current="projects"
+  hideScrollbar
 >
+  <ProjectDrawings slot="aside" />
   <h1 class="mb-6">Projects</h1>
-  <div class="flex flex-col">
+  <div class="flex flex-col" data-project-list>
     {items.map(({ id, data, drawing, Content }) => (
       <article
         id={id}
-        class="grid gap-x-8 gap-y-3 border-t border-accent py-6 md:grid-cols-[1fr_18rem]"
+        class="project grid gap-x-8 gap-y-3 border-t border-line px-3 py-6 transition-colors md:grid-cols-[1fr_18rem] xl:grid-cols-1"
       >
-        <header class="flex items-baseline justify-between gap-4 md:col-span-2">
+        <header class="flex items-baseline justify-between gap-4 md:col-span-2 xl:col-span-1">
           <h2>{data.title}</h2>
           <span class="font-plan opacity-70">{data.year}</span>
         </header>
-        <figure class="flex w-full max-w-72 flex-col items-center gap-3 justify-self-center md:col-start-2 md:row-start-2 md:self-start">
+        <figure class="flex w-full max-w-72 flex-col items-center gap-3 justify-self-center md:col-start-2 md:row-start-2 md:self-start xl:hidden">
           <div
             role="img"
             aria-label={`Drawing of ${data.title}`}
@@ -61,7 +66,29 @@ const items = await Promise.all(
 </Sheet>
 
 <style>
+  /* One project at a time: the one whose drawing is shown */
+  .project[data-active-project] {
+    background-color: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  }
+
+  .project[data-active-project] h2 {
+    color: var(--color-accent);
+  }
+
   .drawing {
     mask: var(--src) center / contain no-repeat;
+  }
+
+  @media (orientation: portrait) {
+    #pomotl > figure {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      max-width: none;
+    }
+
+    #pomotl > div {
+      grid-column: 1 / -1;
+      grid-row: 3;
+    }
   }
 </style>

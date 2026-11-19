@@ -43,7 +43,7 @@ const issued = new Date().toLocaleDateString("en-GB", {
   ]}
 >
   <nav aria-label="Sections">
-    <ol class="flex flex-col-reverse">
+    <ol class="flex flex-col">
       <li class="row head" aria-hidden="true">
         <span>ITEM</span>
         <span class="text-left">DESCRIPTION</span>
@@ -97,7 +97,7 @@ const issued = new Date().toLocaleDateString("en-GB", {
 <style>
   .corner {
     /* Every line of the title block has the same weight */
-    --line: 1px solid var(--color-accent);
+    --line: 1px solid var(--color-line);
   }
 
   /* ---------- Parts list ---------- */
@@ -215,7 +215,15 @@ const issued = new Date().toLocaleDateString("en-GB", {
   }
   .area-rev {
     grid-area: rev;
+    padding-block: 0.45rem;
     border-bottom: var(--line);
+  }
+  /* An empty strut as tall as the title text: the cell's baseline then
+     sits at the same height as the title's */
+  .area-rev::before {
+    content: "\200b";
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
   }
   .area-desc {
     grid-area: desc;

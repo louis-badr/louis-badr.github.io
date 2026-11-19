@@ -1,0 +1,93 @@
+---
+// Next to the projects list, above the title block: the line drawing of
+// the project under the pointer (or at the top of the list while
+// scrolling), printed in the accent blue by using it as a mask.
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const items = await Promise.all(
+  projects.map(async (p) => ({
+    ...p,
+    drawing: await getImage({ src: p.data.image, width: 960 }),
+  })),
+);
+---
+
+<aside class="drawings" aria-hidden="true" data-project-drawings>
+  {items.map(({ id, drawing }, i) => (
+    <div
+      class:list={["drawing", drawing.attributes.width / drawing.attributes.height > 2 && "wide"]}
+      data-project-drawing={id}
+      hidden={i !== 0}
+      style={`--src: url("${drawing.src}"); aspect-ratio: ${drawing.attributes.width} / ${drawing.attributes.height};`}
+    />
+  ))}
+</aside>
+
+<script>
+  const aside = document.querySelector<HTMLElement>("[data-project-drawings]");
+  const list = document.querySelector<HTMLElement>("[data-project-list]");
+
+  if (aside && list) {
+    const drawings = [
+      ...aside.querySelectorAll<HTMLElement>("[data-project-drawing]"),
+    ];
+    const articles = [...list.querySelectorAll<HTMLElement>("article[id]")];
+
+    const show = (id: string) => {
+      drawings.forEach((d) => (d.hidden = d.dataset.projectDrawing !== id));
+      articles.forEach((a) => a.toggleAttribute("data-active-project", a.id === id));
+    };
+
+    const scroller = list.closest("main");
+    const showCurrentProject = () => {
+      if (!scroller || articles.length === 0) return;
+      const marker = scroller.getBoundingClientRect().top + 120;
+      let current = articles[0];
+      for (const article of articles) {
+        if (article.getBoundingClientRect().top <= marker) current = article;
+        else break;
+      }
+      show(current.id);
+    };
+
+    scroller?.addEventListener("scroll", showCurrentProject, { passive: true });
+    articles.forEach((article) => {
+      article.addEventListener("pointerenter", () => show(article.id));
+      article.addEventListener("focusin", () => show(article.id));
+    });
+    requestAnimationFrame(showCurrentProject);
+  }
+</script>
+
+<style>
+  .drawings {
+    position: relative;
+    height: 100%;
+  }
+
+  /* A box that always fits in the space left above the title block; the
+     drawing is scaled down inside it (mask: contain), never cropped. */
+  .drawing {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: min(100% - 8rem, 22rem);
+    height: min(100% - 5rem, 18rem);
+    aspect-ratio: auto !important;
+    background: var(--color-accent);
+    mask: var(--src) center / contain no-repeat;
+  }
+
+  /* Wide drawings (the PomoTL timeline) use most of the width instead */
+  .drawing.wide {
+    width: min(100% - 4rem, 36rem);
+  }
+
+  .drawing[hidden] {
+    display: none;
+  }
+</style>

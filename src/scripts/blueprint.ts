@@ -3,11 +3,10 @@
 // edges are drawn. Each edge has an outer and an inner border with zone
 // references between them (numbers along the bottom, letters down the right
 // side), a tick at each zone boundary and a dot where the boundaries cross.
-// Accent blue on cream paper.
+// Line blue (--color-line) on the dark sheet.
 // The width from the window edge to the inner border is the CSS variable
 // --spacing-frame (styles/global.css).
 
-const LINE = "#2e45ed";
 const FONT = "osifont, sans-serif";
 const ZONE = 240; // target zone size in px (KiCad uses 50 mm)
 
@@ -32,6 +31,7 @@ function draw(canvas: HTMLCanvasElement, dotsCanvas: HTMLCanvasElement | null) {
   }
 
   const style = getComputedStyle(canvas);
+  const LINE = style.getPropertyValue("--color-line").trim() || "#6475ff";
   const frame = parseFloat(style.getPropertyValue("--spacing-frame")) || 26;
   const outer = Math.round(frame * 0.3); // margin outside the outer border
   const band = frame - outer; // between the two borders
@@ -80,7 +80,7 @@ function draw(canvas: HTMLCanvasElement, dotsCanvas: HTMLCanvasElement | null) {
         dots.arc(
           Math.round(c * zw) + 0.5,
           Math.round(r * zh) + 0.5,
-          1.6,
+          1,
           0,
           2 * Math.PI,
         );

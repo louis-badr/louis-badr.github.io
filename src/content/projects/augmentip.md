@@ -2,7 +2,7 @@
 title: AugmenTip
 subtitle: Fingertip haptic feedback on a budget
 year: 2023
-order: 2
+order: 3
 image: ../../assets/projects/augmentip.png
 links:
   - label: Cables.gl

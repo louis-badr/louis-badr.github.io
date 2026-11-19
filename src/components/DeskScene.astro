@@ -195,7 +195,7 @@ const pile = prints.slice().reverse();
     background-color: var(--color-mat);
     /* A 3 mm rubber sheet: a dark edge and a short, soft shadow */
     box-shadow:
-      0 1px 0 #070a1c,
+      0 1px 0 #08180f,
       0 3px 4px rgb(0 0 0 / 0.55),
       8px 14px 34px rgb(0 0 0 / 0.5);
     transform-origin: 0 0;
@@ -353,6 +353,13 @@ const pile = prints.slice().reverse();
     padding: calc(var(--cm) * 0.75) calc(var(--cm) * 0.7) calc(var(--cm) * 0.5);
     font-size: calc(var(--cm) * 0.3);
     line-height: 1.5;
+    /* Tailwind's spacing and widths are in rem, which would stay the same
+       size while the notebook grows: the lines would break elsewhere up
+       close and the text would jump when the camera arrives or leaves.
+       Measured in the notebook's own text size instead (1rem = 1 line's
+       font size), everything keeps its place at every zoom. */
+    --spacing: calc(var(--cm) * 0.3 / 4);
+    --container-sm: calc(var(--cm) * 0.3 * 24);
   }
 
   .mat[data-view="notebook"] .ink {

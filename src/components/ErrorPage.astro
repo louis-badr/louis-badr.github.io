@@ -67,13 +67,13 @@ const { code, message } = Astro.props;
       const top = baseline - ascent;
       const dimY = top - OFFSET;
 
-      ctx.fillStyle = "#04071b";
+      ctx.fillStyle = getComputedStyle(canvas).getPropertyValue("--color-darker").trim();
       ctx.textAlign = "left";
       ctx.textBaseline = "alphabetic";
       ctx.fillText(message, left + m.actualBoundingBoxLeft, baseline);
 
       // Extension lines
-      ctx.strokeStyle = "#2e45ed";
+      ctx.strokeStyle = getComputedStyle(canvas).getPropertyValue("--color-line").trim();
       ctx.lineWidth = 1;
       ctx.beginPath();
       for (const x of [left, right]) {

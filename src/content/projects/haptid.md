@@ -2,7 +2,7 @@
 title: HapTID
 subtitle: Haptic Technology for Improved Dexterity
 year: 2024
-order: 1
+order: 2
 image: ../../assets/projects/haptid.png
 links:
   - label: GitHub
