@@ -1,7 +1,6 @@
 // Dimension tool: drag on the canvas to draw a double-headed arrow showing
 // its length in pixels, like a dimension line on a technical drawing.
 
-const COLOR = "#2e45ed";
 const HEAD = 10;
 const MIN_LENGTH = 100;
 const LABEL_GAP = 20;
@@ -19,8 +18,12 @@ export function drawDimension(
   if (length < MIN_LENGTH) return;
   const angle = Math.atan2(y2 - y1, x2 - x1);
 
-  ctx.strokeStyle = COLOR;
-  ctx.fillStyle = COLOR;
+  // The accent of the sheet the canvas lies on
+  const color =
+    getComputedStyle(ctx.canvas).getPropertyValue("--color-accent").trim() ||
+    "#8c9bff";
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
   ctx.lineWidth = 2;
 
   ctx.beginPath();

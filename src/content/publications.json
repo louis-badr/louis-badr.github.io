@@ -45,7 +45,8 @@
     "venue": "Companion Proceedings of the Second Annual Conference on Sports and Human-Computer Interaction (SportsHCI '26)",
     "year": 2026,
     "type": "Demo",
-    "doi": "10.1145/3801727.3844934"
+    "doi": "10.1145/3801727.3844934",
+    "award": "Best Demo Award"
   },
   {
     "id": "modalplayground",

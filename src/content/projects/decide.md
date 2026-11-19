@@ -2,7 +2,7 @@
 title: DECIDE
 subtitle: Kickstarter product design project
 year: 2022
-order: 3
+order: 4
 image: ../../assets/projects/decide.png
 links:
   - label: Kickstarter

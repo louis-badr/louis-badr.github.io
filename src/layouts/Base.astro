@@ -1,5 +1,5 @@
 ---
-// Every page is either drawn on the sheet (cream paper with blue lines and
+// Every page is either drawn on the sheet (dark blue paper with blue lines and
 // rulers) or set on the desk (a cutting mat under the sheet, which has been
 // slid aside: only its edge is left, as a way back).
 import "../styles/global.css";
@@ -44,7 +44,7 @@ const canonicalURL = new URL(canonical ?? Astro.url.pathname, Astro.site);
     <meta name="author" content="Louis Badr" />
     <meta
       name="theme-color"
-      content={surface === "desk" ? "#12183b" : "#f4efdc"}
+      content={surface === "desk" ? "#123222" : "#12183b"}
     />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

@@ -1,5 +1,5 @@
 // Cutting mat, drawn exactly like the Cutting Mat app
-// (github.com/louis-badr/CuttingMat, js/draw-mat.js): navy mat with cream
+// (github.com/louis-badr/CuttingMat, js/draw-mat.js): green mat with yellow
 // ink, faint 1 cm lines and a heavier line every 5 cm, angle rays from the
 // bottom-left origin, an info block, numbers on the four edges.
 //
@@ -11,8 +11,9 @@
 //   canvas, which is the mat itself lying on the desk.
 // Everything is drawn in device pixels, like the app, so lines stay sharp.
 
-const MAT = "#12183b";
-const INK = "#f4efdc";
+// Green mat with yellow ink: the app's "forest-yellow" preset
+const MAT = "#123222";
+const INK = "#f2c94c";
 const BACKDROP = "#000000";
 // CSS px per square on full-screen mats, unless the canvas sets data-cm
 const CM = 56;

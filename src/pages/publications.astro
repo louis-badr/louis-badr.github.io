@@ -22,7 +22,7 @@ const SCHOLAR = "https://scholar.google.com/citations?user=MDSgAa4AAAAJ";
     {publications.map(({ id, data }) => (
       <li
         id={id}
-        class="relative flex flex-col gap-1 border-t border-accent py-5 transition-colors last:border-b has-[a.doi]:hover:bg-accent/5"
+        class="relative flex flex-col gap-1 border-t border-line py-5 transition-colors last:border-b has-[a.doi]:hover:bg-accent/5"
       >
         <div class="flex items-baseline justify-between gap-4">
           <h2 class="text-xl text-balance">
@@ -50,7 +50,7 @@ const SCHOLAR = "https://scholar.google.com/citations?user=MDSgAa4AAAAJ";
           ))}
         </p>
         <p class="text-sm">
-          <span class="mr-2 rounded-sm border border-accent px-1.5 font-plan text-xs text-accent">
+          <span class="mr-2 rounded-sm border border-line px-1.5 font-plan text-xs text-accent">
             {data.type}
           </span>
           <span class="italic opacity-80">{data.venue}</span>

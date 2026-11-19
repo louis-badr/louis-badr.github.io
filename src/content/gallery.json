@@ -230,5 +230,13 @@
     "tag": "Random",
     "year": 2019,
     "order": 27
+  },
+  {
+    "id": "pomotl-dashboard",
+    "image": "../assets/gallery/pomotl-dashboard.png",
+    "caption": "PomoTL's horizontal timeline, focus session and integrated to-do list",
+    "tag": "PomoTL",
+    "year": 2026,
+    "order": 28
   }
 ]

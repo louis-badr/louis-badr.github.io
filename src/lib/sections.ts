@@ -1,5 +1,5 @@
 // The sections of the site, in menu order. Listed in the parts list stacked
-// on the title block, numbered from the bottom up like on a real drawing.
+// on the title block, numbered from top to bottom.
 
 export type SectionId = "projects" | "publications" | "desk" | "contact";
 
