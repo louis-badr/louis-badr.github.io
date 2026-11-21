@@ -44,9 +44,11 @@ const issued = new Date().toLocaleDateString("en-GB", {
 >
   <nav aria-label="Sections">
     <ol class="flex flex-col">
-      <li class="row head" aria-hidden="true">
-        <span>ITEM</span>
-        <span class="text-left">DESCRIPTION</span>
+      <li aria-hidden="true">
+        <a href="/" tabindex="-1" class="row head">
+          <span>ITEM</span>
+          <span class="text-left">DESCRIPTION</span>
+        </a>
       </li>
       {sections.map((s, i) => (
         <li>
@@ -63,7 +65,9 @@ const issued = new Date().toLocaleDateString("en-GB", {
     </ol>
   </nav>
 
-  <div class="title-block">
+  <!-- Anywhere on the title block (and on the parts list's header) leads
+       back to the front page; only the parts lead elsewhere -->
+  <a href="/" class="title-block" aria-label="Home">
     <p class="cell area-title">
       <span class="k">TITLE:</span> <span class="text-xl">Portfolio</span>
     </p>
@@ -91,7 +95,7 @@ const issued = new Date().toLocaleDateString("en-GB", {
     <p class="cell area-drawn">
       <span class="k">DRAWN BY:</span> Louis Badr
     </p>
-  </div>
+  </a>
 </div>
 
 <style>
@@ -147,7 +151,8 @@ const issued = new Date().toLocaleDateString("en-GB", {
     color: var(--color-accent);
   }
 
-  .part:focus-visible {
+  .part:focus-visible,
+  .title-block:focus-visible {
     outline-offset: -3px;
   }
 

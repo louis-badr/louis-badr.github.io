@@ -43,23 +43,50 @@ const items = await Promise.all(
     };
 
     const scroller = list.closest("main");
-    const showCurrentProject = () => {
-      if (!scroller || articles.length === 0) return;
-      const marker = scroller.getBoundingClientRect().top + 120;
+
+    // Last position of a mouse over the list. Hover events don't fire when
+    // the page scrolls under a still cursor, so the project under the cursor
+    // is looked up from this position instead.
+    let pointer: { x: number; y: number } | null = null;
+
+    const projectUnderPointer = () => {
+      if (!pointer) return undefined;
+      const el = document.elementFromPoint(pointer.x, pointer.y);
+      return articles.find((a) => a.contains(el));
+    };
+
+    // Without a mouse over the list: the project at the top of the view
+    const projectAtTop = () => {
+      const marker = scroller!.getBoundingClientRect().top + 120;
       let current = articles[0];
       for (const article of articles) {
         if (article.getBoundingClientRect().top <= marker) current = article;
         else break;
       }
-      show(current.id);
+      return current;
+    };
+
+    let frame = 0;
+    const showCurrentProject = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        if (!scroller || articles.length === 0) return;
+        show((projectUnderPointer() ?? projectAtTop()).id);
+      });
     };
 
     scroller?.addEventListener("scroll", showCurrentProject, { passive: true });
+    list.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      pointer = { x: e.clientX, y: e.clientY };
+      showCurrentProject();
+    });
+    list.addEventListener("pointerleave", () => (pointer = null));
     articles.forEach((article) => {
-      article.addEventListener("pointerenter", () => show(article.id));
       article.addEventListener("focusin", () => show(article.id));
     });
-    requestAnimationFrame(showCurrentProject);
+    showCurrentProject();
   }
 </script>
 
