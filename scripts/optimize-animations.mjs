@@ -6,6 +6,7 @@
 import sharp from "sharp";
 import { mkdir, readdir } from "node:fs/promises";
 import path from "node:path";
+import { encodeAnimation } from "./animated-webp.mjs";
 
 const SRC = "raw/animations";
 const OUT_ANIM = "public/gallery";
@@ -25,47 +26,18 @@ const files = (await readdir(SRC)).filter(
 for (const file of files) {
   const t = Date.now();
   const src = path.join(SRC, file);
-  const opts = { animated: true, limitInputPixels: false };
-  const { width, pageHeight, delay = [], loop = 0 } = await sharp(src, opts).metadata();
-  const landscape = width >= pageHeight;
-
-  // Decode every frame, already resized.
-  const { data, info } = await sharp(src, opts)
-    .resize({ [landscape ? "width" : "height"]: LONG_EDGE, withoutEnlargement: true })
-    .ensureAlpha()
-    .raw()
-    .toBuffer({ resolveWithObject: true });
-  const w = info.width;
-  const h = info.pageHeight ?? info.height / delay.length;
-  const frameBytes = w * h * 4;
-
-  // Keep a frame, add the duration of the dropped ones to it.
-  const frames = [];
-  const delays = [];
-  let acc = MIN_DELAY;
-  for (let i = 0; i < delay.length; i++) {
-    if (acc >= MIN_DELAY) {
-      frames.push(data.subarray(i * frameBytes, (i + 1) * frameBytes));
-      delays.push(delay[i]);
-      acc = delay[i];
-    } else {
-      delays[delays.length - 1] += delay[i];
-      acc += delay[i];
-    }
-  }
-
-  const anim = await sharp(Buffer.concat(frames), {
-    raw: { width: w, height: h * frames.length, channels: 4, pageHeight: h },
-  })
-    .webp({ quality: QUALITY, effort: 4, loop, delay: delays })
-    .toFile(path.join(OUT_ANIM, file));
+  const anim = await encodeAnimation(src, path.join(OUT_ANIM, file), {
+    longEdge: LONG_EDGE,
+    quality: QUALITY,
+    minDelay: MIN_DELAY,
+  });
 
   await sharp(src, { page: 0 })
-    .resize({ [landscape ? "width" : "height"]: 1600, withoutEnlargement: true })
+    .resize({ [anim.landscape ? "width" : "height"]: 1600, withoutEnlargement: true })
     .webp({ quality: 85 })
     .toFile(path.join(OUT_STILL, file));
 
   console.log(
-    `${file}: ${delay.length} -> ${frames.length} frames, ${(anim.size / 1e6).toFixed(1)} MB (${((Date.now() - t) / 1000).toFixed(0)} s)`,
+    `${file}: ${anim.framesIn} -> ${anim.framesOut} frames, ${(anim.size / 1e6).toFixed(1)} MB (${((Date.now() - t) / 1000).toFixed(0)} s)`,
   );
 }
