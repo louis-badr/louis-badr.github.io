@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "optimize:animations": "node scripts/optimize-animations.mjs",
-    "cv": "typst compile cv.typ public/cv.pdf"
+    "cv": "typst compile cv.typ public/cv.pdf",
+    "slides": "node scripts/publish-slides.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
