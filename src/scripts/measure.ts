@@ -31,7 +31,8 @@ export function drawDimension(
   ctx.lineTo(x2, y2);
   ctx.stroke();
 
-  // Arrow heads at both ends
+  // Arrow heads at both ends, filled only: a stroke would make the mitred
+  // tip stick out past the end of the line
   for (const [x, y, dir] of [
     [x2, y2, -1],
     [x1, y1, 1],
@@ -48,7 +49,6 @@ export function drawDimension(
     );
     ctx.closePath();
     ctx.fill();
-    ctx.stroke();
   }
 
   // Clear the middle of the line and write the length there
