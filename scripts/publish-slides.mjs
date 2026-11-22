@@ -30,6 +30,16 @@ await mkdir(outDir, { recursive: true });
 execFileSync("marp", ["--no-stdin", path.basename(deck), "-o", outHtml], { cwd: deckDir, stdio: "inherit" });
 let html = await readFile(outHtml, "utf8");
 
+// A <video> with data-youtube="ID?start=S&end=E" plays a local clip in the deck.
+// On the site, it becomes a YouTube embed, so the local clip is not published.
+html = html.replace(/<video\b[^>]*\bdata-youtube="([^"]+)"[^>]*>\s*<\/video>/g, (all, yt) => {
+  const [id, query = ""] = yt.replaceAll("&amp;", "&").split("?");
+  const params = new URLSearchParams(query);
+  for (const [k, v] of Object.entries({ autoplay: "1", mute: "1", controls: "0", rel: "0", playsinline: "1" })) params.set(k, v);
+  const src = `https://www.youtube-nocookie.com/embed/${id}?${params.toString().replaceAll("&", "&amp;")}`;
+  return `<iframe src="${src}" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="${id}"></iframe>`;
+});
+
 // Relative references in src="", href="" and url(). Marp writes quotes in style attributes as &quot;.
 const REF = /((?:src|href)=")([^"]+)(")|(url\((?:&quot;|["'])?)([^"')&]+)((?:&quot;|["'])?\))/g;
 const isLocal = (ref) => !/^(?:[a-z][a-z0-9+.-]*:|#|\/)/i.test(ref);
