@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#F4EFDC">
+  <defs>
+    <pattern id="layers" width="12" height="10" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="12" y2="5" stroke="#9A9DB3" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Free fit: large gap -->
+  <rect x="15" y="110" width="35" height="110" fill="url(#layers)" stroke="#F4EFDC" stroke-width="2.5"/>
+  <rect x="110" y="110" width="35" height="110" fill="url(#layers)" stroke="#F4EFDC" stroke-width="2.5"/>
+  <rect x="62" y="40" width="36" height="180" fill="#8C9BFF"/>
+  <text x="80" y="258" text-anchor="middle">0.3 mm</text>
+  <text x="80" y="288" text-anchor="middle" fill="#9A9DB3">free</text>
+
+  <!-- Close fit: medium gap -->
+  <rect x="175" y="110" width="35" height="110" fill="url(#layers)" stroke="#F4EFDC" stroke-width="2.5"/>
+  <rect x="270" y="110" width="35" height="110" fill="url(#layers)" stroke="#F4EFDC" stroke-width="2.5"/>
+  <rect x="218" y="40" width="44" height="180" fill="#8C9BFF"/>
+  <text x="240" y="258" text-anchor="middle">0.2 mm</text>
+  <text x="240" y="288" text-anchor="middle" fill="#9A9DB3">close</text>
+
+  <!-- Press fit: small gap -->
+  <rect x="335" y="110" width="35" height="110" fill="url(#layers)" stroke="#F4EFDC" stroke-width="2.5"/>
+  <rect x="430" y="110" width="35" height="110" fill="url(#layers)" stroke="#F4EFDC" stroke-width="2.5"/>
+  <rect x="374" y="40" width="52" height="180" fill="#8C9BFF"/>
+  <text x="400" y="258" text-anchor="middle">0.1 mm</text>
+  <text x="400" y="288" text-anchor="middle" fill="#9A9DB3">press</text>
+</svg>
