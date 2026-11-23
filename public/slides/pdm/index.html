@@ -13351,7 +13351,7 @@ iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border
   <div class="flow-text-arrow">→</div>
   <div>
     <h2>Slicer</h2>
-    <img src="assets/week2/chain_slice.webp" alt="Toolpaths of the first layers" />
+    <img src="assets/week2/chain_slice.webp" alt="Toolpaths, preview cut at mid-height" />
     <p>Cuts the mesh into layers and plans the toolpaths.</p>
   </div>
   <div class="flow-text-arrow">→</div>
@@ -14876,14 +14876,16 @@ iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border
       <li>Print it: A1 mini, class PLA</li>
       <li>Measure it</li>
       <li>Add your rule to the shared sheet</li>
-    </ol></div>
+    </ol>
+    <img class="ex-qr" src="assets/week2/qr_design_rules_sheet.svg" alt="QR code of the shared sheet" />
+    <p class="ex-url"><a href="https://devinci-my.sharepoint.com/personal/louis_badr_devinci_fr/_layouts/15/guestaccess.aspx?share=IQDxvb53GDPyRKpaY07EOUIPAeqkqkNQ6PDEDJvQiRhYtQg&amp;e=dU7ved">https://devinci-my.sharepoint.com/personal/louis_badr_devinci_fr/_layouts/15/guestaccess.aspx?share=IQDxvb53GDPyRKpaY07EOUIPAeqkqkNQ6PDEDJvQiRhYtQg&amp;e=dU7ved</a></p></div>
   <div><h2>Geometry tests</h2>
     <ul class="ex-tests">
       <li>Angle</li><li>Overhang</li><li>Bridging</li><li>Wall thickness</li><li>Dimension</li><li>Clearance</li><li>Surface finish</li>
     </ul>
-    <h2 class="mt-24">Experienced: process tests</h2>
+    <h2 class="mt-24">Process tests</h2>
     <ul class="ex-tests">
-      <li>Temperature</li><li>Flow ratio</li><li>Retraction</li><li>Speed</li><li>Infill</li><li>Pressure advance</li><li>Max volumetric speed</li><li>Cornering</li><li>VFA</li>
+      <li>Temperature</li><li>Max volumetric speed</li><li>Flow ratio</li><li>Pressure advance</li><li>Retraction</li><li>Infill</li>
     </ul>
     <p class="ex-note">Or: your geometry test in resin</p></div>
   <div><h2>Done early?</h2>
@@ -20336,6 +20338,12 @@ exporter sur cle USB (.ctb ou .goo selon le modele)
 
 COMMENTS:</p></div><div class="bespoke-marp-note" data-index="47" tabindex="0"><p>NOTES:
 fab academy group assignment / 1 variable par test / resultat lisible, pas graves / tableau : variable, plage, resultat, regle / imprimer seuls (Fab Lab) / avance : TU Delft Grasshopper, non planaire
+temperature : fluidite + adherence, base des autres tests
+max volumetric speed : debit max en mm3/s, surface plus brillante = limite
+flow ratio : quantite extrudee, cotes + adherence des couches
+pressure advance : coins et fins de ligne propres, A1 mini calibre deja en auto
+retraction : moins de fils
+infill : resistance selon le remplissage, plier les pieces
 
 COMMENTS:</p></div><div class="bespoke-marp-note" data-index="48" tabindex="0"><p>NOTES:
 
