@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="190" viewBox="0 0 1100 190" font-family="Barlow, -apple-system, Helvetica, Arial, sans-serif" font-size="18">
+  <title>Destination of household general waste in France, 2021</title>
+  <!-- Data: Insee, from ADEME 2021, ordures ménagères résiduelles: incineration with energy recovery 67.9 %, landfill 23.1 %, organic recovery 7.2 %, material recovery 0.6 %, other 1.2 % -->
+  <g>
+    <rect x="0" y="10" width="741.5" height="44" rx="4" fill="#3987e5"/>
+    <rect x="743.5" y="10" width="252.3" height="44" fill="#d95926"/>
+    <rect x="997.8" y="10" width="78.6" height="44" fill="#199e70"/>
+    <rect x="1078.4" y="10" width="6.6" height="44" fill="#c98500"/>
+    <rect x="1087" y="10" width="13" height="44" rx="4" fill="#5b6080"/>
+  </g>
+  <g fill="#F4EFDC">
+    <text x="0" y="84">Burned, with energy recovery</text>
+    <text x="0" y="108" font-weight="700">67.9 %</text>
+    <text x="743.5" y="84">Landfilled</text>
+    <text x="743.5" y="108" font-weight="700">23.1 %</text>
+  </g>
+  <g stroke="#9A9DB3" stroke-width="1.5" fill="none">
+    <path d="M1037 54 V128 H1022"/>
+    <path d="M1081.7 54 V152 H1022"/>
+    <path d="M1093.5 54 V176 H1022"/>
+  </g>
+  <g fill="#F4EFDC" text-anchor="end">
+    <text x="1016" y="134">Composted or methanised <tspan font-weight="700">7.2 %</tspan></text>
+    <text x="1016" y="158">Recycled <tspan font-weight="700">0.6 %</tspan></text>
+    <text x="1016" y="182" fill="#9A9DB3">Other <tspan font-weight="700">1.2 %</tspan></text>
+  </g>
+</svg>
