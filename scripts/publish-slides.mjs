@@ -1,6 +1,7 @@
 // Publishes a Marp deck on the site at /slides/<slug>/.
 // - Exports the deck to public/slides/<slug>/index.html. Marp runs in the deck folder, so it reads the deck's .marprc.yml.
 // - Copies only the files that the HTML uses into public/slides/<slug>/, and removes the old ones.
+// - Removes the speaker notes.
 // - Converts the pictures to WebP: stills at LONG_EDGE px, animations at ANIM_EDGE px and 30 fps.
 // - Re-encodes a picture only when its original is newer than the published copy.
 // The originals in the deck folder do not change.
@@ -39,6 +40,9 @@ html = html.replace(/<video\b[^>]*\bdata-youtube="([^"]+)"[^>]*>\s*<\/video>/g, 
   const src = `https://www.youtube-nocookie.com/embed/${id}?${params.toString().replaceAll("&", "&amp;")}`;
   return `<iframe src="${src}" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="${id}"></iframe>`;
 });
+
+// The speaker notes (HTML comments in the deck) are for the presenter only: they are not published.
+html = html.replace(/<div class="bespoke-marp-note"[^>]*>[\s\S]*?<\/div>/g, "");
 
 // Relative references in src="", href="" and url(). Marp writes quotes in style attributes as &quot;.
 const REF = /((?:src|href)=")([^"]+)(")|(url\((?:&quot;|["'])?)([^"')&]+)((?:&quot;|["'])?\))/g;
