@@ -1,6 +1,7 @@
 // Publishes a Marp deck on the site at /slides/<slug>/.
 // - Exports the deck to public/slides/<slug>/index.html. Marp runs in the deck folder, so it reads the deck's .marprc.yml.
 // - Copies only the files that the HTML uses into public/slides/<slug>/, and removes the old ones.
+// - Turns the local YouTube extracts into embeds that loop on the extract.
 // - Removes the speaker notes.
 // - Converts the pictures to WebP: stills at LONG_EDGE px, animations at ANIM_EDGE px and 30 fps.
 // - Re-encodes a picture only when its original is newer than the published copy.
@@ -36,10 +37,31 @@ let html = await readFile(outHtml, "utf8");
 html = html.replace(/<video\b[^>]*\bdata-youtube="([^"]+)"[^>]*>\s*<\/video>/g, (all, yt) => {
   const [id, query = ""] = yt.replaceAll("&amp;", "&").split("?");
   const params = new URLSearchParams(query);
-  for (const [k, v] of Object.entries({ autoplay: "1", mute: "1", controls: "0", rel: "0", playsinline: "1" })) params.set(k, v);
+  for (const [k, v] of Object.entries({ autoplay: "1", mute: "1", controls: "0", rel: "0", playsinline: "1", enablejsapi: "1" })) params.set(k, v);
   const src = `https://www.youtube-nocookie.com/embed/${id}?${params.toString().replaceAll("&", "&amp;")}`;
-  return `<iframe src="${src}" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="${id}"></iframe>`;
+  return `<iframe src="${src}" data-yt-start="${Number(params.get("start")) || 0}" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="${id}"></iframe>`;
 });
+
+// A YouTube embed does not loop on an extract: "loop=1" goes back to 0:00 and ignores "start".
+// This script uses the YouTube IFrame API: at the end of the extract, the player goes back to "start".
+if (html.includes("data-yt-start=")) {
+  const loop = `<script>
+(function () {
+  var api = document.createElement("script");
+  api.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(api);
+  window.onYouTubeIframeAPIReady = function () {
+    document.querySelectorAll("iframe[data-yt-start]").forEach(function (frame) {
+      var start = Number(frame.dataset.ytStart) || 0;
+      new YT.Player(frame, { events: { onStateChange: function (e) {
+        if (e.data === YT.PlayerState.ENDED) { e.target.seekTo(start, true); e.target.playVideo(); }
+      } } });
+    });
+  };
+})();
+</script>`;
+  html = html.replace(/<\/body>/i, loop + "</body>");
+}
 
 // The speaker notes (HTML comments in the deck) are for the presenter only: they are not published.
 html = html.replace(/<div class="bespoke-marp-note"[^>]*>[\s\S]*?<\/div>/g, "");
