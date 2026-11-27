@@ -11,6 +11,8 @@ export default defineConfig({
   // The about page became the contact page.
   redirects: {
     "/aboutme/": "/contact/",
+    // The gallery is being reworked (see components/DeskScene.astro).
+    "/gallery/": "/desk/",
   },
 
   vite: {
